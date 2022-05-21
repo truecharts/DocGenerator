@@ -104,7 +104,8 @@ def main():
                             train, chart, service_name, "-", 0, "-", "Service Disabled"))
 
     order = ["core", "stable", "games", "incubator", "dev"]
-    os.remove("default_ports.md")
+    if os.path.exists("default_ports.md"):
+        os.remove("default_ports.md")
     with open('default_ports.md', 'a', encoding='utf-8') as file:
         for train in order:
             if train in port_list:
@@ -120,14 +121,18 @@ def main():
                 file.write(
                     "|:----|:-------:|:---------:|:----:|:--------:|:----:|\n")
                 for port in sorted_port_list:
+                    line = (
+                        f'|{port["chart"]}|'
+                        f'{port["service_name"]}|'
+                        f'{port["port_name"]}|'
+                        f'{port["port"] if port["port"] > 0 else "-"}|'
+                        f'{port["protocol"]}|'
+                        f'{port["note"]}|\n'
+                    )
                     file.write(
-                        f'|{port["chart"]}|\
-                        {port["service_name"]}|\
-                        {port["port_name"]}|\
-                        {port["port"] if port["port"] > 0 else "-"}|\
-                        {port["protocol"]}|\
-                        {port["note"]}|\n')
+                        line)
                 file.write('\n\n')
 
 
-main()
+if __name__ == "__main__":
+    main()
