@@ -1,6 +1,5 @@
-from venv import create
-from ruamel.yaml import YAML
 import os
+from ruamel.yaml import YAML
 
 yaml = YAML()
 
@@ -12,8 +11,8 @@ def get_charts_of_train(train):
 
 
 def get_data_of_chart_in_train(train, chart):
-    with open(f"charts/{train}/{chart}/values.yaml", "r", encoding="utf_8") as f:
-        return yaml.load(f)
+    with open(f"charts/{train}/{chart}/values.yaml", "r", encoding="utf_8") as file:
+        return yaml.load(file)
 
 
 def is_services_exist(values):
@@ -86,16 +85,27 @@ def main():
                             note = get_note_for_enabled_service(port_num)
                             protocol = get_port_protocol(port)
                             print_verbose_output(
-                                train, chart, is_service_enabled(service), service_name,  port_name, port_num)
+                                train,
+                                chart,
+                                is_service_enabled(service),
+                                service_name,
+                                port_name,
+                                port_num)
                             port_list[train].append(create_port_list_item(
-                                train, chart, service_name, port_name, port_num, protocol, note))
+                                train,
+                                chart,
+                                service_name,
+                                port_name,
+                                port_num,
+                                protocol,
+                                note))
                     else:
                         port_list[train].append(create_port_list_item(
                             train, chart, service_name, "-", 0, "-", "Service Disabled"))
 
     order = ["core", "stable", "games", "incubator", "dev"]
-    os.remove("portlist.md")
-    with open('portlist.md', 'a', encoding='utf-8') as f:
+    os.remove("default_ports.md")
+    with open('default_ports.md', 'a', encoding='utf-8') as file:
         for train in order:
             if train in port_list:
                 # Sort first by name (because of apps with disabled services)
@@ -104,13 +114,20 @@ def main():
                 # Then sort by port number
                 sorted_port_list = sorted(
                     sorted_port_list, key=lambda d: d['port'])
-                f.write(f'## {train.capitalize()}\n\n')
-                f.write("| App | Service | Port Name | Port | Protocol | Note |\n")
-                f.write("|:----|:-------:|:---------:|:----:|:--------:|:----:|\n")
+                file.write(f'## {train.capitalize()}\n\n')
+                file.write(
+                    "| App | Service | Port Name | Port | Protocol | Note |\n")
+                file.write(
+                    "|:----|:-------:|:---------:|:----:|:--------:|:----:|\n")
                 for port in sorted_port_list:
-                    f.write(
-                        f'|{port["chart"]}|{port["service_name"]}|{port["port_name"]}|{port["port"] if port["port"] > 0 else "-"}|{port["protocol"]}|{port["note"]}|\n')
-                f.write('\n\n')
+                    file.write(
+                        f'|{port["chart"]}|\
+                        {port["service_name"]}|\
+                        {port["port_name"]}|\
+                        {port["port"] if port["port"] > 0 else "-"}|\
+                        {port["protocol"]}|\
+                        {port["note"]}|\n')
+                file.write('\n\n')
 
 
 main()
