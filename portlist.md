@@ -3,14 +3,14 @@
 | App              |   Service    |  Port Name   | Port  | Protocol |       Note       |
 | :--------------- | :----------: | :----------: | :---: | :------: | :--------------: |
 | traefik          |     udp      |      -       |   -   |    -     | Service Disabled |
-| k8s-gateway      |     main     |     main     |  53   |   TCP    |                  |
+| k8s-gateway      |     main     |     main     |  53   |   UDP    |                  |
 | docker-compose   |     main     |     main     | 2376  |   TCP    |                  |
-| traefik          |     main     |     main     | 9000  |   TCP    |                  |
+| traefik          |     main     |     main     | 9000  |   HTTP   |                  |
 | traefik          |     tcp      |     web      | 9080  |   HTTP   |                  |
 | traefik          |   metrics    |   metrics    | 9180  |   HTTP   |                  |
 | traefik          |     tcp      |  websecure   | 9443  |  HTTPS   |                  |
 | external-service |     main     |     main     | 10003 |   TCP    |                  |
-| prometheus       |     main     |     main     | 10086 |   TCP    |                  |
+| prometheus       |     main     |     main     | 10086 |   HTTP   |                  |
 | prometheus       | alertmanager | alertmanager | 10087 |   HTTP   |                  |
 | prometheus       |    promop    |    promop    | 10089 |   HTTP   |                  |
 | prometheus       |    thanos    |    thanos    | 10901 |   HTTP   |                  |
@@ -25,14 +25,18 @@
 | doplarr                    |      main       |        -        |   -   |    -     | Service Disabled |
 | duckdns                    |      main       |        -        |   -   |    -     | Service Disabled |
 | leaf2mqtt                  |      main       |        -        |   -   |    -     | Service Disabled |
+| promcord                   |      main       |      main       |   -   |   TCP    |  Port Disabled   |
 | protonmail-bridge          |      main       |        -        |   -   |    -     | Service Disabled |
 | rsnapshot                  |      main       |        -        |   -   |    -     | Service Disabled |
+| speedtest-exporter         |      main       |      main       |   -   |   TCP    |  Port Disabled   |
 | tdarr-node                 |      main       |        -        |   -   |    -     | Service Disabled |
 | unpackerr                  |      main       |        -        |   -   |    -     | Service Disabled |
+| unpoller                   |      main       |      main       |   -   |   TCP    |  Port Disabled   |
+| uptimerobot-prometheus     |      main       |      main       |   -   |   TCP    |  Port Disabled   |
 | webgrabplus                |      main       |        -        |   -   |    -     | Service Disabled |
 | anonaddy                   |      smtp       |      smtp       |  25   |   TCP    |                  |
 | protonmail-bridge          |      smtp       |      smtp       |  25   |   TCP    |                  |
-| mosdns                     |      main       |      main       |  53   |   TCP    |                  |
+| mosdns                     |      main       |      main       |  53   |   UDP    |                  |
 | pihole                     |     dns-tcp     |     dns-tcp     |  53   |   TCP    |                  |
 | pihole                     |       dns       |       dns       |  53   |   UDP    |                  |
 | openldap                   |      main       |      main       |  389  |   TCP    |                  |
@@ -42,7 +46,7 @@
 | domoticz                   |      comm2      |      comm2      | 1443  |   TCP    |                  |
 | nntp2nntp                  |      main       |      main       | 1563  |   TCP    |                  |
 | kms                        |      main       |      main       | 1688  |   TCP    |                  |
-| freeradius                 |      main       |      main       | 1812  |   TCP    |                  |
+| freeradius                 |      main       |      main       | 1812  |   UDP    |                  |
 | freeradius                 |   accounting    |   accounting    | 1813  |   UDP    |                  |
 | node-red                   |      main       |      main       | 1880  |   TCP    |                  |
 | mosquitto                  |      main       |      main       | 1883  |   TCP    |                  |
@@ -55,7 +59,7 @@
 | wireshark                  |      main       |      main       | 3000  |   TCP    |                  |
 | uptime-kuma                |      main       |      main       | 3001  |   TCP    |                  |
 | vaultwarden                |       ws        |       ws        | 3012  |   TCP    |                  |
-| loki                       |      main       |      main       | 3100  |   TCP    |                  |
+| loki                       |      main       |      main       | 3100  |   HTTP   |                  |
 | jdownloader2               |      myjd       |      myjd       | 3129  |   TCP    |                  |
 | pylon                      |      main       |      main       | 3131  |   TCP    |                  |
 | clamav                     |      main       |      main       | 3310  |   TCP    |                  |
@@ -93,13 +97,12 @@
 | aria2                      |     listen      |     listen      | 6888  |   TCP    |                  |
 | logitech-media-server      |      main       |      main       | 7000  |   TCP    |                  |
 | clamav                     |     milter      |     milter      | 7357  |   TCP    |                  |
-| uptimerobot-prometheus     |      main       |      main       | 7357  |   TCP    |                  |
 | foldingathome              |      main       |      main       | 7396  |   TCP    |                  |
 | haste-server               |      main       |      main       | 7777  |   TCP    |                  |
 | nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |                  |
 | radarr                     |      main       |      main       | 7878  |   TCP    |                  |
 | synapse                    |      main       |      main       | 8008  |   TCP    |                  |
-| omada-controller           |      main       |      main       | 8043  |   TCP    |                  |
+| omada-controller           |      main       |      main       | 8043  |  HTTPS   |                  |
 | odoo                       |      main       |      main       | 8069  |   TCP    |                  |
 | odoo                       |      odoo       |     xmlrpcs     | 8071  |   TCP    |                  |
 | odoo                       |      odoo       |   longpolling   | 8072  |   TCP    |                  |
@@ -122,7 +125,7 @@
 | tdarr                      |      comm       |      comm       | 8266  |   TCP    |                  |
 | beets                      |      main       |      main       | 8337  |   TCP    |                  |
 | syncthing                  |      main       |      main       | 8384  |   TCP    |                  |
-| unifi                      |      main       |      main       | 8443  |   TCP    |                  |
+| unifi                      |      main       |      main       | 8443  |  HTTPS   |                  |
 | synapse                    |   federation    |   federation    | 8448  |   TCP    |                  |
 | gaps                       |      main       |      main       | 8484  |   TCP    |                  |
 | lidarr                     |      main       |      main       | 8686  |   TCP    |                  |
@@ -140,7 +143,7 @@
 | synapse                    |     metrics     |     metrics     | 9093  |   TCP    |                  |
 | jackett                    |      main       |      main       | 9117  |   TCP    |                  |
 | unpoller                   |      main       |     metrics     | 9130  |   TCP    |                  |
-| owncloud-ocis              |      main       |      main       | 9200  |   TCP    |                  |
+| owncloud-ocis              |      main       |      main       | 9200  |  HTTPS   |                  |
 | prowlarr                   |      main       |      main       | 9696  |   TCP    |                  |
 | uptimerobot-prometheus     |      main       |     metrics     | 9705  |   TCP    |                  |
 | kodi-headless              |      esall      |      esall      | 9777  |   UDP    |                  |
@@ -283,7 +286,6 @@
 | emulatorjs                 |      ipfs       |      ipfs       | 10138 |   TCP    |                  |
 | couchpotato                |      main       |      main       | 10139 |   TCP    |                  |
 | paperless-ng               |      main       |      main       | 10140 |   TCP    |                  |
-| unpoller                   |      main       |      main       | 10140 |   TCP    |                  |
 | papermerge                 |      main       |      main       | 10141 |   TCP    |                  |
 | boinc                      |      main       |      main       | 10142 |   TCP    |                  |
 | dillinger                  |      main       |      main       | 10143 |   TCP    |                  |
@@ -291,16 +293,15 @@
 | fleet                      |      main       |      main       | 10145 |   TCP    |                  |
 | habridge                   |      main       |      main       | 10146 |   TCP    |                  |
 | ipfs                       |     gateway     |     gateway     | 10147 |   TCP    |                  |
-| promcord                   |      main       |      main       | 10147 |   TCP    |                  |
 | kodi-headless              |      main       |      main       | 10148 |   TCP    |                  |
 | pwndrop                    |      main       |      main       | 10149 |   TCP    |                  |
-| pydio-cells                |      main       |      main       | 10150 |   TCP    |                  |
+| pydio-cells                |      main       |      main       | 10150 |  HTTPS   |                  |
 | scrutiny                   |      main       |      main       | 10151 |   TCP    |                  |
 | kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                  |
 | shlink                     |      main       |      main       | 10153 |   TCP    |                  |
-| shlink-web-client          |      main       |      main       | 10154 |   TCP    |                  |
+| shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                  |
 | airdcpp-webclient          |      main       |      main       | 10155 |   TCP    |                  |
-| trilium-notes              |      main       |      main       | 10156 |   TCP    |                  |
+| trilium-notes              |      main       |      main       | 10156 |   HTTP   |                  |
 | unmanic                    |      main       |      main       | 10157 |   TCP    |                  |
 | weblate                    |      main       |      main       | 10158 |   TCP    |                  |
 | photoview                  |      main       |      main       | 10159 |   TCP    |                  |
@@ -315,7 +316,7 @@
 | openhab                    |      main       |      main       | 10169 |   TCP    |                  |
 | openhab                    |      https      |      https      | 10170 |   TCP    |                  |
 | redmine                    |      main       |      main       | 10171 |   TCP    |                  |
-| matomo                     |      main       |      main       | 10172 |   TCP    |                  |
+| matomo                     |      main       |      main       | 10172 |   HTTP   |                  |
 | matomo                     |      https      |      https      | 10173 |  HTTPS   |                  |
 | flexget                    |      main       |      main       | 10174 |   TCP    |                  |
 | qinglong                   |      main       |      main       | 10176 |   TCP    |                  |
@@ -328,11 +329,10 @@
 | ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                  |
 | koel                       |      main       |      main       | 10185 |   TCP    |                  |
 | hammond                    |      main       |      main       | 10186 |   TCP    |                  |
-| speedtest-exporter         |      main       |      main       | 10186 |   TCP    |                  |
 | filebrowser                |      main       |      main       | 10187 |   TCP    |                  |
 | iyuuplus                   |      main       |      main       | 10188 |   TCP    |                  |
 | kavita                     |      main       |      main       | 10189 |   TCP    |                  |
-| zerotier                   |      main       |      main       | 10190 |   TCP    |                  |
+| zerotier                   |      main       |      main       | 10190 |   UDP    |                  |
 | rsshub                     |      main       |      main       | 10191 |   TCP    |                  |
 | wekan                      |      main       |      main       | 10192 |   TCP    |                  |
 | verysync                   |      main       |      main       | 10193 |   TCP    |                  |
@@ -418,16 +418,16 @@
 | valheim           |  valheim   |  valheim1  | 2456  |   UDP    |      |
 | valheim           |  valheim   |  valheim2  | 2457  |   UDP    |      |
 | valheim           |  valheim   |  valheim3  | 2458  |   UDP    |      |
-| satisfactory      |    main    |    main    | 7777  |   TCP    |      |
+| satisfactory      |    main    |    main    | 7777  |   UDP    |      |
 | valheim           |    main    |    main    | 9010  |   TCP    |      |
 | valheim           | supervisor | supervisor | 9011  |   TCP    |      |
 | satisfactory      |   beacon   |   beacon   | 15000 |   UDP    |      |
 | satisfactory      |   query    |   query    | 15777 |   UDP    |      |
-| minecraft-bedrock |    main    |    main    | 19132 |   TCP    |      |
-| impostor-server   |    main    |    main    | 22023 |   TCP    |      |
+| minecraft-bedrock |    main    |    main    | 19132 |   UDP    |      |
+| impostor-server   |    main    |    main    | 22023 |   UDP    |      |
 | minecraft-java    |    main    |    main    | 25565 |   TCP    |      |
 | minecraft-java    |    rcon    |    rcon    | 25575 |   TCP    |      |
-| minetest          |    main    |    main    | 30000 |   TCP    |      |
+| minetest          |    main    |    main    | 30000 |   UDP    |      |
 
 ## Incubator
 
@@ -456,7 +456,7 @@
 | technitium            |    dns-cert     |    dns-cert     | 10202 |   TCP    |      |
 | technitium            |    dns-https    |    dns-https    | 10203 |   TCP    |      |
 | technitium            | dns-https-proxy | dns-https-proxy | 10204 |   TCP    |      |
-| meshcentral           |      main       |      main       | 10205 |   TCP    |      |
+| meshcentral           |      main       |      main       | 10205 |  HTTPS   |      |
 | zabbix-server         |      main       |      main       | 10211 |   TCP    |      |
 | zabbix-server         |     server      |     server      | 10212 |   TCP    |      |
 | appsmith              |      main       |      main       | 10217 |   TCP    |      |

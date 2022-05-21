@@ -26,8 +26,32 @@ def is_service_enabled(service):
         return True
 
 
+def get_port_number(port):
+    if 'enabled' in port:
+        if port['enabled']:
+            return port['port']
+        else:
+            return 0
+    else:
+        return port['port']
+
+
+def get_note_for_enabled_service(port_num):
+    return "" if port_num > 0 else "Port Disabled"
+
+
 def get_port_protocol(port):
     return port['protocol'] if 'protocol' in port else "TCP"
+
+
+def print_verbose_output(train, chart, service_enabled, service, port_name, port):
+    print("-----------------------------")
+    print(f'Train name: {train}')
+    print(f'Chart name: {chart}')
+    print(f'Service enabled: {service_enabled}')
+    print(f'Service name: {service}')
+    print(f'Port name: {port_name}')
+    print(f'Port Number: {port}')
 
 
 def main():
@@ -45,20 +69,11 @@ def main():
                             protocol = "TCP"
                             # port_num, protocol = get_port_number_and_protocol(
                             #     port)
-                            if 'enabled' in port:
-                                if port['enabled']:
-                                    port_num = port['port']
-                                protocol = get_port_protocol(port)
-                            else:
-                                port_num = port['port']
-                            # print("-----------------------------")
-                            # print(f'Train name: {train}')
-                            # print(f'Chart name: {chart}')
-                            # print(f'Service enabled: {service_enabled}')
-                            # print(f'Service name: {service}')
-                            # print(f'Ports Enabled: {port_enabled}')
-                            # print(f'Port name: {port_name}')
-                            # print(f'Port Number: {port}')
+                            port_num = get_port_number(port)
+                            note = get_note_for_enabled_service(port_num)
+                            protocol = get_port_protocol(port)
+                            print_verbose_output(
+                                train, chart, is_service_enabled(service), service_name,  port_name, port_num)
                             port_list[train].append({
                                 "train": train,
                                 "chart": chart,
@@ -66,9 +81,10 @@ def main():
                                 "port_name": port_name,
                                 "port": port_num,
                                 "protocol": protocol,
-                                "note": ""
+                                "note": note
                             })
                     else:
+                        note = "Service Disabled"
                         port_list[train].append({
                             "train": train,
                             "chart": chart,
@@ -76,7 +92,7 @@ def main():
                             "port_name": "-",
                             "port": 0,
                             "protocol": "-",
-                            "note": "Service Disabled"
+                            "note": note
                         })
 
     order = ["core", "stable", "games", "incubator", "dev"]
