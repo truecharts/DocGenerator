@@ -49,19 +49,35 @@ for train in trains:
                             "service_name": service,
                             "port_name": port_name,
                             "port": port,
-                            "protocol": protocol
+                            "protocol": protocol,
+                            "note": ""
                         })
+                else:
+                    port_list[train].append({
+                        "train": train,
+                        "chart": chart,
+                        "service_name": service,
+                        "port_name": "-",
+                        "port": 0,
+                        "protocol": "-",
+                        "note": "Service Disabled"
+                    })
+
 
 order = ["core", "stable", "games", "incubator", "dev"]
 with open('portlist.md', 'a', encoding='utf-8') as f:
     for train in order:
         if train in port_list:
+            # Sort first by name (because of apps with disabled services)
             sorted_port_list = sorted(
-                port_list[train], key=lambda d: d['port'])
+                port_list[train], key=lambda d: d['chart'])
+            # Then sort by port number
+            sorted_port_list = sorted(
+                sorted_port_list, key=lambda d: d['port'])
             f.write(f'## {train.capitalize()}\n\n')
             f.write("| App | Service | Port Name | Port | Protocol | Note |\n")
             f.write("|:----|:-------:|:---------:|:----:|:--------:|:----:|\n")
             for port in sorted_port_list:
                 f.write(
-                    f'|{port["chart"]}|{port["service_name"]}|{port["port_name"]}|{port["port"]}|{port["protocol"]}||\n')
+                    f'|{port["chart"]}|{port["service_name"]}|{port["port_name"]}|{port["port"] if port["port"] > 0 else "-"}|{port["protocol"]}|{port["note"]}|\n')
             f.write('\n\n')
