@@ -1,3 +1,4 @@
+from venv import create
 from ruamel.yaml import YAML
 import os
 
@@ -54,6 +55,18 @@ def print_verbose_output(train, chart, service_enabled, service, port_name, port
     print(f'Port Number: {port}')
 
 
+def create_port_list_item(train, chart, service_name, port_name, port, protocol, note):
+    return {
+        "train": train,
+        "chart": chart,
+        "service_name": service_name,
+        "port_name": port_name,
+        "port": port,
+        "protocol": protocol,
+        "note": note
+    }
+
+
 def main():
     port_list = {}
     for train in trains:
@@ -74,26 +87,11 @@ def main():
                             protocol = get_port_protocol(port)
                             print_verbose_output(
                                 train, chart, is_service_enabled(service), service_name,  port_name, port_num)
-                            port_list[train].append({
-                                "train": train,
-                                "chart": chart,
-                                "service_name": service_name,
-                                "port_name": port_name,
-                                "port": port_num,
-                                "protocol": protocol,
-                                "note": note
-                            })
+                            port_list[train].append(create_port_list_item(
+                                train, chart, service_name, port_name, port_num, protocol, note))
                     else:
-                        note = "Service Disabled"
-                        port_list[train].append({
-                            "train": train,
-                            "chart": chart,
-                            "service_name": service_name,
-                            "port_name": "-",
-                            "port": 0,
-                            "protocol": "-",
-                            "note": note
-                        })
+                        port_list[train].append(create_port_list_item(
+                            train, chart, service_name, "-", 0, "-", "Service Disabled"))
 
     order = ["core", "stable", "games", "incubator", "dev"]
     os.remove("portlist.md")
