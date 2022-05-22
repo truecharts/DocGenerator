@@ -1,565 +1,578 @@
 ## Core
 
-| App              |   Service    |  Port Name   | Port  | Protocol |       Note       |
-| :--------------- | :----------: | :----------: | :---: | :------: | :--------------: |
-| traefik          |     udp      |      -       |   -   |    -     | Service Disabled |
-| k8s-gateway      |     main     |     main     |  53   |   UDP    |                  |
-| docker-compose   |     main     |     main     | 2376  |   TCP    |                  |
-| traefik          |     main     |     main     | 9000  |   HTTP   |                  |
-| traefik          |     tcp      |     web      | 9080  |   HTTP   |                  |
-| traefik          |   metrics    |   metrics    | 9180  |   HTTP   |                  |
-| traefik          |     tcp      |  websecure   | 9443  |  HTTPS   |                  |
-| external-service |     main     |     main     | 10003 |   TCP    |                  |
-| prometheus       |     main     |     main     | 10086 |   HTTP   |                  |
-| prometheus       | alertmanager | alertmanager | 10087 |   HTTP   |                  |
-| prometheus       |    promop    |    promop    | 10089 |   HTTP   |                  |
-| prometheus       |    thanos    |    thanos    | 10901 |   HTTP   |                  |
+| App              |   Service    |  Port Name   | Port  | Protocol |       Status        | Note |
+| :--------------- | :----------: | :----------: | :---: | :------: | :-----------------: | :--: |
+| amd-gpu-plugin   |      -       |      -       |   -   |    -     | No Service Defined  |      |
+| metallb          |      -       |      -       |   -   |    -     | No Service Defined  |      |
+| traefik          |     udp      |      -       |   -   |    -     | Service is Disabled |      |
+| k8s-gateway      |     main     |     main     |  53   |   UDP    |       Active        |      |
+| docker-compose   |     main     |     main     | 2376  |   TCP    |       Active        |      |
+| traefik          |     main     |     main     | 9000  |   HTTP   |       Active        |      |
+| traefik          |     tcp      |     web      | 9080  |   HTTP   |       Active        |      |
+| traefik          |   metrics    |   metrics    | 9180  |   HTTP   |       Active        |      |
+| traefik          |     tcp      |  websecure   | 9443  |  HTTPS   |       Active        |      |
+| external-service |     main     |     main     | 10003 |   TCP    |       Active        |      |
+| prometheus       |     main     |     main     | 10086 |   HTTP   |       Active        |      |
+| prometheus       | alertmanager | alertmanager | 10087 |   HTTP   |       Active        |      |
+| prometheus       |    promop    |    promop    | 10089 |   HTTP   |       Active        |      |
+| prometheus       |    thanos    |    thanos    | 10901 |   HTTP   |       Active        |      |
 
 ## Stable
 
-| App                        |     Service     |    Port Name    | Port  | Protocol |       Note       |
-| :------------------------- | :-------------: | :-------------: | :---: | :------: | :--------------: |
-| amcrest2mqtt               |      main       |        -        |   -   |    -     | Service Disabled |
-| automatic-music-downloader |      main       |        -        |   -   |    -     | Service Disabled |
-| ddclient                   |      main       |        -        |   -   |    -     | Service Disabled |
-| doplarr                    |      main       |        -        |   -   |    -     | Service Disabled |
-| duckdns                    |      main       |        -        |   -   |    -     | Service Disabled |
-| leaf2mqtt                  |      main       |        -        |   -   |    -     | Service Disabled |
-| promcord                   |      main       |      main       |   -   |   TCP    |  Port Disabled   |
-| protonmail-bridge          |      main       |        -        |   -   |    -     | Service Disabled |
-| rsnapshot                  |      main       |        -        |   -   |    -     | Service Disabled |
-| speedtest-exporter         |      main       |      main       |   -   |   TCP    |  Port Disabled   |
-| tdarr-node                 |      main       |        -        |   -   |    -     | Service Disabled |
-| unpackerr                  |      main       |        -        |   -   |    -     | Service Disabled |
-| unpoller                   |      main       |      main       |   -   |   TCP    |  Port Disabled   |
-| uptimerobot-prometheus     |      main       |      main       |   -   |   TCP    |  Port Disabled   |
-| webgrabplus                |      main       |        -        |   -   |    -     | Service Disabled |
-| anonaddy                   |      smtp       |      smtp       |  25   |   TCP    |                  |
-| protonmail-bridge          |      smtp       |      smtp       |  25   |   TCP    |                  |
-| mosdns                     |      main       |      main       |  53   |   UDP    |                  |
-| pihole                     |     dns-tcp     |     dns-tcp     |  53   |   TCP    |                  |
-| pihole                     |       dns       |       dns       |  53   |   UDP    |                  |
-| openldap                   |      main       |      main       |  389  |   TCP    |                  |
-| minisatip                  |      rtsp       |      rtsp       |  554  |   TCP    |                  |
-| openldap                   |      ldaps      |      ldaps      |  636  |   TCP    |                  |
-| strapi                     |      main       |      main       | 1337  |   TCP    |                  |
-| domoticz                   |      comm2      |      comm2      | 1443  |   TCP    |                  |
-| nntp2nntp                  |      main       |      main       | 1563  |   TCP    |                  |
-| kms                        |      main       |      main       | 1688  |   TCP    |                  |
-| freeradius                 |      main       |      main       | 1812  |   UDP    |                  |
-| freeradius                 |   accounting    |   accounting    | 1813  |   UDP    |                  |
-| node-red                   |      main       |      main       | 1880  |   TCP    |                  |
-| mosquitto                  |      main       |      main       | 1883  |   TCP    |                  |
-| minisatip                  |    discovery    |    discovery    | 1900  |   UDP    |                  |
-| owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |                  |
-| ubooquity                  |      main       |      main       | 2202  |   TCP    |                  |
-| ubooquity                  |      admin      |      admin      | 2203  |   TCP    |                  |
-| gitea                      |       ssh       |       ssh       | 2222  |   TCP    |                  |
-| photoprism                 |      main       |      main       | 2342  |   TCP    |                  |
-| wireshark                  |      main       |      main       | 3000  |   TCP    |                  |
-| uptime-kuma                |      main       |      main       | 3001  |   TCP    |                  |
-| vaultwarden                |       ws        |       ws        | 3012  |   TCP    |                  |
-| loki                       |      main       |      main       | 3100  |   HTTP   |                  |
-| jdownloader2               |      myjd       |      myjd       | 3129  |   TCP    |                  |
-| pylon                      |      main       |      main       | 3131  |   TCP    |                  |
-| clamav                     |      main       |      main       | 3310  |   TCP    |                  |
-| ispy-agent-dvr             |      turn       |      turn       | 3478  |   UDP    |                  |
-| unifi                      |      stun       |      stun       | 3478  |   UDP    |                  |
-| logitech-media-server      |    playertcp    |  slimprototcp   | 3483  |   TCP    |                  |
-| logitech-media-server      |    playerudp    |  slimprotoudp   | 3483  |   UDP    |                  |
-| ombi                       |      main       |      main       | 3579  |   TCP    |                  |
-| ipfs                       |    peer-tcp     |    peer-tcp     | 4001  |   TCP    |                  |
-| ipfs                       |    peer-udp     |    peer-udp     | 4001  |   UDP    |                  |
-| quassel-core               |      main       |      main       | 4242  |   TCP    |                  |
-| navidrome                  |      main       |      main       | 4533  |   TCP    |                  |
-| requestrr                  |      main       |      main       | 4545  |   TCP    |                  |
-| guacd                      |      main       |      main       | 4822  |   TCP    |                  |
-| appdaemon                  |      main       |      main       | 5050  |   TCP    |                  |
-| overseerr                  |      main       |      main       | 5055  |   TCP    |                  |
-| nzbhydra                   |      main       |      main       | 5076  |   TCP    |                  |
-| lazylibrarian              |      main       |      main       | 5299  |   TCP    |                  |
-| syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |                  |
-| n8n                        |      main       |      main       | 5678  |   TCP    |                  |
-| esphome                    |      main       |      main       | 6052  |   TCP    |                  |
-| novnc                      |      main       |      main       | 6080  |   TCP    |                  |
-| domoticz                   |      comm1      |      comm1      | 6144  |   TCP    |                  |
-| znc                        |      main       |      main       | 6501  |   TCP    |                  |
-| syslog-ng                  |   syslog-tls    |   syslog-tls    | 6514  |   TCP    |                  |
-| embystat                   |      main       |      main       | 6555  |   TCP    |                  |
-| deemix                     |      main       |      main       | 6595  |   TCP    |                  |
-| syslog-ng                  |      main       |      main       | 6601  |   TCP    |                  |
-| ngircd                     |      main       |      main       | 6667  |   TCP    |                  |
-| bazarr                     |      main       |      main       | 6767  |   TCP    |                  |
-| unifi                      |    speedtest    |    speedtest    | 6789  |   TCP    |                  |
-| aria2                      |      main       |      main       | 6800  |   TCP    |                  |
-| qbittorrent                |     torrent     |     torrent     | 6881  |   TCP    |                  |
-| qbittorrent                |   torrentudp    |   torrentudp    | 6881  |   UDP    |                  |
-| aria2                      |     listen      |     listen      | 6888  |   TCP    |                  |
-| logitech-media-server      |      main       |      main       | 7000  |   TCP    |                  |
-| clamav                     |     milter      |     milter      | 7357  |   TCP    |                  |
-| foldingathome              |      main       |      main       | 7396  |   TCP    |                  |
-| haste-server               |      main       |      main       | 7777  |   TCP    |                  |
-| nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |                  |
-| radarr                     |      main       |      main       | 7878  |   TCP    |                  |
-| synapse                    |      main       |      main       | 8008  |   TCP    |                  |
-| omada-controller           |      main       |      main       | 8043  |  HTTPS   |                  |
-| odoo                       |      main       |      main       | 8069  |   TCP    |                  |
-| odoo                       |      odoo       |     xmlrpcs     | 8071  |   TCP    |                  |
-| odoo                       |      odoo       |   longpolling   | 8072  |   TCP    |                  |
-| unifi                      |      comm       |      comm       | 8080  |   TCP    |                  |
-| calibre                    |    webserver    |    webserver    | 8081  |   TCP    |                  |
-| traccar                    |      main       |      main       | 8082  |   TCP    |                  |
-| calibre-web                |      main       |      main       | 8083  |   TCP    |                  |
-| calibre                    |      main       |      main       | 8084  |   TCP    |                  |
-| htpcmanager                |      main       |      main       | 8085  |   TCP    |                  |
-| synclounge                 |      main       |      main       | 8088  |   TCP    |                  |
-| mylar                      |      main       |      main       | 8090  |   TCP    |                  |
-| zwavejs2mqtt               |      main       |      main       | 8091  |   TCP    |                  |
-| jellyfin                   |      main       |      main       | 8096  |   TCP    |                  |
-| deluge                     |      main       |      main       | 8112  |   TCP    |                  |
-| home-assistant             |      main       |      main       | 8123  |   TCP    |                  |
-| tautulli                   |      main       |      main       | 8181  |   TCP    |                  |
-| flaresolverr               |      main       |      main       | 8191  |   TCP    |                  |
-| duplicati                  |      main       |      main       | 8200  |   TCP    |                  |
-| tdarr                      |      main       |      main       | 8265  |   TCP    |                  |
-| tdarr                      |      comm       |      comm       | 8266  |   TCP    |                  |
-| beets                      |      main       |      main       | 8337  |   TCP    |                  |
-| syncthing                  |      main       |      main       | 8384  |   TCP    |                  |
-| unifi                      |      main       |      main       | 8443  |  HTTPS   |                  |
-| synapse                    |   federation    |   federation    | 8448  |   TCP    |                  |
-| gaps                       |      main       |      main       | 8484  |   TCP    |                  |
-| lidarr                     |      main       |      main       | 8686  |   TCP    |                  |
-| readarr                    |      main       |      main       | 8787  |   TCP    |                  |
-| omada-controller           |      comm       |      comm       | 8843  |  HTTPS   |                  |
-| unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |                  |
-| minisatip                  |      main       |      main       | 8875  |   TCP    |                  |
-| unifi                      |   guestportal   |       web       | 8880  |   HTTP   |                  |
-| resilio-sync               |      main       |      main       | 8888  |   TCP    |                  |
-| sonarr                     |      main       |      main       | 8989  |   TCP    |                  |
-| pihole                     |      main       |      main       | 9089  |   TCP    |                  |
-| minio-console              |      main       |      main       | 9090  |   TCP    |                  |
-| authelia                   |      main       |      main       | 9091  |   TCP    |                  |
-| synapse                    |   replication   |   replication   | 9092  |   TCP    |                  |
-| synapse                    |     metrics     |     metrics     | 9093  |   TCP    |                  |
-| jackett                    |      main       |      main       | 9117  |   TCP    |                  |
-| unpoller                   |      main       |     metrics     | 9130  |   TCP    |                  |
-| owncloud-ocis              |      main       |      main       | 9200  |  HTTPS   |                  |
-| prowlarr                   |      main       |      main       | 9696  |   TCP    |                  |
-| uptimerobot-prometheus     |      main       |     metrics     | 9705  |   TCP    |                  |
-| kodi-headless              |      esall      |      esall      | 9777  |   UDP    |                  |
-| speedtest-exporter         |      main       |     metrics     | 9798  |   TCP    |                  |
-| tvheadend                  |      main       |      main       | 9981  |   TCP    |                  |
-| tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |                  |
-| teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |                  |
-| guacamole-client           |      main       |      main       | 9998  |   TCP    |                  |
-| stash                      |      main       |      main       | 9999  |   TCP    |                  |
-| ser2sock                   |      main       |      main       | 10000 |   TCP    |                  |
-| deconz                     |    websocket    |    websocket    | 10001 |   TCP    |                  |
-| deconz                     |       vnc       |       vnc       | 10002 |   TCP    |                  |
-| nullserv                   |      main       |      main       | 10004 |   TCP    |                  |
-| nullserv                   |      https      |      https      | 10005 |   TCP    |                  |
-| apache-musicindex          |      main       |      main       | 10006 |   TCP    |                  |
-| cryptofolio                |      main       |      main       | 10007 |   TCP    |                  |
-| deconz                     |      main       |      main       | 10008 |   TCP    |                  |
-| dsmr-reader                |      main       |      main       | 10009 |   TCP    |                  |
-| freshrss                   |      main       |      main       | 10010 |   TCP    |                  |
-| teamspeak3                 |      main       |      main       | 10011 |   TCP    |                  |
-| grav                       |      main       |      main       | 10012 |   TCP    |                  |
-| grocy                      |      main       |      main       | 10013 |   TCP    |                  |
-| heimdall                   |      main       |      main       | 10014 |   TCP    |                  |
-| kanboard                   |      main       |      main       | 10015 |   TCP    |                  |
-| librespeed                 |      main       |      main       | 10016 |   TCP    |                  |
-| lychee                     |      main       |      main       | 10017 |   TCP    |                  |
-| mealie                     |      main       |      main       | 10018 |   TCP    |                  |
-| muximux                    |      main       |      main       | 10019 |   TCP    |                  |
-| nextcloud                  |      main       |      main       | 10020 |   TCP    |                  |
-| octoprint                  |      main       |      main       | 10021 |   TCP    |                  |
-| organizr                   |      main       |      main       | 10022 |   TCP    |                  |
-| gonic                      |      main       |      main       | 10023 |   TCP    |                  |
-| pgadmin                    |      main       |      main       | 10024 |   TCP    |                  |
-| photoshow                  |      main       |      main       | 10025 |   TCP    |                  |
-| phpldapadmin               |      main       |      main       | 10026 |   TCP    |                  |
-| pixapop                    |      main       |      main       | 10028 |   TCP    |                  |
-| recipes                    |      main       |      main       | 10029 |   TCP    |                  |
-| smokeping                  |      main       |      main       | 10030 |   TCP    |                  |
-| truecommand                |      main       |      main       | 10031 |   TCP    |                  |
-| audacity                   |      main       |      main       | 10032 |   TCP    |                  |
-| digikam                    |      main       |      main       | 10033 |   TCP    |                  |
-| doublecommander            |      main       |      main       | 10034 |   TCP    |                  |
-| filezilla                  |      main       |      main       | 10035 |   TCP    |                  |
-| flood                      |      main       |      main       | 10036 |   TCP    |                  |
-| gitea                      |      main       |      main       | 10037 |   TCP    |                  |
-| grafana                    |      main       |      main       | 10038 |   TCP    |                  |
-| icantbelieveitsnotvaletudo |      main       |      main       | 10039 |   TCP    |                  |
-| littlelink                 |      main       |      main       | 10040 |   TCP    |                  |
-| mstream                    |      main       |      main       | 10041 |   TCP    |                  |
-| remmina                    |      main       |      main       | 10042 |   TCP    |                  |
-| onlyoffice-document-server |      main       |      main       | 10043 |   TCP    |                  |
-| wikijs                     |      main       |      main       | 10045 |   TCP    |                  |
-| zwavejs2mqtt               |       ws        |       ws        | 10046 |   TCP    |                  |
-| airsonic                   |      main       |      main       | 10047 |   TCP    |                  |
-| booksonic-air              |      main       |      main       | 10048 |   TCP    |                  |
-| deepstack                  |      main       |      main       | 10049 |   TCP    |                  |
-| spotweb                    |      main       |      main       | 10050 |   TCP    |                  |
-| firefox-syncserver         |      main       |      main       | 10051 |   TCP    |                  |
-| whoogle                    |      main       |      main       | 10052 |   TCP    |                  |
-| handbrake                  |      main       |      main       | 10053 |   TCP    |                  |
-| jdownloader2               |      main       |      main       | 10054 |   TCP    |                  |
-| handbrake                  |       vnc       |       vnc       | 10055 |   TCP    |                  |
-| jdownloader2               |       vnc       |       vnc       | 10056 |   TCP    |                  |
-| nzbget                     |      main       |      main       | 10057 |   TCP    |                  |
-| friendica                  |      main       |      main       | 10058 |   TCP    |                  |
-| logitech-media-server      |       cli       |       cli       | 10059 |   TCP    |                  |
-| etherpad                   |      main       |      main       | 10060 |   TCP    |                  |
-| thelounge                  |      main       |      main       | 10061 |   TCP    |                  |
-| oscam                      |      main       |      main       | 10062 |   TCP    |                  |
-| code-server                |      main       |      main       | 10063 |   TCP    |                  |
-| headphones                 |      main       |      main       | 10064 |   TCP    |                  |
-| hyperion-ng                |      main       |      main       | 10065 |   TCP    |                  |
-| sickgear                   |      main       |      main       | 10066 |   TCP    |                  |
-| sickchill                  |      main       |      main       | 10067 |   TCP    |                  |
-| medusa                     |      main       |      main       | 10068 |   TCP    |                  |
-| babybuddy                  |      main       |      main       | 10069 |   TCP    |                  |
-| cloud9                     |      main       |      main       | 10070 |   TCP    |                  |
-| dizquetv                   |      main       |      main       | 10071 |   TCP    |                  |
-| focalboard                 |      main       |      main       | 10072 |   TCP    |                  |
-| golinks                    |      main       |      main       | 10073 |   TCP    |                  |
-| healthchecks               |      main       |      main       | 10074 |   TCP    |                  |
-| pyload                     |      main       |      main       | 10075 |   TCP    |                  |
-| shorturl                   |      main       |      main       | 10076 |   TCP    |                  |
-| static                     |      main       |      main       | 10077 |   TCP    |                  |
-| twtxt                      |      main       |      main       | 10078 |   TCP    |                  |
-| emby                       |      main       |      main       | 10079 |   TCP    |                  |
-| davos                      |      main       |      main       | 10081 |   TCP    |                  |
-| fireflyiii                 |      main       |      main       | 10082 |   TCP    |                  |
-| fossil                     |      main       |      main       | 10083 |   TCP    |                  |
-| gotify                     |      main       |      main       | 10084 |   TCP    |                  |
-| komga                      |      main       |      main       | 10085 |   TCP    |                  |
-| owncast                    |      main       |      main       | 10088 |   TCP    |                  |
-| openkm                     |      main       |      main       | 10090 |   TCP    |                  |
-| miniflux                   |      main       |      main       | 10091 |   TCP    |                  |
-| piaware                    |      main       |      main       | 10092 |   TCP    |                  |
-| podgrab                    |      main       |      main       | 10093 |   TCP    |                  |
-| pretend-youre-xyzzy        |      main       |      main       | 10094 |   TCP    |                  |
-| qbittorrent                |      main       |      main       | 10095 |   TCP    |                  |
-| reg                        |      main       |      main       | 10096 |   TCP    |                  |
-| sabnzbd                    |      main       |      main       | 10097 |   TCP    |                  |
-| shiori                     |      main       |      main       | 10098 |   TCP    |                  |
-| statping                   |      main       |      main       | 10099 |   TCP    |                  |
-| teedy                      |      main       |      main       | 10100 |   TCP    |                  |
-| promcord                   |      main       |     metrics     | 10101 |   TCP    |                  |
-| vaultwarden                |      main       |      main       | 10102 |   TCP    |                  |
-| zigbee2mqtt                |      main       |      main       | 10103 |   TCP    |                  |
-| tt-rss                     |      main       |      main       | 10104 |   TCP    |                  |
-| collabora-online           |      main       |      main       | 10105 |   TCP    |                  |
-| minio                      |       api       |       api       | 10106 |   TCP    |                  |
-| minio                      |      main       |      main       | 10107 |   TCP    |                  |
-| transmission               |      main       |      main       | 10109 |   TCP    |                  |
-| anonaddy                   |      main       |      main       | 10110 |   TCP    |                  |
-| blog                       |      main       |      main       | 10111 |   TCP    |                  |
-| bookstack                  |      main       |      main       | 10112 |   TCP    |                  |
-| clarkson                   |      main       |      main       | 10113 |   TCP    |                  |
-| quassel-core               |      ident      |      ident      | 10113 |   TCP    |                  |
-| icinga2                    |      main       |      main       | 10114 |   TCP    |                  |
-| icinga2                    |      https      |      https      | 10115 |   TCP    |                  |
-| icinga2                    |       api       |       api       | 10116 |   TCP    |                  |
-| leantime                   |      main       |      main       | 10117 |   TCP    |                  |
-| monica                     |      main       |      main       | 10119 |   TCP    |                  |
-| snipe-it                   |      main       |      main       | 10120 |   TCP    |                  |
-| xbackbone                  |      main       |      main       | 10121 |   TCP    |                  |
-| airsonic-advanced          |      main       |      main       | 10122 |   TCP    |                  |
-| dokuwiki                   |      main       |      main       | 10123 |   TCP    |                  |
-| emulatorjs                 |      front      |      front      | 10124 |   TCP    |                  |
-| ipfs                       |      main       |      main       | 10125 |   TCP    |                  |
-| nano-wallet                |      main       |      main       | 10126 |   TCP    |                  |
-| projectsend                |      main       |      main       | 10127 |   TCP    |                  |
-| endlessh                   |      main       |      main       | 10128 |   TCP    |                  |
-| darktable                  |      main       |      main       | 10129 |   TCP    |                  |
-| emulatorjs                 |      main       |      main       | 10130 |   TCP    |                  |
-| firefox                    |      main       |      main       | 10131 |   TCP    |                  |
-| hedgedoc                   |      main       |      main       | 10132 |   TCP    |                  |
-| libreoffice                |      main       |      main       | 10133 |   TCP    |                  |
-| mysql-workbench            |      main       |      main       | 10134 |   TCP    |                  |
-| openvscode-server          |      main       |      main       | 10135 |   TCP    |                  |
-| pidgin                     |      main       |      main       | 10136 |   TCP    |                  |
-| sqlitebrowser              |      main       |      main       | 10137 |   TCP    |                  |
-| emulatorjs                 |      ipfs       |      ipfs       | 10138 |   TCP    |                  |
-| couchpotato                |      main       |      main       | 10139 |   TCP    |                  |
-| paperless-ng               |      main       |      main       | 10140 |   TCP    |                  |
-| papermerge                 |      main       |      main       | 10141 |   TCP    |                  |
-| boinc                      |      main       |      main       | 10142 |   TCP    |                  |
-| dillinger                  |      main       |      main       | 10143 |   TCP    |                  |
-| domoticz                   |      main       |      main       | 10144 |   TCP    |                  |
-| fleet                      |      main       |      main       | 10145 |   TCP    |                  |
-| habridge                   |      main       |      main       | 10146 |   TCP    |                  |
-| ipfs                       |     gateway     |     gateway     | 10147 |   TCP    |                  |
-| kodi-headless              |      main       |      main       | 10148 |   TCP    |                  |
-| pwndrop                    |      main       |      main       | 10149 |   TCP    |                  |
-| pydio-cells                |      main       |      main       | 10150 |  HTTPS   |                  |
-| scrutiny                   |      main       |      main       | 10151 |   TCP    |                  |
-| kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |                  |
-| shlink                     |      main       |      main       | 10153 |   TCP    |                  |
-| shlink-web-client          |      main       |      main       | 10154 |   HTTP   |                  |
-| airdcpp-webclient          |      main       |      main       | 10155 |   TCP    |                  |
-| trilium-notes              |      main       |      main       | 10156 |   HTTP   |                  |
-| unmanic                    |      main       |      main       | 10157 |   TCP    |                  |
-| weblate                    |      main       |      main       | 10158 |   TCP    |                  |
-| photoview                  |      main       |      main       | 10159 |   TCP    |                  |
-| linkace                    |      main       |      main       | 10160 |   TCP    |                  |
-| librephotos                |      main       |      main       | 10161 |   TCP    |                  |
-| pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |                  |
-| grist                      |      main       |      main       | 10163 |   TCP    |                  |
-| grist                      |       api       |       api       | 10164 |   TCP    |                  |
-| budge                      |      main       |      main       | 10165 |   TCP    |                  |
-| alist                      |      main       |      main       | 10167 |   TCP    |                  |
-| ddns-go                    |      main       |      main       | 10168 |   TCP    |                  |
-| openhab                    |      main       |      main       | 10169 |   TCP    |                  |
-| openhab                    |      https      |      https      | 10170 |   TCP    |                  |
-| redmine                    |      main       |      main       | 10171 |   TCP    |                  |
-| matomo                     |      main       |      main       | 10172 |   HTTP   |                  |
-| matomo                     |      https      |      https      | 10173 |  HTTPS   |                  |
-| flexget                    |      main       |      main       | 10174 |   TCP    |                  |
-| qinglong                   |      main       |      main       | 10176 |   TCP    |                  |
-| lanraragi                  |      main       |      main       | 10177 |   TCP    |                  |
-| homer                      |      main       |      main       | 10178 |   TCP    |                  |
-| tinymediamanager           |      main       |      main       | 10179 |   TCP    |                  |
-| makemkv                    |      main       |      main       | 10180 |   TCP    |                  |
-| makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |                  |
-| nextpvr                    |      main       |      main       | 10183 |   TCP    |                  |
-| ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |                  |
-| koel                       |      main       |      main       | 10185 |   TCP    |                  |
-| hammond                    |      main       |      main       | 10186 |   TCP    |                  |
-| filebrowser                |      main       |      main       | 10187 |   TCP    |                  |
-| iyuuplus                   |      main       |      main       | 10188 |   TCP    |                  |
-| kavita                     |      main       |      main       | 10189 |   TCP    |                  |
-| zerotier                   |      main       |      main       | 10190 |   UDP    |                  |
-| rsshub                     |      main       |      main       | 10191 |   TCP    |                  |
-| wekan                      |      main       |      main       | 10192 |   TCP    |                  |
-| verysync                   |      main       |      main       | 10193 |   TCP    |                  |
-| browserless-chrome         |      main       |      main       | 10194 |   TCP    |                  |
-| kutt                       |      main       |      main       | 10195 |   TCP    |                  |
-| outline                    |      main       |      main       | 10196 |   TCP    |                  |
-| chevereto                  |      main       |      main       | 10197 |   TCP    |                  |
-| kimai                      |      main       |      main       | 10198 |   TCP    |                  |
-| double-take                |      main       |      main       | 10200 |   TCP    |                  |
-| ml-workspace               |      main       |      main       | 10201 |   TCP    |                  |
-| ferdi-server               |      main       |      main       | 10206 |   TCP    |                  |
-| typecho                    |      main       |      main       | 10207 |   TCP    |                  |
-| xwiki                      |      main       |      main       | 10208 |   TCP    |                  |
-| picoshare                  |      main       |      main       | 10209 |   TCP    |                  |
-| linkding                   |      main       |      main       | 10210 |   TCP    |                  |
-| pinry                      |      main       |      main       | 10213 |   TCP    |                  |
-| drawio                     |      main       |      main       | 10214 |   TCP    |                  |
-| snapdrop                   |      main       |      main       | 10215 |   TCP    |                  |
-| metube                     |      main       |      main       | 10216 |   TCP    |                  |
-| cyberchef                  |      main       |      main       | 10219 |   TCP    |                  |
-| vikunja                    |      main       |      main       | 10220 |   TCP    |                  |
-| website-shot               |      main       |      main       | 10221 |   TCP    |                  |
-| ntfy                       |      main       |      main       | 10222 |   TCP    |                  |
-| audiobookshelf             |      main       |      main       | 10223 |   TCP    |                  |
-| fluidd                     |      main       |      main       | 10224 |   TCP    |                  |
-| rss-bridge                 |      main       |      main       | 10225 |   TCP    |                  |
-| nocodb                     |      main       |      main       | 10226 |   TCP    |                  |
-| ddns-updater               |      main       |      main       | 10227 |   TCP    |                  |
-| mkvtoolnix                 |      main       |      main       | 10236 |   TCP    |                  |
-| mkvtoolnix                 |       vnc       |       vnc       | 10237 |   TCP    |                  |
-| storj-node                 |      main       |      main       | 14002 |   TCP    |                  |
-| hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |                  |
-| hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |                  |
-| hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |                  |
-| syncthing                  |    discovery    |    discovery    | 21027 |   UDP    |                  |
-| airdcpp-webclient          | unencrypted-tcp | unencrypted-tcp | 21248 |   TCP    |                  |
-| airdcpp-webclient          |   search-udp    |   search-udp    | 21248 |   UDP    |                  |
-| airdcpp-webclient          |  encrypted-tcp  |  encrypted-tcp  | 21249 |   TCP    |                  |
-| syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |                  |
-| syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |                  |
-| verysync                   |     bt-udp2     |     bt-udp2     | 22027 |   UDP    |                  |
-| verysync                   |     bt-udp1     |     bt-udp1     | 22037 |   UDP    |                  |
-| joplin-server              |      main       |      main       | 22300 |   TCP    |                  |
-| verysync                   |      data       |      data       | 22330 |   TCP    |                  |
-| storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |                  |
-| storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |                  |
-| omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |                  |
-| omada-controller           |    omada-tcp    |   omada-tcp1    | 29811 |   TCP    |                  |
-| omada-controller           |    omada-tcp    |   omada-tcp2    | 29812 |   TCP    |                  |
-| omada-controller           |    omada-tcp    |   omada-tcp3    | 29813 |   TCP    |                  |
-| omada-controller           |    omada-tcp    |   omada-tcp4    | 29814 |   TCP    |                  |
-| teamspeak3                 |      files      |      files      | 30033 |   TCP    |                  |
-| plex                       |      main       |      main       | 32400 |   TCP    |                  |
-| pydio-cells                |      gprc       |      gprc       | 33060 |   TCP    |                  |
-| xteve                      |      main       |      main       | 34400 |   TCP    |                  |
-| foldingathome              |     control     |     control     | 36330 |   TCP    |                  |
-| habridge                   |      comm       |      comm       | 50000 |   TCP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc0     | 50000 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc1     | 50001 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc2     | 50002 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc3     | 50003 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc4     | 50004 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc5     | 50005 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc6     | 50006 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc7     | 50007 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc8     | 50008 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |     webrtc9     | 50009 |   UDP    |                  |
-| ispy-agent-dvr             |     webrtc      |    webrtc10     | 50010 |   UDP    |                  |
-| appdaemon                  |       tcp       |       tcp       | 51050 |   TCP    |                  |
-| podgrab                    |       tcp       |       tcp       | 51080 |   TCP    |                  |
-| deluge                     |     torrent     |       tcp       | 51413 |   TCP    |                  |
-| deluge                     |   torrent-udp   |       udp       | 51413 |   UDP    |                  |
-| transmission               |     torrent     |     torrent     | 51414 |   TCP    |                  |
-| transmission               |   torrentudp    |   torrentudp    | 51414 |   UDP    |                  |
-| resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |                  |
-| resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |                  |
-| quassel-web                |      main       |      main       | 64080 |   TCP    |                  |
-
-## Games
-
-| App               |  Service   | Port Name  | Port  | Protocol | Note |
-| :---------------- | :--------: | :--------: | :---: | :------: | :--: |
-| valheim           |  valheim   |  valheim1  | 2456  |   UDP    |      |
-| valheim           |  valheim   |  valheim2  | 2457  |   UDP    |      |
-| valheim           |  valheim   |  valheim3  | 2458  |   UDP    |      |
-| satisfactory      |    main    |    main    | 7777  |   UDP    |      |
-| valheim           |    main    |    main    | 9010  |   TCP    |      |
-| valheim           | supervisor | supervisor | 9011  |   TCP    |      |
-| satisfactory      |   beacon   |   beacon   | 15000 |   UDP    |      |
-| satisfactory      |   query    |   query    | 15777 |   UDP    |      |
-| minecraft-bedrock |    main    |    main    | 19132 |   UDP    |      |
-| impostor-server   |    main    |    main    | 22023 |   UDP    |      |
-| minecraft-java    |    main    |    main    | 25565 |   TCP    |      |
-| minecraft-java    |    rcon    |    rcon    | 25575 |   TCP    |      |
-| minetest          |    main    |    main    | 30000 |   UDP    |      |
+| App                        |     Service     |    Port Name    | Port  | Protocol |       Status        | Note |
+| :------------------------- | :-------------: | :-------------: | :---: | :------: | :-----------------: | :--: |
+| amcrest2mqtt               |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| automatic-music-downloader |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| custom-app                 |        -        |        -        |   -   |    -     | No Service Defined  |      |
+| ddclient                   |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| doplarr                    |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| duckdns                    |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| leaf2mqtt                  |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| promcord                   |      main       |      main       |   -   |    -     |  Port is Disabled   |      |
+| protonmail-bridge          |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| rsnapshot                  |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| speedtest-exporter         |      main       |      main       |   -   |    -     |  Port is Disabled   |      |
+| tdarr-node                 |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| unifi                      |      comm       |      comm       |   -   |    -     |  Port is Disabled   |      |
+| unifi                      |      stun       |        -        |   -   |    -     |  No Ports Defined   |      |
+| unpackerr                  |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| unpoller                   |      main       |      main       |   -   |    -     |  Port is Disabled   |      |
+| uptimerobot-prometheus     |      main       |      main       |   -   |    -     |  Port is Disabled   |      |
+| webgrabplus                |      main       |        -        |   -   |    -     | Service is Disabled |      |
+| anonaddy                   |      smtp       |      smtp       |  25   |   TCP    |       Active        |      |
+| protonmail-bridge          |      smtp       |      smtp       |  25   |   TCP    |       Active        |      |
+| mosdns                     |      main       |      main       |  53   |   UDP    |       Active        |      |
+| pihole                     |     dns-tcp     |     dns-tcp     |  53   |   TCP    |       Active        |      |
+| pihole                     |       dns       |       dns       |  53   |   UDP    |       Active        |      |
+| openldap                   |      main       |      main       |  389  |   TCP    |       Active        |      |
+| minisatip                  |      rtsp       |      rtsp       |  554  |   TCP    |       Active        |      |
+| openldap                   |      ldaps      |      ldaps      |  636  |   TCP    |       Active        |      |
+| strapi                     |      main       |      main       | 1337  |   TCP    |       Active        |      |
+| domoticz                   |      comm2      |      comm2      | 1443  |   TCP    |       Active        |      |
+| nntp2nntp                  |      main       |      main       | 1563  |   TCP    |       Active        |      |
+| kms                        |      main       |      main       | 1688  |   TCP    |       Active        |      |
+| freeradius                 |      main       |      main       | 1812  |   UDP    |       Active        |      |
+| freeradius                 |   accounting    |   accounting    | 1813  |   UDP    |       Active        |      |
+| node-red                   |      main       |      main       | 1880  |   TCP    |       Active        |      |
+| mosquitto                  |      main       |      main       | 1883  |   TCP    |       Active        |      |
+| minisatip                  |    discovery    |    discovery    | 1900  |   UDP    |       Active        |      |
+| owncast                    |      rtmp       |      rtmp       | 1935  |   TCP    |       Active        |      |
+| ubooquity                  |      main       |      main       | 2202  |   TCP    |       Active        |      |
+| ubooquity                  |      admin      |      admin      | 2203  |   TCP    |       Active        |      |
+| gitea                      |       ssh       |       ssh       | 2222  |   TCP    |       Active        |      |
+| photoprism                 |      main       |      main       | 2342  |   TCP    |       Active        |      |
+| wireshark                  |      main       |      main       | 3000  |   TCP    |       Active        |      |
+| uptime-kuma                |      main       |      main       | 3001  |   TCP    |       Active        |      |
+| vaultwarden                |       ws        |       ws        | 3012  |   TCP    |       Active        |      |
+| loki                       |      main       |      main       | 3100  |   HTTP   |       Active        |      |
+| jdownloader2               |      myjd       |      myjd       | 3129  |   TCP    |       Active        |      |
+| pylon                      |      main       |      main       | 3131  |   TCP    |       Active        |      |
+| clamav                     |      main       |      main       | 3310  |   TCP    |       Active        |      |
+| ispy-agent-dvr             |      turn       |      turn       | 3478  |   UDP    |       Active        |      |
+| logitech-media-server      |    playertcp    |  slimprototcp   | 3483  |   TCP    |       Active        |      |
+| logitech-media-server      |    playerudp    |  slimprotoudp   | 3483  |   UDP    |       Active        |      |
+| ombi                       |      main       |      main       | 3579  |   TCP    |       Active        |      |
+| ipfs                       |    peer-tcp     |    peer-tcp     | 4001  |   TCP    |       Active        |      |
+| ipfs                       |    peer-udp     |    peer-udp     | 4001  |   UDP    |       Active        |      |
+| quassel-core               |      main       |      main       | 4242  |   TCP    |       Active        |      |
+| navidrome                  |      main       |      main       | 4533  |   TCP    |       Active        |      |
+| requestrr                  |      main       |      main       | 4545  |   TCP    |       Active        |      |
+| guacd                      |      main       |      main       | 4822  |   TCP    |       Active        |      |
+| appdaemon                  |      main       |      main       | 5050  |   TCP    |       Active        |      |
+| overseerr                  |      main       |      main       | 5055  |   TCP    |       Active        |      |
+| nzbhydra                   |      main       |      main       | 5076  |   TCP    |       Active        |      |
+| lazylibrarian              |      main       |      main       | 5299  |   TCP    |       Active        |      |
+| syslog-ng                  |   syslog-udp    |   syslog-udp    | 5514  |   UDP    |       Active        |      |
+| n8n                        |      main       |      main       | 5678  |   TCP    |       Active        |      |
+| esphome                    |      main       |      main       | 6052  |   TCP    |       Active        |      |
+| novnc                      |      main       |      main       | 6080  |   TCP    |       Active        |      |
+| domoticz                   |      comm1      |      comm1      | 6144  |   TCP    |       Active        |      |
+| znc                        |      main       |      main       | 6501  |   TCP    |       Active        |      |
+| syslog-ng                  |   syslog-tls    |   syslog-tls    | 6514  |   TCP    |       Active        |      |
+| embystat                   |      main       |      main       | 6555  |   TCP    |       Active        |      |
+| deemix                     |      main       |      main       | 6595  |   TCP    |       Active        |      |
+| syslog-ng                  |      main       |      main       | 6601  |   TCP    |       Active        |      |
+| ngircd                     |      main       |      main       | 6667  |   TCP    |       Active        |      |
+| bazarr                     |      main       |      main       | 6767  |   TCP    |       Active        |      |
+| unifi                      |    speedtest    |    speedtest    | 6789  |   TCP    |       Active        |      |
+| aria2                      |      main       |      main       | 6800  |   TCP    |       Active        |      |
+| qbittorrent                |     torrent     |     torrent     | 6881  |   TCP    |       Active        |      |
+| qbittorrent                |   torrentudp    |   torrentudp    | 6881  |   UDP    |       Active        |      |
+| aria2                      |     listen      |     listen      | 6888  |   TCP    |       Active        |      |
+| logitech-media-server      |      main       |      main       | 7000  |   TCP    |       Active        |      |
+| clamav                     |     milter      |     milter      | 7357  |   TCP    |       Active        |      |
+| foldingathome              |      main       |      main       | 7396  |   TCP    |       Active        |      |
+| haste-server               |      main       |      main       | 7777  |   TCP    |       Active        |      |
+| nextcloud                  |       hpb       |       hpb       | 7867  |   TCP    |       Active        |      |
+| radarr                     |      main       |      main       | 7878  |   TCP    |       Active        |      |
+| synapse                    |      main       |      main       | 8008  |   TCP    |       Active        |      |
+| omada-controller           |      main       |      main       | 8043  |  HTTPS   |       Active        |      |
+| odoo                       |      main       |      main       | 8069  |   TCP    |       Active        |      |
+| odoo                       |      odoo       |     xmlrpcs     | 8071  |   TCP    |       Active        |      |
+| odoo                       |      odoo       |   longpolling   | 8072  |   TCP    |       Active        |      |
+| calibre                    |    webserver    |    webserver    | 8081  |   TCP    |       Active        |      |
+| traccar                    |      main       |      main       | 8082  |   TCP    |       Active        |      |
+| calibre-web                |      main       |      main       | 8083  |   TCP    |       Active        |      |
+| calibre                    |      main       |      main       | 8084  |   TCP    |       Active        |      |
+| htpcmanager                |      main       |      main       | 8085  |   TCP    |       Active        |      |
+| synclounge                 |      main       |      main       | 8088  |   TCP    |       Active        |      |
+| mylar                      |      main       |      main       | 8090  |   TCP    |       Active        |      |
+| zwavejs2mqtt               |      main       |      main       | 8091  |   TCP    |       Active        |      |
+| jellyfin                   |      main       |      main       | 8096  |   TCP    |       Active        |      |
+| deluge                     |      main       |      main       | 8112  |   TCP    |       Active        |      |
+| home-assistant             |      main       |      main       | 8123  |   TCP    |       Active        |      |
+| tautulli                   |      main       |      main       | 8181  |   TCP    |       Active        |      |
+| flaresolverr               |      main       |      main       | 8191  |   TCP    |       Active        |      |
+| duplicati                  |      main       |      main       | 8200  |   TCP    |       Active        |      |
+| tdarr                      |      main       |      main       | 8265  |   TCP    |       Active        |      |
+| tdarr                      |      comm       |      comm       | 8266  |   TCP    |       Active        |      |
+| beets                      |      main       |      main       | 8337  |   TCP    |       Active        |      |
+| syncthing                  |      main       |      main       | 8384  |   TCP    |       Active        |      |
+| unifi                      |      main       |      main       | 8443  |  HTTPS   |       Active        |      |
+| synapse                    |   federation    |   federation    | 8448  |   TCP    |       Active        |      |
+| gaps                       |      main       |      main       | 8484  |   TCP    |       Active        |      |
+| lidarr                     |      main       |      main       | 8686  |   TCP    |       Active        |      |
+| readarr                    |      main       |      main       | 8787  |   TCP    |       Active        |      |
+| omada-controller           |      comm       |      comm       | 8843  |  HTTPS   |       Active        |      |
+| unifi                      |   guestportal   |    websecure    | 8843  |  HTTPS   |       Active        |      |
+| minisatip                  |      main       |      main       | 8875  |   TCP    |       Active        |      |
+| unifi                      |   guestportal   |       web       | 8880  |   HTTP   |       Active        |      |
+| resilio-sync               |      main       |      main       | 8888  |   TCP    |       Active        |      |
+| sonarr                     |      main       |      main       | 8989  |   TCP    |       Active        |      |
+| pihole                     |      main       |      main       | 9089  |   TCP    |       Active        |      |
+| minio-console              |      main       |      main       | 9090  |   TCP    |       Active        |      |
+| authelia                   |      main       |      main       | 9091  |   TCP    |       Active        |      |
+| synapse                    |   replication   |   replication   | 9092  |   TCP    |       Active        |      |
+| synapse                    |     metrics     |     metrics     | 9093  |   TCP    |       Active        |      |
+| jackett                    |      main       |      main       | 9117  |   TCP    |       Active        |      |
+| unpoller                   |      main       |     metrics     | 9130  |   TCP    |       Active        |      |
+| owncloud-ocis              |      main       |      main       | 9200  |  HTTPS   |       Active        |      |
+| prowlarr                   |      main       |      main       | 9696  |   TCP    |       Active        |      |
+| uptimerobot-prometheus     |      main       |     metrics     | 9705  |   TCP    |       Active        |      |
+| kodi-headless              |      esall      |      esall      | 9777  |   UDP    |       Active        |      |
+| speedtest-exporter         |      main       |     metrics     | 9798  |   TCP    |       Active        |      |
+| tvheadend                  |      main       |      main       | 9981  |   TCP    |       Active        |      |
+| tvheadend                  |      htsp       |      htsp       | 9982  |   TCP    |       Active        |      |
+| teamspeak3                 |      voice      |      voice      | 9987  |   UDP    |       Active        |      |
+| guacamole-client           |      main       |      main       | 9998  |   TCP    |       Active        |      |
+| stash                      |      main       |      main       | 9999  |   TCP    |       Active        |      |
+| ser2sock                   |      main       |      main       | 10000 |   TCP    |       Active        |      |
+| deconz                     |    websocket    |    websocket    | 10001 |   TCP    |       Active        |      |
+| deconz                     |       vnc       |       vnc       | 10002 |   TCP    |       Active        |      |
+| nullserv                   |      main       |      main       | 10004 |   TCP    |       Active        |      |
+| nullserv                   |      https      |      https      | 10005 |   TCP    |       Active        |      |
+| apache-musicindex          |      main       |      main       | 10006 |   TCP    |       Active        |      |
+| cryptofolio                |      main       |      main       | 10007 |   TCP    |       Active        |      |
+| deconz                     |      main       |      main       | 10008 |   TCP    |       Active        |      |
+| dsmr-reader                |      main       |      main       | 10009 |   TCP    |       Active        |      |
+| freshrss                   |      main       |      main       | 10010 |   TCP    |       Active        |      |
+| teamspeak3                 |      main       |      main       | 10011 |   TCP    |       Active        |      |
+| grav                       |      main       |      main       | 10012 |   TCP    |       Active        |      |
+| grocy                      |      main       |      main       | 10013 |   TCP    |       Active        |      |
+| heimdall                   |      main       |      main       | 10014 |   TCP    |       Active        |      |
+| kanboard                   |      main       |      main       | 10015 |   TCP    |       Active        |      |
+| librespeed                 |      main       |      main       | 10016 |   TCP    |       Active        |      |
+| lychee                     |      main       |      main       | 10017 |   TCP    |       Active        |      |
+| mealie                     |      main       |      main       | 10018 |   TCP    |       Active        |      |
+| muximux                    |      main       |      main       | 10019 |   TCP    |       Active        |      |
+| nextcloud                  |      main       |      main       | 10020 |   TCP    |       Active        |      |
+| octoprint                  |      main       |      main       | 10021 |   TCP    |       Active        |      |
+| organizr                   |      main       |      main       | 10022 |   TCP    |       Active        |      |
+| gonic                      |      main       |      main       | 10023 |   TCP    |       Active        |      |
+| pgadmin                    |      main       |      main       | 10024 |   TCP    |       Active        |      |
+| photoshow                  |      main       |      main       | 10025 |   TCP    |       Active        |      |
+| phpldapadmin               |      main       |      main       | 10026 |   TCP    |       Active        |      |
+| pixapop                    |      main       |      main       | 10028 |   TCP    |       Active        |      |
+| recipes                    |      main       |      main       | 10029 |   TCP    |       Active        |      |
+| smokeping                  |      main       |      main       | 10030 |   TCP    |       Active        |      |
+| truecommand                |      main       |      main       | 10031 |   TCP    |       Active        |      |
+| audacity                   |      main       |      main       | 10032 |   TCP    |       Active        |      |
+| digikam                    |      main       |      main       | 10033 |   TCP    |       Active        |      |
+| doublecommander            |      main       |      main       | 10034 |   TCP    |       Active        |      |
+| filezilla                  |      main       |      main       | 10035 |   TCP    |       Active        |      |
+| flood                      |      main       |      main       | 10036 |   TCP    |       Active        |      |
+| gitea                      |      main       |      main       | 10037 |   TCP    |       Active        |      |
+| grafana                    |      main       |      main       | 10038 |   TCP    |       Active        |      |
+| icantbelieveitsnotvaletudo |      main       |      main       | 10039 |   TCP    |       Active        |      |
+| littlelink                 |      main       |      main       | 10040 |   TCP    |       Active        |      |
+| mstream                    |      main       |      main       | 10041 |   TCP    |       Active        |      |
+| remmina                    |      main       |      main       | 10042 |   TCP    |       Active        |      |
+| onlyoffice-document-server |      main       |      main       | 10043 |   TCP    |       Active        |      |
+| wikijs                     |      main       |      main       | 10045 |   TCP    |       Active        |      |
+| zwavejs2mqtt               |       ws        |       ws        | 10046 |   TCP    |       Active        |      |
+| airsonic                   |      main       |      main       | 10047 |   TCP    |       Active        |      |
+| booksonic-air              |      main       |      main       | 10048 |   TCP    |       Active        |      |
+| deepstack                  |      main       |      main       | 10049 |   TCP    |       Active        |      |
+| spotweb                    |      main       |      main       | 10050 |   TCP    |       Active        |      |
+| firefox-syncserver         |      main       |      main       | 10051 |   TCP    |       Active        |      |
+| whoogle                    |      main       |      main       | 10052 |   TCP    |       Active        |      |
+| handbrake                  |      main       |      main       | 10053 |   TCP    |       Active        |      |
+| jdownloader2               |      main       |      main       | 10054 |   TCP    |       Active        |      |
+| handbrake                  |       vnc       |       vnc       | 10055 |   TCP    |       Active        |      |
+| jdownloader2               |       vnc       |       vnc       | 10056 |   TCP    |       Active        |      |
+| nzbget                     |      main       |      main       | 10057 |   TCP    |       Active        |      |
+| friendica                  |      main       |      main       | 10058 |   TCP    |       Active        |      |
+| logitech-media-server      |       cli       |       cli       | 10059 |   TCP    |       Active        |      |
+| etherpad                   |      main       |      main       | 10060 |   TCP    |       Active        |      |
+| thelounge                  |      main       |      main       | 10061 |   TCP    |       Active        |      |
+| oscam                      |      main       |      main       | 10062 |   TCP    |       Active        |      |
+| code-server                |      main       |      main       | 10063 |   TCP    |       Active        |      |
+| headphones                 |      main       |      main       | 10064 |   TCP    |       Active        |      |
+| hyperion-ng                |      main       |      main       | 10065 |   TCP    |       Active        |      |
+| sickgear                   |      main       |      main       | 10066 |   TCP    |       Active        |      |
+| sickchill                  |      main       |      main       | 10067 |   TCP    |       Active        |      |
+| medusa                     |      main       |      main       | 10068 |   TCP    |       Active        |      |
+| babybuddy                  |      main       |      main       | 10069 |   TCP    |       Active        |      |
+| cloud9                     |      main       |      main       | 10070 |   TCP    |       Active        |      |
+| dizquetv                   |      main       |      main       | 10071 |   TCP    |       Active        |      |
+| focalboard                 |      main       |      main       | 10072 |   TCP    |       Active        |      |
+| golinks                    |      main       |      main       | 10073 |   TCP    |       Active        |      |
+| healthchecks               |      main       |      main       | 10074 |   TCP    |       Active        |      |
+| pyload                     |      main       |      main       | 10075 |   TCP    |       Active        |      |
+| shorturl                   |      main       |      main       | 10076 |   TCP    |       Active        |      |
+| static                     |      main       |      main       | 10077 |   TCP    |       Active        |      |
+| twtxt                      |      main       |      main       | 10078 |   TCP    |       Active        |      |
+| emby                       |      main       |      main       | 10079 |   TCP    |       Active        |      |
+| davos                      |      main       |      main       | 10081 |   TCP    |       Active        |      |
+| fireflyiii                 |      main       |      main       | 10082 |   TCP    |       Active        |      |
+| fossil                     |      main       |      main       | 10083 |   TCP    |       Active        |      |
+| gotify                     |      main       |      main       | 10084 |   TCP    |       Active        |      |
+| komga                      |      main       |      main       | 10085 |   TCP    |       Active        |      |
+| owncast                    |      main       |      main       | 10088 |   TCP    |       Active        |      |
+| openkm                     |      main       |      main       | 10090 |   TCP    |       Active        |      |
+| miniflux                   |      main       |      main       | 10091 |   TCP    |       Active        |      |
+| piaware                    |      main       |      main       | 10092 |   TCP    |       Active        |      |
+| podgrab                    |      main       |      main       | 10093 |   TCP    |       Active        |      |
+| pretend-youre-xyzzy        |      main       |      main       | 10094 |   TCP    |       Active        |      |
+| qbittorrent                |      main       |      main       | 10095 |   TCP    |       Active        |      |
+| reg                        |      main       |      main       | 10096 |   TCP    |       Active        |      |
+| sabnzbd                    |      main       |      main       | 10097 |   TCP    |       Active        |      |
+| shiori                     |      main       |      main       | 10098 |   TCP    |       Active        |      |
+| statping                   |      main       |      main       | 10099 |   TCP    |       Active        |      |
+| teedy                      |      main       |      main       | 10100 |   TCP    |       Active        |      |
+| promcord                   |      main       |     metrics     | 10101 |   TCP    |       Active        |      |
+| vaultwarden                |      main       |      main       | 10102 |   TCP    |       Active        |      |
+| zigbee2mqtt                |      main       |      main       | 10103 |   TCP    |       Active        |      |
+| tt-rss                     |      main       |      main       | 10104 |   TCP    |       Active        |      |
+| collabora-online           |      main       |      main       | 10105 |   TCP    |       Active        |      |
+| minio                      |       api       |       api       | 10106 |   TCP    |       Active        |      |
+| minio                      |      main       |      main       | 10107 |   TCP    |       Active        |      |
+| transmission               |      main       |      main       | 10109 |   TCP    |       Active        |      |
+| anonaddy                   |      main       |      main       | 10110 |   TCP    |       Active        |      |
+| blog                       |      main       |      main       | 10111 |   TCP    |       Active        |      |
+| bookstack                  |      main       |      main       | 10112 |   TCP    |       Active        |      |
+| clarkson                   |      main       |      main       | 10113 |   TCP    |       Active        |      |
+| quassel-core               |      ident      |      ident      | 10113 |   TCP    |       Active        |      |
+| icinga2                    |      main       |      main       | 10114 |   TCP    |       Active        |      |
+| icinga2                    |      https      |      https      | 10115 |   TCP    |       Active        |      |
+| icinga2                    |       api       |       api       | 10116 |   TCP    |       Active        |      |
+| leantime                   |      main       |      main       | 10117 |   TCP    |       Active        |      |
+| monica                     |      main       |      main       | 10119 |   TCP    |       Active        |      |
+| snipe-it                   |      main       |      main       | 10120 |   TCP    |       Active        |      |
+| xbackbone                  |      main       |      main       | 10121 |   TCP    |       Active        |      |
+| airsonic-advanced          |      main       |      main       | 10122 |   TCP    |       Active        |      |
+| dokuwiki                   |      main       |      main       | 10123 |   TCP    |       Active        |      |
+| emulatorjs                 |      front      |      front      | 10124 |   TCP    |       Active        |      |
+| ipfs                       |      main       |      main       | 10125 |   TCP    |       Active        |      |
+| nano-wallet                |      main       |      main       | 10126 |   TCP    |       Active        |      |
+| projectsend                |      main       |      main       | 10127 |   TCP    |       Active        |      |
+| endlessh                   |      main       |      main       | 10128 |   TCP    |       Active        |      |
+| darktable                  |      main       |      main       | 10129 |   TCP    |       Active        |      |
+| emulatorjs                 |      main       |      main       | 10130 |   TCP    |       Active        |      |
+| firefox                    |      main       |      main       | 10131 |   TCP    |       Active        |      |
+| hedgedoc                   |      main       |      main       | 10132 |   TCP    |       Active        |      |
+| libreoffice                |      main       |      main       | 10133 |   TCP    |       Active        |      |
+| mysql-workbench            |      main       |      main       | 10134 |   TCP    |       Active        |      |
+| openvscode-server          |      main       |      main       | 10135 |   TCP    |       Active        |      |
+| pidgin                     |      main       |      main       | 10136 |   TCP    |       Active        |      |
+| sqlitebrowser              |      main       |      main       | 10137 |   TCP    |       Active        |      |
+| emulatorjs                 |      ipfs       |      ipfs       | 10138 |   TCP    |       Active        |      |
+| couchpotato                |      main       |      main       | 10139 |   TCP    |       Active        |      |
+| paperless-ng               |      main       |      main       | 10140 |   TCP    |       Active        |      |
+| papermerge                 |      main       |      main       | 10141 |   TCP    |       Active        |      |
+| boinc                      |      main       |      main       | 10142 |   TCP    |       Active        |      |
+| dillinger                  |      main       |      main       | 10143 |   TCP    |       Active        |      |
+| domoticz                   |      main       |      main       | 10144 |   TCP    |       Active        |      |
+| fleet                      |      main       |      main       | 10145 |   TCP    |       Active        |      |
+| habridge                   |      main       |      main       | 10146 |   TCP    |       Active        |      |
+| ipfs                       |     gateway     |     gateway     | 10147 |   TCP    |       Active        |      |
+| kodi-headless              |      main       |      main       | 10148 |   TCP    |       Active        |      |
+| pwndrop                    |      main       |      main       | 10149 |   TCP    |       Active        |      |
+| pydio-cells                |      main       |      main       | 10150 |  HTTPS   |       Active        |      |
+| scrutiny                   |      main       |      main       | 10151 |   TCP    |       Active        |      |
+| kodi-headless              |    websocket    |    websocket    | 10152 |   TCP    |       Active        |      |
+| shlink                     |      main       |      main       | 10153 |   TCP    |       Active        |      |
+| shlink-web-client          |      main       |      main       | 10154 |   HTTP   |       Active        |      |
+| airdcpp-webclient          |      main       |      main       | 10155 |   TCP    |       Active        |      |
+| trilium-notes              |      main       |      main       | 10156 |   HTTP   |       Active        |      |
+| unmanic                    |      main       |      main       | 10157 |   TCP    |       Active        |      |
+| weblate                    |      main       |      main       | 10158 |   TCP    |       Active        |      |
+| photoview                  |      main       |      main       | 10159 |   TCP    |       Active        |      |
+| linkace                    |      main       |      main       | 10160 |   TCP    |       Active        |      |
+| librephotos                |      main       |      main       | 10161 |   TCP    |       Active        |      |
+| pydio-cells                |   healthcheck   |   healthcheck   | 10162 |   TCP    |       Active        |      |
+| grist                      |      main       |      main       | 10163 |   TCP    |       Active        |      |
+| grist                      |       api       |       api       | 10164 |   TCP    |       Active        |      |
+| budge                      |      main       |      main       | 10165 |   TCP    |       Active        |      |
+| alist                      |      main       |      main       | 10167 |   TCP    |       Active        |      |
+| ddns-go                    |      main       |      main       | 10168 |   TCP    |       Active        |      |
+| openhab                    |      main       |      main       | 10169 |   TCP    |       Active        |      |
+| openhab                    |      https      |      https      | 10170 |   TCP    |       Active        |      |
+| redmine                    |      main       |      main       | 10171 |   TCP    |       Active        |      |
+| matomo                     |      main       |      main       | 10172 |   HTTP   |       Active        |      |
+| matomo                     |      https      |      https      | 10173 |  HTTPS   |       Active        |      |
+| flexget                    |      main       |      main       | 10174 |   TCP    |       Active        |      |
+| qinglong                   |      main       |      main       | 10176 |   TCP    |       Active        |      |
+| lanraragi                  |      main       |      main       | 10177 |   TCP    |       Active        |      |
+| homer                      |      main       |      main       | 10178 |   TCP    |       Active        |      |
+| tinymediamanager           |      main       |      main       | 10179 |   TCP    |       Active        |      |
+| makemkv                    |      main       |      main       | 10180 |   TCP    |       Active        |      |
+| makemkv                    |       vnc       |       vnc       | 10181 |   TCP    |       Active        |      |
+| nextpvr                    |      main       |      main       | 10183 |   TCP    |       Active        |      |
+| ispy-agent-dvr             |      main       |      main       | 10184 |   TCP    |       Active        |      |
+| koel                       |      main       |      main       | 10185 |   TCP    |       Active        |      |
+| hammond                    |      main       |      main       | 10186 |   TCP    |       Active        |      |
+| filebrowser                |      main       |      main       | 10187 |   TCP    |       Active        |      |
+| iyuuplus                   |      main       |      main       | 10188 |   TCP    |       Active        |      |
+| kavita                     |      main       |      main       | 10189 |   TCP    |       Active        |      |
+| zerotier                   |      main       |      main       | 10190 |   UDP    |       Active        |      |
+| rsshub                     |      main       |      main       | 10191 |   TCP    |       Active        |      |
+| wekan                      |      main       |      main       | 10192 |   TCP    |       Active        |      |
+| verysync                   |      main       |      main       | 10193 |   TCP    |       Active        |      |
+| browserless-chrome         |      main       |      main       | 10194 |   TCP    |       Active        |      |
+| kutt                       |      main       |      main       | 10195 |   TCP    |       Active        |      |
+| outline                    |      main       |      main       | 10196 |   TCP    |       Active        |      |
+| chevereto                  |      main       |      main       | 10197 |   TCP    |       Active        |      |
+| kimai                      |      main       |      main       | 10198 |   TCP    |       Active        |      |
+| double-take                |      main       |      main       | 10200 |   TCP    |       Active        |      |
+| ml-workspace               |      main       |      main       | 10201 |   TCP    |       Active        |      |
+| ferdi-server               |      main       |      main       | 10206 |   TCP    |       Active        |      |
+| typecho                    |      main       |      main       | 10207 |   TCP    |       Active        |      |
+| xwiki                      |      main       |      main       | 10208 |   TCP    |       Active        |      |
+| picoshare                  |      main       |      main       | 10209 |   TCP    |       Active        |      |
+| linkding                   |      main       |      main       | 10210 |   TCP    |       Active        |      |
+| pinry                      |      main       |      main       | 10213 |   TCP    |       Active        |      |
+| drawio                     |      main       |      main       | 10214 |   TCP    |       Active        |      |
+| snapdrop                   |      main       |      main       | 10215 |   TCP    |       Active        |      |
+| metube                     |      main       |      main       | 10216 |   TCP    |       Active        |      |
+| cyberchef                  |      main       |      main       | 10219 |   TCP    |       Active        |      |
+| vikunja                    |      main       |      main       | 10220 |   TCP    |       Active        |      |
+| website-shot               |      main       |      main       | 10221 |   TCP    |       Active        |      |
+| ntfy                       |      main       |      main       | 10222 |   TCP    |       Active        |      |
+| audiobookshelf             |      main       |      main       | 10223 |   TCP    |       Active        |      |
+| fluidd                     |      main       |      main       | 10224 |   TCP    |       Active        |      |
+| rss-bridge                 |      main       |      main       | 10225 |   TCP    |       Active        |      |
+| nocodb                     |      main       |      main       | 10226 |   TCP    |       Active        |      |
+| ddns-updater               |      main       |      main       | 10227 |   TCP    |       Active        |      |
+| mkvtoolnix                 |      main       |      main       | 10236 |   TCP    |       Active        |      |
+| mkvtoolnix                 |       vnc       |       vnc       | 10237 |   TCP    |       Active        |      |
+| storj-node                 |      main       |      main       | 14002 |   TCP    |       Active        |      |
+| hyperion-ng                | boblightservice | boblightservice | 19333 |   TCP    |       Active        |      |
+| hyperion-ng                |   jsonservice   |   jsonservice   | 19444 |   TCP    |       Active        |      |
+| hyperion-ng                | protobufservice | protobufservice | 19445 |   TCP    |       Active        |      |
+| syncthing                  |    discovery    |    discovery    | 21027 |   UDP    |       Active        |      |
+| airdcpp-webclient          | unencrypted-tcp | unencrypted-tcp | 21248 |   TCP    |       Active        |      |
+| airdcpp-webclient          |   search-udp    |   search-udp    | 21248 |   UDP    |       Active        |      |
+| airdcpp-webclient          |  encrypted-tcp  |  encrypted-tcp  | 21249 |   TCP    |       Active        |      |
+| syncthing                  |    listeners    |       tcp       | 22000 |   TCP    |       Active        |      |
+| syncthing                  |  listeners-udp  |       udp       | 22000 |   UDP    |       Active        |      |
+| verysync                   |     bt-udp2     |     bt-udp2     | 22027 |   UDP    |       Active        |      |
+| verysync                   |     bt-udp1     |     bt-udp1     | 22037 |   UDP    |       Active        |      |
+| joplin-server              |      main       |      main       | 22300 |   TCP    |       Active        |      |
+| verysync                   |      data       |      data       | 22330 |   TCP    |       Active        |      |
+| storj-node                 |     coretcp     |     coretcp     | 28967 |   TCP    |       Active        |      |
+| storj-node                 |     coreudp     |     coreudp     | 28967 |   UDP    |       Active        |      |
+| omada-controller           |    omada-udp    |   omada-udp1    | 29810 |   UDP    |       Active        |      |
+| omada-controller           |    omada-tcp    |   omada-tcp1    | 29811 |   TCP    |       Active        |      |
+| omada-controller           |    omada-tcp    |   omada-tcp2    | 29812 |   TCP    |       Active        |      |
+| omada-controller           |    omada-tcp    |   omada-tcp3    | 29813 |   TCP    |       Active        |      |
+| omada-controller           |    omada-tcp    |   omada-tcp4    | 29814 |   TCP    |       Active        |      |
+| teamspeak3                 |      files      |      files      | 30033 |   TCP    |       Active        |      |
+| plex                       |      main       |      main       | 32400 |   TCP    |       Active        |      |
+| pydio-cells                |      gprc       |      gprc       | 33060 |   TCP    |       Active        |      |
+| xteve                      |      main       |      main       | 34400 |   TCP    |       Active        |      |
+| foldingathome              |     control     |     control     | 36330 |   TCP    |       Active        |      |
+| habridge                   |      comm       |      comm       | 50000 |   TCP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc0     | 50000 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc1     | 50001 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc2     | 50002 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc3     | 50003 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc4     | 50004 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc5     | 50005 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc6     | 50006 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc7     | 50007 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc8     | 50008 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |     webrtc9     | 50009 |   UDP    |       Active        |      |
+| ispy-agent-dvr             |     webrtc      |    webrtc10     | 50010 |   UDP    |       Active        |      |
+| appdaemon                  |       tcp       |       tcp       | 51050 |   TCP    |       Active        |      |
+| podgrab                    |       tcp       |       tcp       | 51080 |   TCP    |       Active        |      |
+| deluge                     |     torrent     |       tcp       | 51413 |   TCP    |       Active        |      |
+| deluge                     |   torrent-udp   |       udp       | 51413 |   UDP    |       Active        |      |
+| transmission               |     torrent     |     torrent     | 51414 |   TCP    |       Active        |      |
+| transmission               |   torrentudp    |   torrentudp    | 51414 |   UDP    |       Active        |      |
+| resilio-sync               |     bt-tcp      |     bt-tcp      | 55555 |   TCP    |       Active        |      |
+| resilio-sync               |     bt-udp      |     bt-udp      | 55555 |   UDP    |       Active        |      |
+| quassel-web                |      main       |      main       | 64080 |   TCP    |       Active        |      |
 
 ## Incubator
 
-| App                   |     Service     |    Port Name    | Port  | Protocol | Note |
-| :-------------------- | :-------------: | :-------------: | :---: | :------: | :--: |
-| adguard-home          |     dns-tcp     |     dns-tcp     |  53   |   TCP    |      |
-| adguard-home          |     dns-udp     |     dns-udp     |  53   |   UDP    |      |
-| technitium            |     dns-tcp     |     dns-tcp     |  53   |   TCP    |      |
-| technitium            |     dns-udp     |     dns-udp     |  53   |   UDP    |      |
-| zabbix-server         |    snmptraps    |    snmptraps    |  162  |   UDP    |      |
-| cups-server           |      main       |      main       |  631  |   TCP    |      |
-| adguard-home          | dns-quic-udp-1  | dns-quic-udp-1  |  784  |   UDP    |      |
-| adguard-home          | dns-quic-udp-2  | dns-quic-udp-2  |  853  |   UDP    |      |
-| technitium            |     dns-tls     |     dns-tls     |  853  |   TCP    |      |
-| frigate               |      rtmp       |      rtmp       | 1935  |   TCP    |      |
-| frigate               |      main       |      main       | 5000  |   TCP    |      |
-| technitium            |      main       |      main       | 5380  |   TCP    |      |
-| adguard-home          |    dns-crypt    |    dns-crypt    | 5443  |   TCP    |      |
-| adguard-home          |  dns-crypt-udp  |  dns-crypt-udp  | 5443  |   UDP    |      |
-| homebridge            |      main       |      main       | 8581  |   TCP    |      |
-| adguard-home          | dns-quic-udp-3  | dns-quic-udp-3  | 8853  |   UDP    |      |
-| piwigo                |      main       |      main       | 10027 |   TCP    |      |
-| ghost                 |      main       |      main       | 10166 |   TCP    |      |
-| self-service-password |      main       |      main       | 10182 |   TCP    |      |
-| filerun               |      main       |      main       | 10199 |   TCP    |      |
-| technitium            |    dns-cert     |    dns-cert     | 10202 |   TCP    |      |
-| technitium            |    dns-https    |    dns-https    | 10203 |   TCP    |      |
-| technitium            | dns-https-proxy | dns-https-proxy | 10204 |   TCP    |      |
-| meshcentral           |      main       |      main       | 10205 |  HTTPS   |      |
-| zabbix-server         |      main       |      main       | 10211 |   TCP    |      |
-| zabbix-server         |     server      |     server      | 10212 |   TCP    |      |
-| appsmith              |      main       |      main       | 10217 |   TCP    |      |
-| appsmith              |   supervisor    |   supervisor    | 10218 |   TCP    |      |
-| baserow               |      main       |      main       | 10228 |   TCP    |      |
-| authentik             |      https      |      https      | 10229 |  HTTPS   |      |
-| authentik             |      main       |      main       | 10230 |   TCP    |      |
-| inventree             |      main       |      main       | 10231 |   TCP    |      |
-| adguard-home          |      main       |      main       | 10232 |   TCP    |      |
-| adguard-home          |    dns-http     |    dns-http     | 10233 |   TCP    |      |
-| adguard-home          |    dns-https    |    dns-https    | 10234 |   TCP    |      |
-| adguard-home          |  dns-https-udp  |  dns-https-udp  | 10234 |   UDP    |      |
-| kopia                 |      main       |      main       | 10238 |   TCP    |      |
-| netdata               |      main       |      main       | 19999 |   TCP    |      |
+| App                   |     Service     |    Port Name    | Port  | Protocol | Status | Note |
+| :-------------------- | :-------------: | :-------------: | :---: | :------: | :----: | :--: |
+| adguard-home          |     dns-tcp     |     dns-tcp     |  53   |   TCP    | Active |      |
+| adguard-home          |     dns-udp     |     dns-udp     |  53   |   UDP    | Active |      |
+| technitium            |     dns-tcp     |     dns-tcp     |  53   |   TCP    | Active |      |
+| technitium            |     dns-udp     |     dns-udp     |  53   |   UDP    | Active |      |
+| zabbix-server         |    snmptraps    |    snmptraps    |  162  |   UDP    | Active |      |
+| cups-server           |      main       |      main       |  631  |   TCP    | Active |      |
+| adguard-home          | dns-quic-udp-1  | dns-quic-udp-1  |  784  |   UDP    | Active |      |
+| adguard-home          | dns-quic-udp-2  | dns-quic-udp-2  |  853  |   UDP    | Active |      |
+| technitium            |     dns-tls     |     dns-tls     |  853  |   TCP    | Active |      |
+| frigate               |      rtmp       |      rtmp       | 1935  |   TCP    | Active |      |
+| frigate               |      main       |      main       | 5000  |   TCP    | Active |      |
+| technitium            |      main       |      main       | 5380  |   TCP    | Active |      |
+| adguard-home          |    dns-crypt    |    dns-crypt    | 5443  |   TCP    | Active |      |
+| adguard-home          |  dns-crypt-udp  |  dns-crypt-udp  | 5443  |   UDP    | Active |      |
+| homebridge            |      main       |      main       | 8581  |   TCP    | Active |      |
+| adguard-home          | dns-quic-udp-3  | dns-quic-udp-3  | 8853  |   UDP    | Active |      |
+| piwigo                |      main       |      main       | 10027 |   TCP    | Active |      |
+| ghost                 |      main       |      main       | 10166 |   TCP    | Active |      |
+| self-service-password |      main       |      main       | 10182 |   TCP    | Active |      |
+| filerun               |      main       |      main       | 10199 |   TCP    | Active |      |
+| technitium            |    dns-cert     |    dns-cert     | 10202 |   TCP    | Active |      |
+| technitium            |    dns-https    |    dns-https    | 10203 |   TCP    | Active |      |
+| technitium            | dns-https-proxy | dns-https-proxy | 10204 |   TCP    | Active |      |
+| meshcentral           |      main       |      main       | 10205 |  HTTPS   | Active |      |
+| zabbix-server         |      main       |      main       | 10211 |   TCP    | Active |      |
+| zabbix-server         |     server      |     server      | 10212 |   TCP    | Active |      |
+| appsmith              |      main       |      main       | 10217 |   TCP    | Active |      |
+| appsmith              |   supervisor    |   supervisor    | 10218 |   TCP    | Active |      |
+| baserow               |      main       |      main       | 10228 |   TCP    | Active |      |
+| authentik             |      https      |      https      | 10229 |  HTTPS   | Active |      |
+| authentik             |      main       |      main       | 10230 |   TCP    | Active |      |
+| inventree             |      main       |      main       | 10231 |   TCP    | Active |      |
+| adguard-home          |      main       |      main       | 10232 |   TCP    | Active |      |
+| adguard-home          |    dns-http     |    dns-http     | 10233 |   TCP    | Active |      |
+| adguard-home          |    dns-https    |    dns-https    | 10234 |   TCP    | Active |      |
+| adguard-home          |  dns-https-udp  |  dns-https-udp  | 10234 |   UDP    | Active |      |
+| kopia                 |      main       |      main       | 10238 |   TCP    | Active |      |
+| netdata               |      main       |      main       | 19999 |   TCP    | Active |      |
 
 ## Dev
 
-| App                     |    Service     |   Port Name    | Port  | Protocol |       Note       |
-| :---------------------- | :------------: | :------------: | :---: | :------: | :--------------: |
-| ama                     |      main      |       -        |   -   |    -     | Service Disabled |
-| ambd                    |      main      |       -        |   -   |    -     | Service Disabled |
-| amtd                    |      main      |       -        |   -   |    -     | Service Disabled |
-| amvd                    |      main      |       -        |   -   |    -     | Service Disabled |
-| android-8-0             |      main      |       -        |   -   |    -     | Service Disabled |
-| anope                   |      main      |       -        |   -   |    -     | Service Disabled |
-| atd                     |      main      |       -        |   -   |    -     | Service Disabled |
-| aurora-files            |      main      |       -        |   -   |    -     | Service Disabled |
-| autoscan                |      main      |       -        |   -   |    -     | Service Disabled |
-| breitbandmessung-de     |      main      |       -        |   -   |    -     | Service Disabled |
-| bwapp                   |      main      |       -        |   -   |    -     | Service Disabled |
-| adguard-home            |   dnsserver    |   dnsserver    |  53   |   TCP    |                  |
-| baikal                  |      main      |      main      |  80   |   TCP    |                  |
-| arma3                   |      main      |      main      | 2302  |   TCP    |                  |
-| arma3                   |  udpgameport   |  udpgameport   | 2302  |   UDP    |                  |
-| arma3exilemod           |      main      |      main      | 2302  |   TCP    |                  |
-| arma3exilemod           |  udpgameport   |  udpgameport   | 2302  |   UDP    |                  |
-| arma3                   | udpsteamquerry | udpsteamquerry | 2303  |   UDP    |                  |
-| arma3exilemod           | udpsteamquerry | udpsteamquerry | 2303  |   UDP    |                  |
-| arma3                   | udpsteammaster | udpsteammaster | 2304  |   UDP    |                  |
-| arma3exilemod           | udpsteammaster | udpsteammaster | 2304  |   UDP    |                  |
-| arma3                   |   udpvonport   |   udpvonport   | 2305  |   UDP    |                  |
-| arma3exilemod           |   udpvonport   |   udpvonport   | 2305  |   UDP    |                  |
-| arma3                   | udpbattleyetra | udpbattleyetra | 2306  |   UDP    |                  |
-| arma3exilemod           | udpbattleyetra | udpbattleyetra | 2306  |   UDP    |                  |
-| adguard-home            |      main      |      main      | 3000  |   HTTP   |                  |
-| blender                 |      main      |      main      | 3000  |   TCP    |                  |
-| apt-cacher-ng           |      main      |      main      | 3142  |   TCP    |                  |
-| arma3exilemod           |   tcpmariadb   |   tcpmariadb   | 3306  |   TCP    |                  |
-| amule                   |    porttcp     |    porttcp     | 4662  |   TCP    |                  |
-| amule                   |    portudp     |    portudp     | 4672  |   UDP    |                  |
-| amule                   |      main      |      main      | 4711  |   HTTP   |                  |
-| auto-yt-dl              |      main      |      main      | 5000  |   TCP    |                  |
-| androiddebugbridge      |      main      |      main      | 5037  |   TCP    |                  |
-| btdex                   |      main      |      main      | 5800  |   TCP    |                  |
-| blender-desktop-g3      |    webuivnc    |    webuivnc    | 5901  |   TCP    |                  |
-| bitcoinwalletgui        |    vncport     |    vncport     | 5905  |   TCP    |                  |
-| bitcoinwalletgui        |      main      |      main      | 6901  |   HTTP   |                  |
-| blender-desktop-g3      |      main      |      main      | 6901  |   HTTP   |                  |
-| arksurvivalevolved      |      main      |      main      | 7777  |   UDP    |                  |
-| arksurvivalevolved      |      udp2      |      udp2      | 7778  |   UDP    |                  |
-| apprise-api             |      main      |      main      | 8000  |   TCP    |                  |
-| backuppc                |      main      |      main      | 8000  |   TCP    |                  |
-| archiveteam-warrior     |      main      |      main      | 8001  |   TCP    |                  |
-| acestream               |      main      |      main      | 8008  |   TCP    |                  |
-| adguardhome-sync        |      main      |      main      | 8080  |   TCP    |                  |
-| adminer                 |      main      |      main      | 8080  |   TCP    |                  |
-| server-7daystodie       | webbasecontrol | webbasecontrol | 8080  |   TCP    |                  |
-| assettocorsa            |      tcp2      |      tcp2      | 8081  |   TCP    |                  |
-| server-7daystodie       |    webpanel    |    webpanel    | 8082  |   TCP    |                  |
-| artifactory-oss         |      main      |      main      | 8181  |   TCP    |                  |
-| bitcoin-node            |      main      |      main      | 8332  |   TCP    |                  |
-| bitcoind                |    localrpc    |    localrpc    | 8332  |   TCP    |                  |
-| bitcoinunlimited        |      main      |      main      | 8332  |   TCP    |                  |
-| bitcoin-node            |     port2      |     port2      | 8333  |   TCP    |                  |
-| bitcoind                |      main      |      main      | 8333  |   TCP    |                  |
-| bitcoinunlimited        | communicationp | communicationp | 8333  |   TCP    |                  |
-| apache-webdav           |      main      |      main      | 8384  |   TCP    |                  |
-| barcodebuddy            |      main      |      main      | 8450  |   TCP    |                  |
-| assettocorsa            |    assetto     |    assetto     | 8772  |   TCP    |                  |
-| americasarmy-pg         |      main      |      main      | 8778  |   UDP    |                  |
-| assettocorsa            |      main      |      main      | 9600  |   TCP    |                  |
-| assettocorsa            |      udp       |      udp       | 9600  |   UDP    |                  |
-| bitcoinunlimited        | testnetrpcport | testnetrpcport | 18332 |   TCP    |                  |
-| bitcoinunlimited        | testnetcommuni | testnetcommuni | 18333 |   TCP    |                  |
-| server-7daystodie       |      main      |      main      | 26900 |   TCP    |                  |
-| server-7daystodie       | steammasterser | steammasterser | 26900 |   UDP    |                  |
-| server-7daystodie       | steamcommunica | steamcommunica | 26901 |   UDP    |                  |
-| server-7daystodie       |     raknet     |     raknet     | 26902 |   UDP    |                  |
-| server-7daystodie       |      unet      |      unet      | 26903 |   UDP    |                  |
-| avorion                 |   hostport2    |   hostport2    | 27000 |   UDP    |                  |
-| avorion                 |      main      |      main      | 27000 |   TCP    |                  |
-| avorion                 |   hostport3    |   hostport3    | 27003 |   UDP    |                  |
-| alienswarm              |      main      |      main      | 27015 |   TCP    |                  |
-| alienswarm              |    gameport    |  tcp-rconport  | 27015 |   UDP    |                  |
-| alienswarm-reactivedrop |      main      |      main      | 27015 |   UDP    |                  |
-| alienswarm-reactivedrop |  tcp-rconport  |  tcp-rconport  | 27015 |   TCP    |                  |
-| americasarmy-pg         | steamqueryport | steamqueryport | 27015 |   UDP    |                  |
-| arksurvivalevolved      |    udpsteam    |    udpsteam    | 27015 |   UDP    |                  |
-| barotrauma              |      main      |      main      | 27015 |   UDP    |                  |
-| server-7daystodie       | registeringats | registeringats | 27015 |   UDP    |                  |
-| barotrauma              | steamqueryport | steamqueryport | 27016 |   UDP    |                  |
-| arksurvivalevolved      |    rcontcp     |    rcontcp     | 27020 |   TCP    |                  |
-| avorion                 |   hostport4    |   hostport4    | 27020 |   UDP    |                  |
-| avorion                 |   hostport5    |   hostport5    | 27021 |   UDP    |                  |
-| altitude                |      main      |      main      | 27276 |   UDP    |                  |
-| assettocorsa            |    stracker    |    stracker    | 50041 |   TCP    |                  |
+| App                     |    Service     |   Port Name    | Port  | Protocol |       Status        | Note |
+| :---------------------- | :------------: | :------------: | :---: | :------: | :-----------------: | :--: |
+| ama                     |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| ambd                    |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| amtd                    |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| amvd                    |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| android-8-0             |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| anope                   |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| atd                     |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| aurora-files            |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| autoscan                |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| breitbandmessung-de     |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| bwapp                   |      main      |       -        |   -   |    -     | Service is Disabled |      |
+| adguard-home            |   dnsserver    |   dnsserver    |  53   |   TCP    |       Active        |      |
+| baikal                  |      main      |      main      |  80   |   TCP    |       Active        |      |
+| arma3                   |      main      |      main      | 2302  |   TCP    |       Active        |      |
+| arma3                   |  udpgameport   |  udpgameport   | 2302  |   UDP    |       Active        |      |
+| arma3exilemod           |      main      |      main      | 2302  |   TCP    |       Active        |      |
+| arma3exilemod           |  udpgameport   |  udpgameport   | 2302  |   UDP    |       Active        |      |
+| arma3                   | udpsteamquerry | udpsteamquerry | 2303  |   UDP    |       Active        |      |
+| arma3exilemod           | udpsteamquerry | udpsteamquerry | 2303  |   UDP    |       Active        |      |
+| arma3                   | udpsteammaster | udpsteammaster | 2304  |   UDP    |       Active        |      |
+| arma3exilemod           | udpsteammaster | udpsteammaster | 2304  |   UDP    |       Active        |      |
+| arma3                   |   udpvonport   |   udpvonport   | 2305  |   UDP    |       Active        |      |
+| arma3exilemod           |   udpvonport   |   udpvonport   | 2305  |   UDP    |       Active        |      |
+| arma3                   | udpbattleyetra | udpbattleyetra | 2306  |   UDP    |       Active        |      |
+| arma3exilemod           | udpbattleyetra | udpbattleyetra | 2306  |   UDP    |       Active        |      |
+| adguard-home            |      main      |      main      | 3000  |   HTTP   |       Active        |      |
+| blender                 |      main      |      main      | 3000  |   TCP    |       Active        |      |
+| apt-cacher-ng           |      main      |      main      | 3142  |   TCP    |       Active        |      |
+| arma3exilemod           |   tcpmariadb   |   tcpmariadb   | 3306  |   TCP    |       Active        |      |
+| amule                   |    porttcp     |    porttcp     | 4662  |   TCP    |       Active        |      |
+| amule                   |    portudp     |    portudp     | 4672  |   UDP    |       Active        |      |
+| amule                   |      main      |      main      | 4711  |   HTTP   |       Active        |      |
+| auto-yt-dl              |      main      |      main      | 5000  |   TCP    |       Active        |      |
+| androiddebugbridge      |      main      |      main      | 5037  |   TCP    |       Active        |      |
+| btdex                   |      main      |      main      | 5800  |   TCP    |       Active        |      |
+| blender-desktop-g3      |    webuivnc    |    webuivnc    | 5901  |   TCP    |       Active        |      |
+| bitcoinwalletgui        |    vncport     |    vncport     | 5905  |   TCP    |       Active        |      |
+| bitcoinwalletgui        |      main      |      main      | 6901  |   HTTP   |       Active        |      |
+| blender-desktop-g3      |      main      |      main      | 6901  |   HTTP   |       Active        |      |
+| arksurvivalevolved      |      main      |      main      | 7777  |   UDP    |       Active        |      |
+| arksurvivalevolved      |      udp2      |      udp2      | 7778  |   UDP    |       Active        |      |
+| apprise-api             |      main      |      main      | 8000  |   TCP    |       Active        |      |
+| backuppc                |      main      |      main      | 8000  |   TCP    |       Active        |      |
+| archiveteam-warrior     |      main      |      main      | 8001  |   TCP    |       Active        |      |
+| adguardhome-sync        |      main      |      main      | 8080  |   TCP    |       Active        |      |
+| adminer                 |      main      |      main      | 8080  |   TCP    |       Active        |      |
+| server-7daystodie       | webbasecontrol | webbasecontrol | 8080  |   TCP    |       Active        |      |
+| assettocorsa            |      tcp2      |      tcp2      | 8081  |   TCP    |       Active        |      |
+| server-7daystodie       |    webpanel    |    webpanel    | 8082  |   TCP    |       Active        |      |
+| artifactory-oss         |      main      |      main      | 8181  |   TCP    |       Active        |      |
+| bitcoin-node            |      main      |      main      | 8332  |   TCP    |       Active        |      |
+| bitcoind                |    localrpc    |    localrpc    | 8332  |   TCP    |       Active        |      |
+| bitcoinunlimited        |      main      |      main      | 8332  |   TCP    |       Active        |      |
+| bitcoin-node            |     port2      |     port2      | 8333  |   TCP    |       Active        |      |
+| bitcoind                |      main      |      main      | 8333  |   TCP    |       Active        |      |
+| bitcoinunlimited        | communicationp | communicationp | 8333  |   TCP    |       Active        |      |
+| apache-webdav           |      main      |      main      | 8384  |   TCP    |       Active        |      |
+| barcodebuddy            |      main      |      main      | 8450  |   TCP    |       Active        |      |
+| assettocorsa            |    assetto     |    assetto     | 8772  |   TCP    |       Active        |      |
+| americasarmy-pg         |      main      |      main      | 8778  |   UDP    |       Active        |      |
+| assettocorsa            |      main      |      main      | 9600  |   TCP    |       Active        |      |
+| assettocorsa            |      udp       |      udp       | 9600  |   UDP    |       Active        |      |
+| bitcoinunlimited        | testnetrpcport | testnetrpcport | 18332 |   TCP    |       Active        |      |
+| bitcoinunlimited        | testnetcommuni | testnetcommuni | 18333 |   TCP    |       Active        |      |
+| server-7daystodie       |      main      |      main      | 26900 |   TCP    |       Active        |      |
+| server-7daystodie       | steammasterser | steammasterser | 26900 |   UDP    |       Active        |      |
+| server-7daystodie       | steamcommunica | steamcommunica | 26901 |   UDP    |       Active        |      |
+| server-7daystodie       |     raknet     |     raknet     | 26902 |   UDP    |       Active        |      |
+| server-7daystodie       |      unet      |      unet      | 26903 |   UDP    |       Active        |      |
+| avorion                 |   hostport2    |   hostport2    | 27000 |   UDP    |       Active        |      |
+| avorion                 |      main      |      main      | 27000 |   TCP    |       Active        |      |
+| avorion                 |   hostport3    |   hostport3    | 27003 |   UDP    |       Active        |      |
+| alienswarm              |      main      |      main      | 27015 |   TCP    |       Active        |      |
+| alienswarm              |    gameport    |  tcp-rconport  | 27015 |   UDP    |       Active        |      |
+| alienswarm-reactivedrop |      main      |      main      | 27015 |   UDP    |       Active        |      |
+| alienswarm-reactivedrop |  tcp-rconport  |  tcp-rconport  | 27015 |   TCP    |       Active        |      |
+| americasarmy-pg         | steamqueryport | steamqueryport | 27015 |   UDP    |       Active        |      |
+| arksurvivalevolved      |    udpsteam    |    udpsteam    | 27015 |   UDP    |       Active        |      |
+| barotrauma              |      main      |      main      | 27015 |   UDP    |       Active        |      |
+| server-7daystodie       | registeringats | registeringats | 27015 |   UDP    |       Active        |      |
+| barotrauma              | steamqueryport | steamqueryport | 27016 |   UDP    |       Active        |      |
+| arksurvivalevolved      |    rcontcp     |    rcontcp     | 27020 |   TCP    |       Active        |      |
+| avorion                 |   hostport4    |   hostport4    | 27020 |   UDP    |       Active        |      |
+| avorion                 |   hostport5    |   hostport5    | 27021 |   UDP    |       Active        |      |
+| altitude                |      main      |      main      | 27276 |   UDP    |       Active        |      |
+| assettocorsa            |    stracker    |    stracker    | 50041 |   TCP    |       Active        |      |
+
+## Dependency
+
+| App        | Service | Port Name | Port  | Protocol | Status | Note |
+| :--------- | :-----: | :-------: | :---: | :------: | :----: | :--: |
+| promtail   |  main   |   main    | 3101  |   TCP    | Active |      |
+| mariadb    |  main   |   main    | 3306  |   TCP    | Active |      |
+| postgresql |  main   |   main    | 5432  |   TCP    | Active |      |
+| redis      |  main   |   main    | 6379  |   TCP    | Active |      |
+| memcached  |  main   |   main    | 11211 |   TCP    | Active |      |
+| mongodb    |  main   |   main    | 27017 |   TCP    | Active |      |
+
+## Games
+
+| App               |  Service   | Port Name  | Port  | Protocol | Status | Note |
+| :---------------- | :--------: | :--------: | :---: | :------: | :----: | :--: |
+| valheim           |  valheim   |  valheim1  | 2456  |   UDP    | Active |      |
+| valheim           |  valheim   |  valheim2  | 2457  |   UDP    | Active |      |
+| valheim           |  valheim   |  valheim3  | 2458  |   UDP    | Active |      |
+| satisfactory      |    main    |    main    | 7777  |   UDP    | Active |      |
+| valheim           |    main    |    main    | 9010  |   TCP    | Active |      |
+| valheim           | supervisor | supervisor | 9011  |   TCP    | Active |      |
+| satisfactory      |   beacon   |   beacon   | 15000 |   UDP    | Active |      |
+| satisfactory      |   query    |   query    | 15777 |   UDP    | Active |      |
+| minecraft-bedrock |    main    |    main    | 19132 |   UDP    | Active |      |
+| impostor-server   |    main    |    main    | 22023 |   UDP    | Active |      |
+| minecraft-java    |    main    |    main    | 25565 |   TCP    | Active |      |
+| minecraft-java    |    rcon    |    rcon    | 25575 |   TCP    | Active |      |
+| minetest          |    main    |    main    | 30000 |   UDP    | Active |      |
