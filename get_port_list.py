@@ -1,5 +1,4 @@
 import os
-from typing import Set
 from ruamel.yaml import YAML
 
 yaml = YAML()
