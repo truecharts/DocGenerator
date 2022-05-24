@@ -4,6 +4,9 @@ TRAINS_PATH = "./charts"
 # Name and path of the default port list file
 PORT_LIST_FILE = "./default_port_list.md"
 
+# Name and path of the default volume list file
+VOLUME_LIST_FILE = "./default_volume_list.md"
+
 # Print Verbose Output
 VERBOSE = True
 
@@ -17,10 +20,15 @@ EXCLUDE_APPS = [
     "traefik",
 ]
 
-# The rest trains will be after those
+# This ordered will be used,
+# any trains not listed here and not excluded
+# will be added automatically to the end
+# Any trains not existing in file system will be ignored
 TRAIN_ORDER_FOR_FILES = [
     "core",
-    "stable"
+    "stable",
+    "games"
+    "test_non_existing_train"
 ]
 
 
@@ -36,11 +44,12 @@ PORT_LIST_INTRO = """
 # Default Ports
 
 This document lists the default ports used by Apps.
-These defaults can of course be changed, but as we guarantee "sane, working defaults" they should provide no or minimal conflicts without being changed
+These defaults can of course be changed, but as we guarantee "sane, working defaults",
+they should provide no or minimal conflicts without being changed
 """
 
 
-PORT_LIST_CLOSURE = """
+PORT_LIST_OUTRO = """
 ## Official Apps
 
 | App        |   Service   | Port  |                   Note                    |

@@ -41,7 +41,7 @@ def get_raw_services_list(apps):
     return service_list
 
 
-def create_row(app_name, status, svc_name="-", port_name="-", port="-", protocol="-", note="-"):
+def create_row(app_name, status, svc_name="-", port_name="-", port=0, protocol="-", note="-"):
     """
     Creates a row for the processes services list
     """
@@ -59,7 +59,7 @@ def create_row(app_name, status, svc_name="-", port_name="-", port="-", protocol
         "port_name": port_name,
         "port": port,
         "protocol": protocol,
-        "status": "Service not Defined" if status == "svc_und" else status,
+        "status": status,
         "note": note
     }
 
@@ -106,9 +106,10 @@ def process_service(service, app_name):
             )
         else:
             for port in service[1]['ports'].items():
-                processed_port = process_port(port, app_name)
+                processed_port = process_port(port, app_name, service[0])
                 return create_row(
                     app_name=app_name,
+                    svc_name=service[0],
                     status=processed_port['status']
                 ) if 'port' not in processed_port else create_row(
                     app_name=app_name,
@@ -128,7 +129,7 @@ def process_service(service, app_name):
         )
 
 
-def process_port(port, app_name):
+def process_port(port, app_name, svc_name):
     """
     Returns a processed port
     """
@@ -143,5 +144,6 @@ def process_port(port, app_name):
             "status": setup.Status.ACTIVE
         }
     else:
-        logger(f'Port <{port[0]}> of App: <{app_name}> is Disabled', "YELLOW")
-        return {"port_name": port[0], "status": "port_dis"}
+        logger(
+            f'Port <{port[0]}> of Service: <{svc_name}> in App: <{app_name}> is Disabled', "YELLOW")
+        return {"port_name": port[0], "svc_name": svc_name, "status": "port_dis"}
