@@ -1,6 +1,8 @@
 from pathlib import Path
 from ruamel.yaml import YAML
 from helpers.logger import logger
+from helpers import setup
+
 
 yaml = YAML()
 
@@ -44,13 +46,13 @@ def create_row(app_name, status, svc_name="-", port_name="-", port="-", protocol
     Creates a row for the processes services list
     """
     if status == "port_dis":
-        status = "Port is Disabled"
+        status = setup.Status.PORT_DIS
     if status == "port_und":
-        status = "Port not Defined"
+        status = setup.Status.PORT_UND
     if status == "svc_dis":
-        status = "Service is Disabled"
+        status = setup.Status.SVC_DIS
     if status == "svc_und":
-        status = "Service not Defined"
+        status = setup.Status.SVC_UND
     return {
         "app_name": app_name,
         "svc_name": svc_name,
@@ -71,7 +73,7 @@ def get_processed_services_list(raw_services_list):
         # If there is no service, create a row accordingly
         if not service_section['service']:
             logger(
-                f'App: <{service_section["app_name"]}> has no Service Defined', "BLUE")
+                f'App: <{service_section["app_name"]}> has no Service Defined', "GREEN")
             services_list.append(create_row(
                 app_name=service_section['app_name'],
                 status="svc_und"
@@ -138,7 +140,7 @@ def process_port(port, app_name):
             "port_name": port[0],
             "port": port[1]['port'],
             "protocol": port[1]['protocol'] if 'protocol' in port[1] else "TCP",
-            "status": "Active"
+            "status": setup.Status.ACTIVE
         }
     else:
         logger(f'Port <{port[0]}> of App: <{app_name}> is Disabled', "YELLOW")

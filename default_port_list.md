@@ -1,46 +1,47 @@
-# Path where trains are stored
-TRAINS_PATH = "./charts"
 
-# Name and path of the default port list file
-PORT_LIST_FILE = "./default_port_list.md"
-
-# Print Verbose Output
-VERBOSE = True
-
-# Exclude specific trains
-EXCLUDE_TRAINS = [
-    "dev",
-]
-
-# Exclude specific apps
-EXCLUDE_APPS = [
-    "traefik",
-]
-
-# The rest trains will be after those
-TRAIN_ORDER_FOR_FILES = [
-    "core",
-    "stable"
-]
-
-
-class Status:
-    PORT_DIS = "Port is Disabled"
-    PORT_UND = "Port not Defined"
-    SVC_DIS = "Service is Disabled"
-    SVC_UND = "Service not Defined"
-    ACTIVE = "Active"
-
-
-PORT_LIST_INTRO = """
 # Default Ports
 
 This document lists the default ports used by Apps.
 These defaults can of course be changed, but as we guarantee "sane, working defaults" they should provide no or minimal conflicts without being changed
-"""
+## Incubator
 
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+## Core
 
-PORT_LIST_CLOSURE = """
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|metallb       |-       |-        |-   |-       |Service not Defined|-   |
+|amd-gpu-plugin|-       |-        |-   |-       |Service not Defined|-   |## Stable
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|custom-app                |-       |-        |-   |-       |Service not Defined|-   |
+|webgrabplus               |main    |-        |-   |-       |Service is Disabled|-   |
+|leaf2mqtt                 |main    |-        |-   |-       |Service is Disabled|-   |
+|protonmail-bridge         |main    |-        |-   |-       |Service is Disabled|-   |
+|doplarr                   |main    |-        |-   |-       |Service is Disabled|-   |
+|duckdns                   |main    |-        |-   |-       |Service is Disabled|-   |
+|ddclient                  |main    |-        |-   |-       |Service is Disabled|-   |
+|tdarr-node                |main    |-        |-   |-       |Service is Disabled|-   |
+|rsnapshot                 |main    |-        |-   |-       |Service is Disabled|-   |
+|automatic-music-downloader|main    |-        |-   |-       |Service is Disabled|-   |
+|unpackerr                 |main    |-        |-   |-       |Service is Disabled|-   |
+|amcrest2mqtt              |main    |-        |-   |-       |Service is Disabled|-   |
+|unifi                     |stun    |-        |-   |-       |Port not Defined   |-   |
+|unpoller                  |-       |-        |-   |-       |Port is Disabled   |-   |
+|promcord                  |-       |-        |-   |-       |Port is Disabled   |-   |
+|unifi                     |-       |-        |-   |-       |Port is Disabled   |-   |
+|uptimerobot-prometheus    |-       |-        |-   |-       |Port is Disabled   |-   |
+|speedtest-exporter        |-       |-        |-   |-       |Port is Disabled   |-   |## Dependency
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+## Games
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+
 ## Official Apps
 
 | App        |   Service   | Port  |                   Note                    |
@@ -153,4 +154,3 @@ PORT_LIST_CLOSURE = """
 # Note: TCP and UDP ports that are the same in some Apps, are not by mistake.'
 
 # If you notice a port conflict, please notify us so we can resolve it (when possible).
-"""

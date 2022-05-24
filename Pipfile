@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 "ruamel.yaml" = "*"
+py-markdown-table = "*"
 
 [dev-packages]
 pylint = "*"

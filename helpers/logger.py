@@ -12,11 +12,10 @@ class Colors:
 def logger(message, color):
     if setup.VERBOSE:
         if color == "RED":
-            print(Colors.RED + message)
+            print(Colors.RED + message + Colors.CLEAN)
         if color == "GREEN":
-            print(Colors.GREEN + message)
+            print(Colors.GREEN + message + Colors.CLEAN)
         if color == "BLUE":
-            print(Colors.BLUE + message)
+            print(Colors.BLUE + message + Colors.CLEAN)
         if color == "YELLOW":
-            print(Colors.YELLOW + message)
-        print(Colors.CLEAN)
+            print(Colors.YELLOW + message + Colors.CLEAN)
