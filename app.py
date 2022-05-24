@@ -26,5 +26,7 @@ def main():
     # file_oper.add_text_to_file(setup.VOLUME_LIST_FILE, setup.VOLUME_LIST_OUTRO)
 
 
+# TODO: Find conflicts
+# TODO: Create volume list file
 if __name__ == "__main__":
     main()
