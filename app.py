@@ -1,7 +1,7 @@
 from lib import apps_oper
 from lib import services_oper
 from lib import file_oper
-from helpers import setup
+import setup
 
 
 def main():

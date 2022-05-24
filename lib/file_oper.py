@@ -1,6 +1,6 @@
 from markdownTable import markdownTable
 from pathlib import Path
-from helpers import setup
+import setup
 
 port_file = Path(setup.PORT_LIST_FILE)
 volume_file = Path(setup.VOLUME_LIST_FILE)

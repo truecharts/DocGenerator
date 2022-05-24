@@ -1,7 +1,7 @@
 from pathlib import Path
 from ruamel.yaml import YAML
 from helpers.logger import logger
-from helpers import setup
+import setup
 
 
 yaml = YAML()

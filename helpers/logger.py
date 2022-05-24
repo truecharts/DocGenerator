@@ -1,4 +1,4 @@
-from helpers import setup
+import setup
 
 
 class Colors:
