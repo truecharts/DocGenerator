@@ -27,6 +27,7 @@ def get_conflicts(ports):
     # TODO: Add those conflicts to the notes column of the port list file
     print(conflicts)
 
+# Pseudoalgo
 # """
 # Walk the port list
 # if port number and protocol exists, increment (also save the name)
@@ -34,3 +35,16 @@ def get_conflicts(ports):
 
 
 # """
+# Example output:
+# [
+#   [
+#     53,
+#     "UDP",
+#     ["k8s-gateway", "pihole", "mosdns", "adguard-home", "technitium"]
+#   ],
+#   [10113, "TCP", ["clarkson", "quassel-core"]],
+#   [25, "TCP", ["protonmail-bridge", "anonaddy"]],
+#   [3478, "UDP", ["unifi", "ispy-agent-dvr"]],
+#   [1935, "TCP", ["owncast", "frigate"]],
+#   [8008, "TCP", ["synapse", "acestream"]]
+# ]
