@@ -34,7 +34,6 @@ they should provide no or minimal conflicts without being changed
 |tdarr-node                |main           |-              |-    |-       |Service is Disabled|-   |
 |unpackerr                 |main           |-              |-    |-       |Service is Disabled|-   |
 |webgrabplus               |main           |-              |-    |-       |Service is Disabled|-   |
-|unifi                     |stun           |-              |-    |-       |Port not Defined   |-   |
 |promcord                  |main           |-              |-    |-       |Port is Disabled   |-   |
 |speedtest-exporter        |main           |-              |-    |-       |Port is Disabled   |-   |
 |unifi                     |comm           |-              |-    |-       |Port is Disabled   |-   |
@@ -70,6 +69,7 @@ they should provide no or minimal conflicts without being changed
 |pylon                     |main           |main           |3131 |TCP     |Active             |-   |
 |clamav                    |main           |main           |3310 |TCP     |Active             |-   |
 |ispy-agent-dvr            |turn           |turn           |3478 |UDP     |Active             |-   |
+|unifi                     |stun           |stun           |3478 |UDP     |Active             |-   |
 |logitech-media-server     |playertcp      |slimprototcp   |3483 |TCP     |Active             |-   |
 |logitech-media-server     |playerudp      |slimprotoudp   |3483 |UDP     |Active             |-   |
 |ombi                      |main           |main           |3579 |TCP     |Active             |-   |
