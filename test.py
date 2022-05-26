@@ -7,14 +7,14 @@ def get_conflicts(ports):
         # For each port... if the port is a number (It's not "-")
         if isinstance(port['port'], int):
             # Generate a list of port numbers(0 position holds the port numbers)
-            conflicts = [conflict[0] for conflict in conflicts]
+            temp_list = [conflict[0] for conflict in conflicts]
             # If the port number is in the... list
-            if port['port'] in conflicts:
+            if port['port'] in temp_list:
                 # Get the index of the port number in the conflicts list
-                index = conflicts.index(port['port'])
+                index = temp_list.index(port['port'])
                 # If the protocol of the port is the same as on the port in the mentioned index (1 position holds protocol)
                 if port['protocol'] == conflicts[index][1]:
-                    # Then append the app name to the to the list in posistion 2
+                    # Then append the app name to the to the list in position 2
                     conflicts[index][2].append(port['app_name'])
             else:
                 # If the port number is in NOT the... list

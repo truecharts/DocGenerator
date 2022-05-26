@@ -1,8 +1,8 @@
+import test
+import setup
 from lib import apps_oper
 from lib import services_oper
 from lib import file_oper
-import setup
-import test
 
 
 def main():
