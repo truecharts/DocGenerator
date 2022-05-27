@@ -53,5 +53,6 @@ def main():
         file_oper.add_text_to_file(setup.VOLUME_LIST_FILE, volume_file_content)
 
 
+# TODO: Generate a list of apps and their short descriptions
 if __name__ == "__main__":
     main()
