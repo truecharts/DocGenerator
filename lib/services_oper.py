@@ -158,8 +158,7 @@ def create_port_list_content(port_list, train):
     active_table = []
     # Deepcopy is a must here, otherwise, later when we delete keys, it will modify the original list as well
     filtered_list = copy.deepcopy(port_list)
-    filtered_list = filter(
-        lambda item: item['train'] == train, filtered_list)
+    filtered_list = filter(lambda item: item['train'] == train, filtered_list)
     # Sort by name
     sorted_list = sorted(filtered_list, key=lambda item: item['app_name'])
     # Then sort by port number
@@ -183,6 +182,7 @@ def create_port_list_content(port_list, train):
             port_dis_table.append(port)
         if port['status'] == setup.Status.ACTIVE:
             active_table.append(port)
+    # Order in which they will appear in the file
     table = svc_und_table + svc_dis_table + \
         port_und_table+port_dis_table + active_table
     content += f'## {train.capitalize()}'

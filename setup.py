@@ -37,6 +37,10 @@ TRAIN_ORDER_FOR_FILES = [
 # Print Verbose Output
 VERBOSE = True
 
+# Set to false to NOT generate a file
+GENERATE_PORT_FILE = True
+GENERATE_VOLUME_FILE = True
+
 
 class Status:
     PORT_DIS = "Port is Disabled"
@@ -44,15 +48,16 @@ class Status:
     SVC_DIS = "Service is Disabled"
     SVC_UND = "Service not Defined"
     ACTIVE = "Active"
+    VOL_UND = "Persistence not Defined"
+    VOL_DIS = "Persistence is Disabled"
+    MNT_UND = "Mount Path not Defined"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
-# VOLUME_LIST_INTRO="""INTRO"""
-# VOLUME_LIST_OUTRO="""OUTRO"""
-
-# OFFICIAL_APPS:[
-#     {}
-# ]
 PORT_CONFLICT_NOTE = "Potential conflict with: "
+
+
 PORT_LIST_INTRO = """
 # Default Ports
 
@@ -199,3 +204,13 @@ PORT_LIST_OUTRO = """
 
 # If you notice a port conflict, please notify us so we can resolve it (when possible).
 """
+
+
+VOLUME_LIST_INTRO = """
+# Mounted Volumes
+
+This document lists the mounted volumes for each App.
+The intro needs improvement ;)
+"""
+
+VOLUME_LIST_OUTRO = """Some outro here"""
