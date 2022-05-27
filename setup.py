@@ -1,24 +1,26 @@
 # Path where trains are stored
 TRAINS_PATH = "./charts"
 
+
 # Name and path of the default port list file
 PORT_LIST_FILE = "./default_port_list.md"
+
 
 # Name and path of the default volume list file
 VOLUME_LIST_FILE = "./default_volume_list.md"
 
-# Print Verbose Output
-VERBOSE = True
 
 # Exclude specific trains
 EXCLUDE_TRAINS = [
-    "dev",
+    # "dev",
 ]
+
 
 # Exclude specific apps
 EXCLUDE_APPS = [
-    "traefik",
+    # "traefik",
 ]
+
 
 # This ordered will be used,
 # any trains not listed here and not excluded
@@ -30,6 +32,10 @@ TRAIN_ORDER_FOR_FILES = [
     "games"
     "test_non_existing_train"
 ]
+
+
+# Print Verbose Output
+VERBOSE = True
 
 
 class Status:
@@ -61,34 +67,35 @@ PORT_LIST_OUTRO = """
 
 ### Please keep mind that this list is not updated automatically like the rest of this doc.
 
-| App            |   Service   | Port  |                   Note                    |
-| :------------- | :---------: | :---: | :---------------------------------------: |
-| chia           |    main     | 8444  |                                           |
-| chia           | farmerport  | 8447  |                                           |
-| collabora      |    main     | 9980  |                                           |
-| emby           |    main     | 9096  |                                           |
-| home-assistant |    main     | 20810 |                                           |
-| ipfs           |  swarmport  | 9401  |                                           |
-| ipfs           |   apiport   | 9501  |                                           |
-| ipfs           | gatewayport | 9880  |                                           |
-| machinaris     |    main     | 9003  |                                           |
-| machinaris     |   apiport   | 8927  |                                           |
-| minio          |    main     | 9000  |      Potential conflict with traefik      |
-| minio          | consoleport | 9002  |                                           |
-| netdata        |    main     | 20489 |                                           |
-| nextcloud      |    main     | 9001  |                                           |
-| photoprism     |    main     | 20800 |                                           |
-| pihole         |    main     | 20720 |                                           |
-| pihole         |   dns-tcp   | 20721 |                                           |
-| pihole         |   dns-upd   | 20721 |                                           |
-| pihole         |    dhcp     | 20722 |                                           |
-| plex           |    main     | 32400 | Potential conflict with plex (TrueCharts) |
-| qbittorent     |    main     | 20909 |                                           |
-| qbittorent     |  tcp_port   | 20988 |                                           |
-| qbittorent     |  udp_port   | 20989 |                                           |
-| syncthing      |    main     | 20910 |                                           |
-| syncthing      |  tcp_port   | 20978 |                                           |
-| syncthing      |  udp_port   | 20979 |                                           |
+| App            |   Service   | Port  |                     Note                     |
+| :------------- | :---------: | :---: | :------------------------------------------: |
+| chia           |    main     | 8444  |                                              |
+| chia           | farmerport  | 8447  |                                              |
+| collabora      |    main     | 9980  |                                              |
+| emby           |    main     | 9096  |                                              |
+| home-assistant |    main     | 20810 |                                              |
+| ipfs           |  swarmport  | 9401  |                                              |
+| ipfs           |   apiport   | 9501  |                                              |
+| ipfs           | gatewayport | 9880  |                                              |
+| machinaris     |    main     | 9003  |                                              |
+| machinaris     |   apiport   | 8927  |                                              |
+| minio          |    main     | 9000  | Potential conflict with traefik (TrueCharts) |
+| minio          | consoleport | 9002  |                                              |
+| netdata        |    main     | 20489 |                                              |
+| nextcloud      |    main     | 9001  |                                              |
+| photoprism     |    main     | 20800 |                                              |
+| pihole         |    main     | 20720 |                                              |
+| pihole         |   dns-tcp   | 20721 |                                              |
+| pihole         |   dns-upd   | 20721 |                                              |
+| pihole         |    dhcp     | 20722 |                                              |
+| plex           |    main     | 32400 |  Potential conflict with plex (TrueCharts)   |
+| qbittorent     |    main     | 20909 |                                              |
+| qbittorent     |  tcp_port   | 20988 |                                              |
+| qbittorent     |  udp_port   | 20989 |                                              |
+| syncthing      |    main     | 20910 |                                              |
+| syncthing      |  tcp_port   | 20978 |                                              |
+| syncthing      |  udp_port   | 20979 |                                              |
+
 
 
 ## TrueNAS Scale Services
