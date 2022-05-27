@@ -53,6 +53,5 @@ def main():
         file_oper.add_text_to_file(setup.VOLUME_LIST_FILE, volume_file_content)
 
 
-# TODO: Create volume list file
 if __name__ == "__main__":
     main()
