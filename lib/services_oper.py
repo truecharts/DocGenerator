@@ -1,26 +1,15 @@
 from helpers.logger import logger
-from ruamel.yaml import YAML
 from lib import file_oper
 from pathlib import Path
 import setup
 import copy
-
-yaml = YAML()
-
-
-def get_values(yaml_path):
-    """
-    Returns the yaml data of the path
-    """
-
-    return yaml.load(yaml_path)
 
 
 def get_service(app):
     """
     Returns the SERVICE section of an app
     """
-    data = get_values(Path.joinpath(app, "values.yaml"))
+    data = file_oper.get_values(Path.joinpath(app, "values.yaml"))
 
     return data['service'] if 'service' in data else None
 

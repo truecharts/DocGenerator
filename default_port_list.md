@@ -568,34 +568,35 @@ they should provide no or minimal conflicts without being changed
 
 ### Please keep mind that this list is not updated automatically like the rest of this doc.
 
-| App            |   Service   | Port  |                   Note                    |
-| :------------- | :---------: | :---: | :---------------------------------------: |
-| chia           |    main     | 8444  |                                           |
-| chia           | farmerport  | 8447  |                                           |
-| collabora      |    main     | 9980  |                                           |
-| emby           |    main     | 9096  |                                           |
-| home-assistant |    main     | 20810 |                                           |
-| ipfs           |  swarmport  | 9401  |                                           |
-| ipfs           |   apiport   | 9501  |                                           |
-| ipfs           | gatewayport | 9880  |                                           |
-| machinaris     |    main     | 9003  |                                           |
-| machinaris     |   apiport   | 8927  |                                           |
-| minio          |    main     | 9000  |      Potential conflict with traefik      |
-| minio          | consoleport | 9002  |                                           |
-| netdata        |    main     | 20489 |                                           |
-| nextcloud      |    main     | 9001  |                                           |
-| photoprism     |    main     | 20800 |                                           |
-| pihole         |    main     | 20720 |                                           |
-| pihole         |   dns-tcp   | 20721 |                                           |
-| pihole         |   dns-upd   | 20721 |                                           |
-| pihole         |    dhcp     | 20722 |                                           |
-| plex           |    main     | 32400 | Potential conflict with plex (TrueCharts) |
-| qbittorent     |    main     | 20909 |                                           |
-| qbittorent     |  tcp_port   | 20988 |                                           |
-| qbittorent     |  udp_port   | 20989 |                                           |
-| syncthing      |    main     | 20910 |                                           |
-| syncthing      |  tcp_port   | 20978 |                                           |
-| syncthing      |  udp_port   | 20979 |                                           |
+| App            |   Service   | Port  |                     Note                     |
+| :------------- | :---------: | :---: | :------------------------------------------: |
+| chia           |    main     | 8444  |                                              |
+| chia           | farmerport  | 8447  |                                              |
+| collabora      |    main     | 9980  |                                              |
+| emby           |    main     | 9096  |                                              |
+| home-assistant |    main     | 20810 |                                              |
+| ipfs           |  swarmport  | 9401  |                                              |
+| ipfs           |   apiport   | 9501  |                                              |
+| ipfs           | gatewayport | 9880  |                                              |
+| machinaris     |    main     | 9003  |                                              |
+| machinaris     |   apiport   | 8927  |                                              |
+| minio          |    main     | 9000  | Potential conflict with traefik (TrueCharts) |
+| minio          | consoleport | 9002  |                                              |
+| netdata        |    main     | 20489 |                                              |
+| nextcloud      |    main     | 9001  |                                              |
+| photoprism     |    main     | 20800 |                                              |
+| pihole         |    main     | 20720 |                                              |
+| pihole         |   dns-tcp   | 20721 |                                              |
+| pihole         |   dns-upd   | 20721 |                                              |
+| pihole         |    dhcp     | 20722 |                                              |
+| plex           |    main     | 32400 |  Potential conflict with plex (TrueCharts)   |
+| qbittorent     |    main     | 20909 |                                              |
+| qbittorent     |  tcp_port   | 20988 |                                              |
+| qbittorent     |  udp_port   | 20989 |                                              |
+| syncthing      |    main     | 20910 |                                              |
+| syncthing      |  tcp_port   | 20978 |                                              |
+| syncthing      |  udp_port   | 20979 |                                              |
+
 
 
 ## TrueNAS Scale Services

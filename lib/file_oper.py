@@ -1,9 +1,19 @@
 from markdownTable import markdownTable
+from ruamel.yaml import YAML
 from pathlib import Path
 import setup
 
+yaml = YAML()
 port_file = Path(setup.PORT_LIST_FILE)
 volume_file = Path(setup.VOLUME_LIST_FILE)
+
+
+def get_values(yaml_path):
+    """
+    Returns the yaml data of the path
+    """
+
+    return yaml.load(yaml_path)
 
 
 def delete_file(file):
