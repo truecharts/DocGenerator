@@ -42,6 +42,11 @@ class Status:
 
 # VOLUME_LIST_INTRO="""INTRO"""
 # VOLUME_LIST_OUTRO="""OUTRO"""
+
+# OFFICIAL_APPS:[
+#     {}
+# ]
+PORT_CONFLICT_NOTE = "Potential conflict with: "
 PORT_LIST_INTRO = """
 # Default Ports
 
@@ -53,6 +58,8 @@ they should provide no or minimal conflicts without being changed
 
 PORT_LIST_OUTRO = """
 ## Official Apps
+
+### Please keep mind that this list is not updated automatically like the rest of this doc.
 
 | App        |   Service   | Port  |                   Note                    |
 | :--------- | :---------: | :---: | :---------------------------------------: |
@@ -70,6 +77,8 @@ PORT_LIST_OUTRO = """
 
 ## TrueNAS Scale Services
 
+### Please mind that this list is not updated automatically like the rest of this doc.
+
 | Service | Port | Protocol | Note |
 | :------ | :--: | :------: | :--: |
 | ssh     |  22  |   TCP    |      |
@@ -77,6 +86,8 @@ PORT_LIST_OUTRO = """
 | webui   | 443  |  HTTPS   |      |
 
 ## Ports that are blocked in major web browsers
+
+### Please mind that this list is not updated automatically like the rest of this doc.
 
 | Port  |            Used by (example)             |
 | :---: | :--------------------------------------: |
@@ -161,7 +172,7 @@ PORT_LIST_OUTRO = """
 | 6697  |                IRC + TLS                 |
 | 10080 |                  Amanda                  |
 
-# Note: TCP and UDP ports that are the same in some Apps, are not by mistake.'
+# Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
 # If you notice a port conflict, please notify us so we can resolve it (when possible).
 """
