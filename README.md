@@ -26,3 +26,15 @@ Volumes make sense to order by app name, so each app has it's volumes one after 
 ### Boolean envs
 
 Anything other than `True`, `true` or `1` is considered `False`
+
+
+#### How to run this.
+
+- Install `pipenv`
+  - `pip install pipenv`
+- Install dependencies
+  - `pipenv install`
+- Activate pipenv environment
+  - `pipenv shell`
+- Run it
+  - `python app.py`
