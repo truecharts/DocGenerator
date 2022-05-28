@@ -7,8 +7,9 @@ PORT_LIST_FILE = "./default_port_list.md"
 
 
 # Name and path of the default volume list file
-VOLUME_LIST_FILE = "./default_volume_list.md"
+VOLUME_LIST_FILE = "./volume_list.md"
 
+DESCRIPTION_LIST_FILE = "./description_list.md"
 
 # Exclude specific trains
 EXCLUDE_TRAINS = [
@@ -42,6 +43,7 @@ VERBOSE = True
 # Set to false to NOT generate a file
 GENERATE_PORT_FILE = True
 GENERATE_VOLUME_FILE = True
+GENERATE_DESCRIPTION_FILE = True
 
 # Volumes make sense to order by app name,
 # So each app has it's volumes one after the other.
@@ -60,6 +62,7 @@ class Status:
     MNT_UND = "Mount Path not Defined"
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+    NO_DESC = "No Description"
 
 
 PORT_CONFLICT_NOTE = "Potential conflict with: "
@@ -209,7 +212,7 @@ PORT_LIST_OUTRO = """
 
 #### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
-#### If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).
+#### If you notice something wrong in the above info, please notify us so we can update the generator script.
 """
 
 
@@ -221,5 +224,15 @@ The intro needs improvement ;)
 """
 
 VOLUME_LIST_OUTRO = """
-#### If you notice something wrong in the above info, please notify us so we can resolve it.
+#### If you notice something wrong in the above info, please notify us so we can update the generator script.
+"""
+
+
+DESCRIPTION_LIST_INTRO = """
+# List of all our apps with a short description
+"""
+
+DESCRIPTION_LIST_OUTRO = """
+#### If you notice something wrong in the above info, you are more than welcome to
+submit a PR, updating Chart.yaml for the app in question.
 """

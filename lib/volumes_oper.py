@@ -22,7 +22,7 @@ def get_raw_volumes_list(apps):
     volume_list = []
     for app in apps:
         volume = get_volume(app)
-        if not volume == None:
+        if not volume is None:
             volume_list.append({"app_name": app.stem, "persistence": volume})
         else:
             volume_list.append(
@@ -107,6 +107,9 @@ def process_volume(volume, app_name, curr_train):
 
 
 def create_volume_list_content(volume_list, train):
+    """
+    Creates and returns content to the volume list file
+    """
     content = ""
     table = []
 
@@ -139,6 +142,7 @@ def create_volume_list_content(volume_list, train):
             mnt_und_table + disabled_table + enabled_table
     else:
         table = sorted_list
+
     content += f'## {train.capitalize()}'
     content += '\n\n'
     content += "| App | Volume Name | Type | Host Path | Mount Path | Mode | Status |"
@@ -150,12 +154,12 @@ def create_volume_list_content(volume_list, train):
         content += file_oper.create_table(table)
         content += '\n\n'
 
-    return(content)
+    return content
 
 
 def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",  hostPath="-", mode="Read/Write"):
     """
-    Creates a row for the processes volumes list
+    Creates a row for the processed volumes list
     """
     if status == "enabled":
         status = setup.Status.ENABLED

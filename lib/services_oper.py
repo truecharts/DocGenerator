@@ -22,7 +22,7 @@ def get_raw_services_list(apps):
     service_list = []
     for app in apps:
         service = get_service(app)
-        if not service == None:
+        if not service is None:
             service_list.append({"app_name": app.stem, "service": service})
         else:
             service_list.append(
@@ -33,7 +33,7 @@ def get_raw_services_list(apps):
 
 def create_row(app_name, status, train, svc_name="-", port_name="-", port=0, protocol="-", note="-"):
     """
-    Creates a row for the processes services list
+    Creates a row for the processed services list
     """
     if status == "port_dis":
         status = setup.Status.PORT_DIS
@@ -147,7 +147,7 @@ def process_port(port, app_name, svc_name):
 
 def create_port_list_content(port_list, train):
     """
-    Creates and prints content to the port list file
+    Creates and returns content to the port list file
     """
     content = ""
     table = []

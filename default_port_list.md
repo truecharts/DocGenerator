@@ -698,4 +698,4 @@ they should provide no or minimal conflicts without being changed
 
 #### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
-#### If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).
+#### If you notice something wrong in the above info, please notify us so we can update the generator script.
