@@ -26,10 +26,12 @@ EXCLUDE_APPS = [
 # any trains not listed here and not excluded
 # will be added automatically to the end
 # Any trains not existing in file system will be ignored
+# Also, don't forget to add comma on each line -.- It happily accepts it without and messes the order
 TRAIN_ORDER_FOR_FILES = [
     "core",
     "stable",
-    "games"
+    "games",
+    "dependency",
     "test_non_existing_train"
 ]
 
@@ -40,6 +42,11 @@ VERBOSE = True
 # Set to false to NOT generate a file
 GENERATE_PORT_FILE = True
 GENERATE_VOLUME_FILE = True
+
+# Volumes make sense to order by app name,
+# So each app has it's volumes one after the other.
+# If we sort by status, (eg disabled etc), volumes will be all over the place
+SORT_VOLUMES_BY_STATUS = False
 
 
 class Status:
@@ -202,7 +209,7 @@ PORT_LIST_OUTRO = """
 
 # Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
-# If you notice a port conflict, please notify us so we can resolve it (when possible).
+# If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).
 """
 
 
@@ -213,4 +220,6 @@ This document lists the mounted volumes for each App.
 The intro needs improvement ;)
 """
 
-VOLUME_LIST_OUTRO = """Some outro here"""
+VOLUME_LIST_OUTRO = """
+# If you notice something wrong in the above info, please notify us so we can resolve it.
+"""

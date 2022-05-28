@@ -189,7 +189,7 @@ def create_port_list_content(port_list, train):
     content += '\n\n'
     content += "| App | Service | Port Name | Port | Protocol | Status | Note |"
     content += '\n'
-    content += "|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|"
+    content += "|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|"
     content += '\n'
     # Check that table has data
     if table:

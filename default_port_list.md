@@ -7,7 +7,7 @@ they should provide no or minimal conflicts without being changed
 ## Core
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
 |amd-gpu-plugin  |-           |-           |-    |-       |Service not Defined|-                                                              |
 |metallb         |-           |-           |-    |-       |Service not Defined|-                                                              |
 |traefik         |udp         |-           |-    |-       |Service is Disabled|-                                                              |
@@ -25,7 +25,7 @@ they should provide no or minimal conflicts without being changed
 ## Stable
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
 |custom-app                |-              |-              |-    |-       |Service not Defined|-                                                                   |
 |amcrest2mqtt              |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |automatic-music-downloader|main           |-              |-    |-       |Service is Disabled|-                                                                   |
@@ -400,10 +400,38 @@ they should provide no or minimal conflicts without being changed
 |resilio-sync              |bt-udp         |bt-udp         |55555|UDP     |Active             |-                                                                   |
 |quassel-web               |main           |main           |64080|TCP     |Active             |-                                                                   |
 
+## Games
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
+|valheim          |valheim   |valheim1  |2456 |UDP     |Active|-                                |
+|satisfactory     |main      |main      |7777 |UDP     |Active|-                                |
+|acestream        |main      |main      |8008 |TCP     |Active|Potential conflict with: synapse |
+|valheim          |main      |main      |9010 |TCP     |Active|-                                |
+|valheim          |supervisor|supervisor|9011 |TCP     |Active|-                                |
+|satisfactory     |beacon    |beacon    |15000|UDP     |Active|-                                |
+|satisfactory     |query     |query     |15777|UDP     |Active|-                                |
+|minecraft-bedrock|main      |main      |19132|UDP     |Active|-                                |
+|impostor-server  |main      |main      |22023|UDP     |Active|-                                |
+|minecraft-java   |main      |main      |25565|TCP     |Active|-                                |
+|minecraft-java   |rcon      |rcon      |25575|TCP     |Active|-                                |
+|minetest         |main      |main      |30000|UDP     |Active|-                                |
+
+## Dependency
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
+|promtail  |main    |main     |3101 |TCP     |Active|-                                      |
+|mariadb   |main    |main     |3306 |TCP     |Active|Potential conflict with: arma3exilemod |
+|postgresql|main    |main     |5432 |TCP     |Active|-                                      |
+|redis     |main    |main     |6379 |TCP     |Active|-                                      |
+|memcached |main    |main     |11211|TCP     |Active|-                                      |
+|mongodb   |main    |main     |27017|TCP     |Active|-                                      |
+
 ## Incubator
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
 |adguard-home         |dns-tcp        |dns-tcp        |53   |TCP     |Active|-                                                               |
 |adguard-home         |dns-udp        |dns-udp        |53   |UDP     |Active|Potential conflict with: k8s-gateway pihole mosdns technitium   |
 |technitium           |dns-tcp        |dns-tcp        |53   |TCP     |Active|-                                                               |
@@ -446,7 +474,7 @@ they should provide no or minimal conflicts without being changed
 ## Dev
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
 |ama                    |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
 |ambd                   |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
 |amtd                   |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
@@ -534,34 +562,6 @@ they should provide no or minimal conflicts without being changed
 |avorion                |hostport5     |hostport5     |27021|UDP     |Active             |-                                                                                                                |
 |altitude               |main          |main          |27276|UDP     |Active             |-                                                                                                                |
 |assettocorsa           |stracker      |stracker      |50041|TCP     |Active             |-                                                                                                                |
-
-## Dependency
-
-| App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
-|promtail  |main    |main     |3101 |TCP     |Active|-                                      |
-|mariadb   |main    |main     |3306 |TCP     |Active|Potential conflict with: arma3exilemod |
-|postgresql|main    |main     |5432 |TCP     |Active|-                                      |
-|redis     |main    |main     |6379 |TCP     |Active|-                                      |
-|memcached |main    |main     |11211|TCP     |Active|-                                      |
-|mongodb   |main    |main     |27017|TCP     |Active|-                                      |
-
-## Games
-
-| App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:----:|
-|valheim          |valheim   |valheim1  |2456 |UDP     |Active|-                                |
-|satisfactory     |main      |main      |7777 |UDP     |Active|-                                |
-|acestream        |main      |main      |8008 |TCP     |Active|Potential conflict with: synapse |
-|valheim          |main      |main      |9010 |TCP     |Active|-                                |
-|valheim          |supervisor|supervisor|9011 |TCP     |Active|-                                |
-|satisfactory     |beacon    |beacon    |15000|UDP     |Active|-                                |
-|satisfactory     |query     |query     |15777|UDP     |Active|-                                |
-|minecraft-bedrock|main      |main      |19132|UDP     |Active|-                                |
-|impostor-server  |main      |main      |22023|UDP     |Active|-                                |
-|minecraft-java   |main      |main      |25565|TCP     |Active|-                                |
-|minecraft-java   |rcon      |rcon      |25575|TCP     |Active|-                                |
-|minetest         |main      |main      |30000|UDP     |Active|-                                |
 
 
 ## Official Apps
@@ -698,4 +698,4 @@ they should provide no or minimal conflicts without being changed
 
 # Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
-# If you notice a port conflict, please notify us so we can resolve it (when possible).
+# If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).

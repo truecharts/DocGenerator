@@ -109,11 +109,6 @@ def process_volume(volume, app_name, curr_train):
 def create_volume_list_content(volume_list, train):
     content = ""
     table = []
-    vol_und_table = []
-    vol_dis_table = []
-    mnt_und_table = []
-    disabled_table = []
-    enabled_table = []
 
     filtered_list = copy.deepcopy(volume_list)
     filtered_list = filter(lambda item: item['train'] == train, filtered_list)
@@ -121,25 +116,34 @@ def create_volume_list_content(volume_list, train):
     sorted_list = sorted(filtered_list, key=lambda item: item['app_name'])
     for x in sorted_list:
         del x['train']
-    for vol in sorted_list:
-        if vol['status'] == setup.Status.VOL_UND:
-            vol_und_table.append(vol)
-        if vol['status'] == setup.Status.VOL_DIS:
-            vol_dis_table.append(vol)
-        if vol['status'] == setup.Status.MNT_UND:
-            mnt_und_table.append(vol)
-        if vol['status'] == setup.Status.DISABLED:
-            disabled_table.append(vol)
-        if vol['status'] == setup.Status.ENABLED:
-            enabled_table.append(vol)
-    # Order in which they will appear in the file
-    table = vol_und_table + vol_dis_table + \
-        mnt_und_table + disabled_table + enabled_table
+
+    if setup.SORT_VOLUMES_BY_STATUS:
+        vol_und_table = []
+        vol_dis_table = []
+        mnt_und_table = []
+        disabled_table = []
+        enabled_table = []
+        for vol in sorted_list:
+            if vol['status'] == setup.Status.VOL_UND:
+                vol_und_table.append(vol)
+            if vol['status'] == setup.Status.VOL_DIS:
+                vol_dis_table.append(vol)
+            if vol['status'] == setup.Status.MNT_UND:
+                mnt_und_table.append(vol)
+            if vol['status'] == setup.Status.DISABLED:
+                disabled_table.append(vol)
+            if vol['status'] == setup.Status.ENABLED:
+                enabled_table.append(vol)
+        # Order in which they will appear in the file
+        table = vol_und_table + vol_dis_table + \
+            mnt_und_table + disabled_table + enabled_table
+    else:
+        table = sorted_list
     content += f'## {train.capitalize()}'
     content += '\n\n'
     content += "| App | Volume Name | Type | Host Path | Mount Path | Mode | Status | Note |"
     content += '\n'
-    content += "|:----|:-----------:|:----:|:---------:|:----------:|:----:|:------:|:----:|"
+    content += "|:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|:-----|"
     content += '\n'
     # Check that table has data
     if table:
@@ -156,6 +160,7 @@ def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",
     if status == "vol_und":
         status = setup.Status.VOL_UND
         type = "-"
+        mode = "-"
     if status == "vol_dis":
         status = setup.Status.VOL_DIS
     if status == "mnt_und":

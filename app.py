@@ -54,5 +54,6 @@ def main():
 
 
 # TODO: Generate a list of apps and their short descriptions
+# TODO: Find the next available port
 if __name__ == "__main__":
     main()
