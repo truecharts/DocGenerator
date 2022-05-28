@@ -141,9 +141,9 @@ def create_volume_list_content(volume_list, train):
         table = sorted_list
     content += f'## {train.capitalize()}'
     content += '\n\n'
-    content += "| App | Volume Name | Type | Host Path | Mount Path | Mode | Status | Note |"
+    content += "| App | Volume Name | Type | Host Path | Mount Path | Mode | Status |"
     content += '\n'
-    content += "|:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|:-----|"
+    content += "|:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|"
     content += '\n'
     # Check that table has data
     if table:
@@ -153,7 +153,7 @@ def create_volume_list_content(volume_list, train):
     return(content)
 
 
-def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",  hostPath="-", mode="Read/Write", note="-"):
+def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",  hostPath="-", mode="Read/Write"):
     """
     Creates a row for the processes volumes list
     """
@@ -177,6 +177,5 @@ def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",
         "mountPath": mountPath,
         "mode": mode,
         "status": status,
-        "note": note,
         "train": train
     }
