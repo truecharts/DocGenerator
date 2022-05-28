@@ -490,20 +490,6 @@ The intro needs improvement ;)
 |znc                       |config         |PVC      |-           |/config                             |Read/Write|Enabled                |
 |zwavejs2mqtt              |config         |PVC      |-           |/usr/src/app/store                  |Read/Write|Enabled                |
 
-## Games
-
-| App | Volume Name | Type | Host Path | Mount Path | Mode | Status |
-|:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|
-|acestream        |acestreamcache|PVC     |-       |/srv/acestream/.ACEStream|Read/Write|Enabled                |
-|impostor-server  |-             |-       |-       |-                        |-         |Persistence not Defined|
-|minecraft-bedrock|config        |PVC     |-       |/data                    |Read/Write|Enabled                |
-|minecraft-java   |data          |PVC     |-       |/data                    |Read/Write|Enabled                |
-|minetest         |config        |PVC     |-       |/config/.minetest        |Read/Write|Enabled                |
-|minetest         |varrun        |emptyDir|-       |/var/run                 |Read/Write|Enabled                |
-|satisfactory     |config        |PVC     |-       |/config                  |Read/Write|Enabled                |
-|valheim          |config        |PVC     |-       |/config                  |Read/Write|Enabled                |
-|valheim          |backups       |PVC     |-       |/backups                 |Read/Write|Enabled                |
-
 ## Dependency
 
 | App | Volume Name | Type | Host Path | Mount Path | Mode | Status |
@@ -517,6 +503,20 @@ The intro needs improvement ;)
 |promtail  |run         |hostPath|/run/promtai |/run/promtail|Read/Write|Enabled                |
 |promtail  |config      |secret  |-            |/etc/promtail|Read/Write|Enabled                |
 |redis     |redis-health|custom  |-            |/health      |Read/Write|Enabled                |
+
+## Games
+
+| App | Volume Name | Type | Host Path | Mount Path | Mode | Status |
+|:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|
+|acestream        |acestreamcache|PVC     |-       |/srv/acestream/.ACEStream|Read/Write|Enabled                |
+|impostor-server  |-             |-       |-       |-                        |-         |Persistence not Defined|
+|minecraft-bedrock|config        |PVC     |-       |/data                    |Read/Write|Enabled                |
+|minecraft-java   |data          |PVC     |-       |/data                    |Read/Write|Enabled                |
+|minetest         |config        |PVC     |-       |/config/.minetest        |Read/Write|Enabled                |
+|minetest         |varrun        |emptyDir|-       |/var/run                 |Read/Write|Enabled                |
+|satisfactory     |config        |PVC     |-       |/config                  |Read/Write|Enabled                |
+|valheim          |config        |PVC     |-       |/config                  |Read/Write|Enabled                |
+|valheim          |backups       |PVC     |-       |/backups                 |Read/Write|Enabled                |
 
 ## Incubator
 

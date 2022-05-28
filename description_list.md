@@ -299,6 +299,17 @@
 |znc                       |Znc is an IRC network bouncer or BNC. It can detach the client from the actual IRC server, and also from selected channels.                                                                                                                              |
 |zwavejs2mqtt              |Fully configurable Zwave to MQTT gateway and Control Panel using NodeJS and Vue                                                                                                                                                                          |
 
+## Dependency
+
+| App | Description |
+|:----|:------------|
+|mariadb   |Fast, reliable, scalable, and easy to use open-source relational database system.|
+|memcached |Memcached is a memory-backed database caching solution                           |
+|mongodb   |Fast, reliable, scalable, and easy to use open-source no-sql database system.    |
+|postgresql|PostgresSQL                                                                      |
+|promtail  |Promtail is an agent which ships the contents of local logs to a Loki instance   |
+|redis     |Open source, advanced key-value store.                                           |
+
 ## Games
 
 | App | Description |
@@ -310,17 +321,6 @@
 |minetest         |Minetest (server) is a near-infinite-world block sandbox game and a game engine.|
 |satisfactory     |Satisfactory Dedicated Server                                                   |
 |valheim          |Valheim dedicated gameserver with automatic update and world backup support     |
-
-## Dependency
-
-| App | Description |
-|:----|:------------|
-|mariadb   |Fast, reliable, scalable, and easy to use open-source relational database system.|
-|memcached |Memcached is a memory-backed database caching solution                           |
-|mongodb   |Fast, reliable, scalable, and easy to use open-source no-sql database system.    |
-|postgresql|PostgresSQL                                                                      |
-|promtail  |Promtail is an agent which ships the contents of local logs to a Loki instance   |
-|redis     |Open source, advanced key-value store.                                           |
 
 ## Incubator
 

@@ -400,6 +400,17 @@ they should provide no or minimal conflicts without being changed
 |resilio-sync              |bt-udp         |bt-udp         |55555|UDP     |Active             |-                                                                   |
 |quassel-web               |main           |main           |64080|TCP     |Active             |-                                                                   |
 
+## Dependency
+
+| App | Service | Port Name | Port | Protocol | Status | Note |
+|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
+|promtail  |main    |main     |3101 |TCP     |Active|-                                      |
+|mariadb   |main    |main     |3306 |TCP     |Active|Potential conflict with: arma3exilemod |
+|postgresql|main    |main     |5432 |TCP     |Active|-                                      |
+|redis     |main    |main     |6379 |TCP     |Active|-                                      |
+|memcached |main    |main     |11211|TCP     |Active|-                                      |
+|mongodb   |main    |main     |27017|TCP     |Active|-                                      |
+
 ## Games
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
@@ -416,17 +427,6 @@ they should provide no or minimal conflicts without being changed
 |minecraft-java   |main      |main      |25565|TCP     |Active|-                                |
 |minecraft-java   |rcon      |rcon      |25575|TCP     |Active|-                                |
 |minetest         |main      |main      |30000|UDP     |Active|-                                |
-
-## Dependency
-
-| App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
-|promtail  |main    |main     |3101 |TCP     |Active|-                                      |
-|mariadb   |main    |main     |3306 |TCP     |Active|Potential conflict with: arma3exilemod |
-|postgresql|main    |main     |5432 |TCP     |Active|-                                      |
-|redis     |main    |main     |6379 |TCP     |Active|-                                      |
-|memcached |main    |main     |11211|TCP     |Active|-                                      |
-|mongodb   |main    |main     |27017|TCP     |Active|-                                      |
 
 ## Incubator
 

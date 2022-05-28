@@ -1,26 +1,35 @@
+import os
+
 # Path where trains are stored
-TRAINS_PATH = "./charts"
+TRAINS_PATH = os.getenv('TRAINS_PATH', './charts')
 
 
-# Name and path of the default port list file
-PORT_LIST_FILE = "./default_port_list.md"
+# Name and path of the port list file
+PORT_LIST_FILE = os.getenv('PORT_LIST_FILE', './default_port_list.md')
 
 
-# Name and path of the default volume list file
-VOLUME_LIST_FILE = "./volume_list.md"
+# Name and path of the volume list file
+VOLUME_LIST_FILE = os.getenv('VOLUME_LIST_FILE', './volume_list.md')
 
-DESCRIPTION_LIST_FILE = "./description_list.md"
+
+# Name and path of the description list file
+DESCRIPTION_LIST_FILE = os.getenv(
+    'DESCRIPTION_LIST_FILE', './description_list.md')
 
 # Exclude specific trains
+exc_trains = [item for item in os.getenv('EXCLUDE_TRAINS').split(
+    ',')] if os.getenv('EXCLUDE_TRAINS') else None
 EXCLUDE_TRAINS = [
     # "dev",
-]
+] if not exc_trains else exc_trains
 
 
+exc_apps = [item for item in os.getenv('EXCLUDE_APPS').split(
+    ',')] if os.getenv('EXCLUDE_APPS') else None
 # Exclude specific apps
 EXCLUDE_APPS = [
     # "traefik",
-]
+] if not exc_apps else exc_apps
 
 
 # This ordered will be used,
@@ -28,27 +37,34 @@ EXCLUDE_APPS = [
 # will be added automatically to the end
 # Any trains not existing in file system will be ignored
 # Also, don't forget to add comma on each line -.- It happily accepts it without and messes the order
+train_ord = [item for item in os.getenv('TRAIN_ORDER_FOR_FILES').split(
+    ',')] if os.getenv('TRAIN_ORDER_FOR_FILES') else None
 TRAIN_ORDER_FOR_FILES = [
     "core",
     "stable",
-    "games",
     "dependency",
-    "test_non_existing_train"
-]
+    "games",
+    "incubator",
+    "dev"
+] if not train_ord else train_ord
 
 
 # Print Verbose Output
-VERBOSE = True
+VERBOSE = os.getenv('VERBOSE', 'True').lower() in ('true', '1')
 
 # Set to false to NOT generate a file
-GENERATE_PORT_FILE = True
-GENERATE_VOLUME_FILE = True
-GENERATE_DESCRIPTION_FILE = True
+GENERATE_PORT_FILE = os.getenv(
+    'GENERATE_PORT_FILE', 'True').lower() in ('true', '1')
+GENERATE_VOLUME_FILE = os.getenv(
+    'GENERATE_VOLUME_FILE', 'True').lower() in ('true', '1')
+GENERATE_DESCRIPTION_FILE = os.getenv(
+    'GENERATE_DESCRIPTION_FILE', 'True').lower() in ('true', '1')
 
 # Volumes make sense to order by app name,
 # So each app has it's volumes one after the other.
 # If we sort by status, (eg disabled etc), volumes will be all over the place
-SORT_VOLUMES_BY_STATUS = False
+SORT_VOLUMES_BY_STATUS = os.getenv(
+    'SORT_VOLUMES_BY_STATUS', 'False').lower() in ('true', '1')
 
 
 class Status:
