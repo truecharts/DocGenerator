@@ -64,7 +64,7 @@ def process_volume(volume, app_name, curr_train):
             if volume[0] == "varrun":
                 return create_row(
                     app_name=app_name,
-                    status="mnt_und",
+                    status="enabled",
                     vol_name=volume[0],
                     type="emptyDir",
                     mountPath="/var/run",
@@ -87,7 +87,7 @@ def process_volume(volume, app_name, curr_train):
             temp['mode'] = "Read Only" if 'readOnly' in volume[1] and volume[1]['readOnly'] else "Read/Write"
             return create_row(
                 app_name=app_name,
-                status=setup.Status.ENABLED if volume[1]['enabled'] else setup.Status.DISABLED,
+                status="enabled" if volume[1]['enabled'] else "disabled",
                 train=curr_train,
                 vol_name=volume[0],
                 type=temp['type'],
@@ -157,6 +157,10 @@ def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",
     """
     Creates a row for the processes volumes list
     """
+    if status == "enabled":
+        status = setup.Status.ENABLED
+    if status == "disabled":
+        status = setup.Status.DISABLED
     if status == "vol_und":
         status = setup.Status.VOL_UND
         type = "-"

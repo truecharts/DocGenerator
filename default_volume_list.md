@@ -31,15 +31,15 @@ The intro needs improvement ;)
 |airsonic-advanced         |playlists      |PVC      |-           |/playlists                          |Read/Write|Enabled                |-   |
 |alist                     |data           |PVC      |-           |/opt/alist/data                     |Read/Write|Enabled                |-   |
 |amcrest2mqtt              |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
-|anonaddy                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|anonaddy                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |anonaddy                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |apache-musicindex         |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |appdaemon                 |conf           |PVC      |-           |/conf                               |Read/Write|Enabled                |-   |
-|appdaemon                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|appdaemon                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |aria2                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|aria2                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|aria2                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |audacity                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|audacity                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|audacity                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |audiobookshelf            |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |audiobookshelf            |audiobooks     |PVC      |-           |/audiobooks                         |Read/Write|Enabled                |-   |
 |audiobookshelf            |metadata       |PVC      |-           |/metadata                           |Read/Write|Enabled                |-   |
@@ -47,44 +47,44 @@ The intro needs improvement ;)
 |automatic-music-downloader|config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |automatic-music-downloader|data           |PVC      |-           |/downloads-amd                      |Read/Write|Enabled                |-   |
 |babybuddy                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|babybuddy                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|babybuddy                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |bazarr                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |beets                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|beets                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|beets                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |blog                      |data           |PVC      |-           |/var/www/html/data                  |Read/Write|Enabled                |-   |
 |boinc                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|boinc                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|boinc                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |booksonic-air             |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|bookstack                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|bookstack                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |bookstack                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |browserless-chrome        |downloads      |PVC      |-           |/downloads                          |Read/Write|Enabled                |-   |
 |browserless-chrome        |metrics        |PVC      |-           |/metrics                            |Read/Write|Enabled                |-   |
-|budge                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|budge                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |budge                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |calibre                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|calibre                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|calibre                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |calibre-web               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |chevereto                 |storage        |PVC      |-           |/var/www/html/images/               |Read/Write|Enabled                |-   |
 |chevereto                 |content        |PVC      |-           |/var/www/html/content/              |Read/Write|Enabled                |-   |
 |clamav                    |sigdatabase    |PVC      |-           |/var/lib/clamav                     |Read/Write|Enabled                |-   |
 |clamav                    |scandir        |PVC      |-           |/scandir                            |Read Only |Enabled                |-   |
 |clamav                    |logs           |PVC      |-           |/logs                               |Read/Write|Enabled                |-   |
-|clarkson                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|clarkson                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |cloud9                    |code           |PVC      |-           |/code                               |Read/Write|Enabled                |-   |
-|cloud9                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|cloud9                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |code-server               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |collabora-online          |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |couchpotato               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|couchpotato               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|couchpotato               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |cryptofolio               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |custom-app                |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |cyberchef                 |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |darktable                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|darktable                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|darktable                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |davos                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|davos                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|davos                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |ddclient                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|ddclient                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|ddclient                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |ddns-go                   |data           |PVC      |-           |/root                               |Read/Write|Enabled                |-   |
 |ddns-updater              |data           |PVC      |-           |/updater/data                       |Read/Write|Enabled                |-   |
 |deconz                    |config         |PVC      |-           |/opt/deCONZ                         |Read/Write|Enabled                |-   |
@@ -93,31 +93,31 @@ The intro needs improvement ;)
 |deepstack                 |data           |PVC      |-           |/datastore                          |Read/Write|Enabled                |-   |
 |deepstack                 |modelstore     |PVC      |-           |/modelstore/detection               |Read/Write|Enabled                |-   |
 |deluge                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|deluge                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|deluge                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |digikam                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|digikam                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|digikam                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |dillinger                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|dillinger                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|dillinger                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |dizquetv                  |config         |PVC      |-           |/home/node/app/.dizquetv            |Read/Write|Enabled                |-   |
 |dokuwiki                  |config         |PVC      |-           |/bitnami/dokuwiki                   |Read/Write|Enabled                |-   |
 |domoticz                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|domoticz                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|domoticz                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |doplarr                   |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |double-take               |data           |PVC      |-           |/.storage                           |Read/Write|Enabled                |-   |
 |doublecommander           |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|doublecommander           |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|doublecommander           |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |drawio                    |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |dsmr-reader               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |duckdns                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|duckdns                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|duckdns                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |duplicati                 |config         |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |emby                      |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |embystat                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|embystat                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|embystat                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |emulatorjs                |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|emulatorjs                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|emulatorjs                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |endlessh                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|endlessh                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|endlessh                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |esphome                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |esphome                   |platformio     |PVC      |-           |/.platformio                        |Read/Write|Enabled                |-   |
 |etherpad                  |data           |PVC      |-           |/opt/etherpad-lite/var              |Read/Write|Enabled                |-   |
@@ -128,25 +128,25 @@ The intro needs improvement ;)
 |filebrowser               |database       |PVC      |-           |/database                           |Read/Write|Enabled                |-   |
 |filebrowser               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |filezilla                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|filezilla                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|filezilla                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |fireflyiii                |data           |PVC      |-           |/var/www/html/storage/upload        |Read/Write|Enabled                |-   |
 |firefox                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|firefox                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|firefox                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |firefox-syncserver        |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |flaresolverr              |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |fleet                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|fleet                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|fleet                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |flexget                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |flexget                   |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |flood                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |fluidd                    |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |focalboard                |uploads        |PVC      |-           |/uploads                            |Read/Write|Enabled                |-   |
 |foldingathome             |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|foldingathome             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
-|fossil                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|foldingathome             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
+|fossil                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |freeradius                |config         |PVC      |-           |/etc/raddb                          |Read/Write|Enabled                |-   |
 |freshrss                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|friendica                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|friendica                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |friendica                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |friendica                 |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |gaps                      |data           |PVC      |-           |/usr/data                           |Read/Write|Enabled                |-   |
@@ -154,12 +154,12 @@ The intro needs improvement ;)
 |gitea                     |temp           |emptyDir |-           |/tmp                                |Read/Write|Enabled                |-   |
 |gitea                     |varlib         |emptyDir |-           |/var/lib/gitea                      |Read/Write|Enabled                |-   |
 |golinks                   |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|golinks                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|golinks                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |gonic                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |gotify                    |data           |PVC      |-           |/app/data                           |Read/Write|Enabled                |-   |
 |grafana                   |config         |PVC      |-           |/opt/bitnami/grafana/data           |Read/Write|Enabled                |-   |
 |grav                      |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|grav                      |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|grav                      |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |grist                     |persist        |PVC      |-           |/persist                            |Read/Write|Enabled                |-   |
 |grocy                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |guacamole-client          |initdbdata     |PVC      |-           |/initdbdata                         |Read/Write|Enabled                |-   |
@@ -167,7 +167,7 @@ The intro needs improvement ;)
 |guacamole-client          |temphackalso   |PVC      |-           |/opt/guacamole/postgresql           |Read/Write|Enabled                |-   |
 |guacd                     |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |habridge                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|habridge                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|habridge                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |hammond                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |hammond                   |assets         |PVC      |-           |/assets                             |Read/Write|Enabled                |-   |
 |handbrake                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
@@ -175,14 +175,14 @@ The intro needs improvement ;)
 |handbrake                 |output         |PVC      |-           |/output                             |Read/Write|Enabled                |-   |
 |haste-server              |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |headphones                |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|headphones                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|headphones                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |healthchecks              |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|hedgedoc                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|hedgedoc                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |heimdall                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |home-assistant            |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |homer                     |config         |PVC      |-           |/www/assets                         |Read/Write|Enabled                |-   |
 |htpcmanager               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|htpcmanager               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|htpcmanager               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |hyperion-ng               |config         |PVC      |-           |/root/.hyperion                     |Read/Write|Enabled                |-   |
 |icantbelieveitsnotvaletudo|config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |icinga2                   |config         |PVC      |-           |/etc/icinga2                        |Read/Write|Enabled                |-   |
@@ -213,7 +213,7 @@ The intro needs improvement ;)
 |kimai                     |plugins        |PVC      |-           |/opt/kimai/var/plugins              |Read/Write|Enabled                |-   |
 |kms                       |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |kodi-headless             |config         |PVC      |-           |/config/.kodi                       |Read/Write|Enabled                |-   |
-|kodi-headless             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|kodi-headless             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |koel                      |music          |PVC      |-           |/music                              |Read/Write|Enabled                |-   |
 |koel                      |covers         |PVC      |-           |/var/www/html/public/img/covers     |Read/Write|Enabled                |-   |
 |koel                      |searchindex    |PVC      |-           |/var/www/html/storage/search-indexes|Read/Write|Enabled                |-   |
@@ -223,11 +223,11 @@ The intro needs improvement ;)
 |lanraragi                 |config         |PVC      |-           |/home/koyomi/lanraragi/database     |Read/Write|Enabled                |-   |
 |lanraragi                 |content        |PVC      |-           |/home/koyomi/lanraragi/content      |Read/Write|Enabled                |-   |
 |lazylibrarian             |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|lazylibrarian             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|lazylibrarian             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |leaf2mqtt                 |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |leantime                  |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |libreoffice               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|libreoffice               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|libreoffice               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |librephotos               |media          |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |librephotos               |protected-media|PVC      |-           |/protected_media                    |Read/Write|Enabled                |-   |
 |librephotos               |logs           |PVC      |-           |/logs                               |Read/Write|Enabled                |-   |
@@ -250,14 +250,14 @@ The intro needs improvement ;)
 |matomo                    |data           |PVC      |-           |/bitnami/matomo                     |Read/Write|Enabled                |-   |
 |mealie                    |config         |PVC      |-           |/app/data                           |Read/Write|Enabled                |-   |
 |medusa                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|medusa                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|medusa                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |metube                    |downloads      |PVC      |-           |/downloads                          |Read/Write|Enabled                |-   |
 |miniflux                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |minio                     |config         |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |minio-console             |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|minio-console             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|minio-console             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |minisatip                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|minisatip                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|minisatip                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |mkvtoolnix                |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |mkvtoolnix                |storage        |PVC      |-           |/storage                            |Read/Write|Enabled                |-   |
 |ml-workspace              |workspace      |PVC      |-           |/workspace                          |Read/Write|Enabled                |-   |
@@ -267,34 +267,34 @@ The intro needs improvement ;)
 |mosquitto                 |data           |PVC      |-           |/mosquitto/data                     |Read/Write|Enabled                |-   |
 |mosquitto                 |configinc      |PVC      |-           |/mosquitto/configinc                |Read/Write|Enabled                |-   |
 |mstream                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|mstream                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|mstream                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |muximux                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|muximux                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|muximux                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |mylar                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|mylar                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|mylar                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |mysql-workbench           |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|mysql-workbench           |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|mysql-workbench           |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |n8n                       |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|nano-wallet               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|nano-wallet               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |navidrome                 |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |nextcloud                 |data           |PVC      |-           |/var/www/html                       |Read/Write|Enabled                |-   |
 |nextpvr                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |nextpvr                   |recordings     |PVC      |-           |/recordings                         |Read/Write|Enabled                |-   |
 |nextpvr                   |buffer         |PVC      |-           |/buffer                             |Read/Write|Enabled                |-   |
 |ngircd                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|ngircd                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|ngircd                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |nntp2nntp                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|nntp2nntp                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|nntp2nntp                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |nocodb                    |data           |PVC      |-           |/usr/app/data                       |Read/Write|Enabled                |-   |
 |node-red                  |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|novnc                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|novnc                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |ntfy                      |config         |PVC      |-           |/etc/ntfy                           |Read/Write|Enabled                |-   |
 |ntfy                      |cache          |PVC      |-           |/var/cache/ntfy                     |Read/Write|Enabled                |-   |
 |nullserv                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |nzbget                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |nzbhydra                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |octoprint                 |data           |PVC      |-           |/octoprint                          |Read/Write|Enabled                |-   |
-|octoprint                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|octoprint                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |odoo                      |odoo           |PVC      |-           |/var/lib/odoo                       |Read/Write|Enabled                |-   |
 |odoo                      |addons         |PVC      |-           |/mnt/extra-addons                   |Read/Write|Enabled                |-   |
 |omada-controller          |data           |PVC      |-           |/opt/tplink/EAPController/data      |Read/Write|Enabled                |-   |
@@ -307,11 +307,11 @@ The intro needs improvement ;)
 |openkm                    |config         |PVC      |-           |/opt/tomcat/repository              |Read/Write|Enabled                |-   |
 |openldap                  |varrun         |emptyDir |-           |-                                   |Read/Write|Persistence is Disabled|-   |
 |openvscode-server         |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|openvscode-server         |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|openvscode-server         |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |organizr                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |organizr                  |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |oscam                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|oscam                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|oscam                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |outline                   |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |overseerr                 |config         |PVC      |-           |/app/config                         |Read/Write|Enabled                |-   |
 |owncast                   |config         |PVC      |-           |/app/data                           |Read/Write|Enabled                |-   |
@@ -320,48 +320,48 @@ The intro needs improvement ;)
 |paperless-ng              |consume        |PVC      |-           |/consume                            |Read/Write|Enabled                |-   |
 |paperless-ng              |media          |PVC      |-           |/media                              |Read/Write|Enabled                |-   |
 |papermerge                |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|papermerge                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|papermerge                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |pgadmin                   |config         |PVC      |-           |/var/lib/pgadmin                    |Read/Write|Enabled                |-   |
 |photoprism                |storage        |PVC      |-           |/assets                             |Read/Write|Enabled                |-   |
 |photoprism                |temp           |emptyDir |-           |/photoprism/temp                    |Read/Write|Enabled                |-   |
 |photoshow                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|photoshow                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|photoshow                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |photoview                 |cache          |PVC      |-           |/cache                              |Read/Write|Enabled                |-   |
 |photoview                 |photos         |PVC      |-           |/photos                             |Read/Write|Enabled                |-   |
 |phpldapadmin              |varrun         |emptyDir |-           |-                                   |Read/Write|Persistence is Disabled|-   |
 |piaware                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |picoshare                 |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |pidgin                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|pidgin                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|pidgin                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |pihole                    |config         |PVC      |-           |/etc/pihole                         |Read/Write|Enabled                |-   |
 |pihole                    |dnsmasq        |PVC      |-           |/etc/dnsmasq.d                      |Read/Write|Enabled                |-   |
 |pinry                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |pixapop                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|pixapop                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|pixapop                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |plex                      |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |podgrab                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |pretend-youre-xyzzy       |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |projectsend               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |projectsend               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|projectsend               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|projectsend               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |promcord                  |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |protonmail-bridge         |config         |PVC      |-           |/root                               |Read/Write|Enabled                |-   |
 |prowlarr                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |pwndrop                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|pwndrop                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|pwndrop                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |pydio-cells               |cells          |PVC      |-           |/cells                              |Read/Write|Enabled                |-   |
 |pydio-cells               |data           |PVC      |-           |/cells/data                         |Read/Write|Enabled                |-   |
 |pydio-cells               |logs           |PVC      |-           |/cells/logs                         |Read/Write|Enabled                |-   |
 |pydio-cells               |services       |PVC      |-           |/cells/services                     |Read/Write|Enabled                |-   |
 |pyload                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|pyload                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|pyload                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |pylon                     |code           |PVC      |-           |/code                               |Read/Write|Enabled                |-   |
-|pylon                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|pylon                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |qbittorrent               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |qinglong                  |data           |PVC      |-           |/ql/data                            |Read/Write|Enabled                |-   |
-|quassel-core              |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|quassel-core              |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |quassel-web               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|quassel-web               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|quassel-web               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |radarr                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |readarr                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |recipes                   |media          |PVC      |-           |/opt/recipes/mediafiles             |Read/Write|Enabled                |-   |
@@ -369,31 +369,31 @@ The intro needs improvement ;)
 |redmine                   |data           |PVC      |-           |/usr/src/redmine/files              |Read/Write|Enabled                |-   |
 |reg                       |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |remmina                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|remmina                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|remmina                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |requestrr                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|requestrr                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|requestrr                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |resilio-sync              |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|resilio-sync              |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
-|rsnapshot                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|resilio-sync              |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
+|rsnapshot                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |rsnapshot                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |rss-bridge                |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |rsshub                    |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |sabnzbd                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|scrutiny                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|scrutiny                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |scrutiny                  |config         |PVC      |-           |/scrutiny/config                    |Read/Write|Enabled                |-   |
 |scrutiny                  |data           |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |scrutiny                  |udev           |hostPath |/run/udev   |/run/udev                           |Read Only |Enabled                |-   |
 |ser2sock                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |shiori                    |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|shiori                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|shiori                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |shlink                    |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |shlink-web-client         |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |shorturl                  |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|shorturl                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|shorturl                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |sickchill                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|sickchill                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|sickchill                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |sickgear                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|sickgear                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|sickgear                  |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |smokeping                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |smokeping                 |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |snapdrop                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
@@ -404,10 +404,10 @@ The intro needs improvement ;)
 |speedtest-exporter        |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |spotweb                   |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |sqlitebrowser             |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|sqlitebrowser             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|sqlitebrowser             |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |stash                     |config         |PVC      |-           |/root/.stash                        |Read/Write|Enabled                |-   |
 |static                    |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|static                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|static                    |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |statping                  |data           |PVC      |-           |/app                                |Read/Write|Enabled                |-   |
 |storj-node                |identity       |PVC      |-           |/app/identity                       |Read/Write|Enabled                |-   |
 |storj-node                |storage        |PVC      |-           |/app/config                         |Read/Write|Enabled                |-   |
@@ -417,9 +417,9 @@ The intro needs improvement ;)
 |synapse                   |key            |PVC      |-           |/data/keys                          |Read/Write|Enabled                |-   |
 |synapse                   |media          |PVC      |-           |/data/media_store                   |Read/Write|Enabled                |-   |
 |synapse                   |uploads        |PVC      |-           |/uploads                            |Read/Write|Enabled                |-   |
-|synclounge                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|synclounge                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |syncthing                 |config         |PVC      |-           |/var/syncthing                      |Read/Write|Enabled                |-   |
-|syslog-ng                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|syslog-ng                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |syslog-ng                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |tautulli                  |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |tdarr                     |configs        |PVC      |-           |/app/configs                        |Read/Write|Enabled                |-   |
@@ -427,12 +427,12 @@ The intro needs improvement ;)
 |tdarr                     |logs           |PVC      |-           |/app/logs                           |Read/Write|Enabled                |-   |
 |tdarr                     |transcode-cache|PVC      |-           |/temp                               |Read/Write|Enabled                |-   |
 |tdarr                     |media          |PVC      |-           |/media                              |Read/Write|Enabled                |-   |
-|tdarr                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|tdarr                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |tdarr-node                |configs        |PVC      |-           |/app/configs                        |Read/Write|Enabled                |-   |
 |tdarr-node                |logs           |PVC      |-           |/app/logs                           |Read/Write|Enabled                |-   |
 |tdarr-node                |transcode-cache|PVC      |-           |/temp                               |Read/Write|Enabled                |-   |
 |tdarr-node                |media          |PVC      |-           |/media                              |Read/Write|Enabled                |-   |
-|tdarr-node                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|tdarr-node                |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |teamspeak3                |data           |PVC      |-           |/var/ts3server                      |Read/Write|Enabled                |-   |
 |teedy                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |thelounge                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
@@ -445,12 +445,12 @@ The intro needs improvement ;)
 |truecommand               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |tt-rss                    |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |tvheadend                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
-|tvheadend                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|tvheadend                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |twtxt                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |twtxt                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|twtxt                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|twtxt                     |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |typecho                   |config         |PVC      |-           |/app/usr                            |Read/Write|Enabled                |-   |
-|ubooquity                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|ubooquity                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |ubooquity                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |ubooquity                 |books          |PVC      |-           |/books                              |Read/Write|Enabled                |-   |
 |ubooquity                 |comics         |PVC      |-           |/comics                             |Read/Write|Enabled                |-   |
@@ -460,7 +460,7 @@ The intro needs improvement ;)
 |unmanic                   |library        |PVC      |-           |/library                            |Read/Write|Enabled                |-   |
 |unmanic                   |remote         |PVC      |-           |/tmp/unmanic/remote_library         |Read/Write|Enabled                |-   |
 |unmanic                   |cache          |emptyDir |-           |/tmp/unmanic                        |Read/Write|Enabled                |-   |
-|unmanic                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|unmanic                   |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |unpackerr                 |downloads      |PVC      |-           |/downloads                          |Read/Write|Enabled                |-   |
 |unpoller                  |-              |-        |-           |-                                   |-         |Persistence not Defined|-   |
 |uptime-kuma               |config         |PVC      |-           |/app/data                           |Read/Write|Enabled                |-   |
@@ -469,7 +469,7 @@ The intro needs improvement ;)
 |verysync                  |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |verysync                  |sync           |PVC      |-           |/Sync                               |Read/Write|Enabled                |-   |
 |vikunja                   |files          |PVC      |-           |/app/vikunja/files                  |Read/Write|Enabled                |-   |
-|webgrabplus               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|webgrabplus               |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |webgrabplus               |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |webgrabplus               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |weblate                   |config         |PVC      |-           |/app/data                           |Read/Write|Enabled                |-   |
@@ -478,7 +478,7 @@ The intro needs improvement ;)
 |wekan                     |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
 |whoogle                   |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |wikijs                    |wikicache      |emptyDir |-           |/wiki/data/                         |Read/Write|Enabled                |-   |
-|wireshark                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|wireshark                 |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |wireshark                 |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |xbackbone                 |config         |PVC      |-           |/app/config                         |Read/Write|Enabled                |-   |
 |xteve                     |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
@@ -486,7 +486,7 @@ The intro needs improvement ;)
 |zerotier                  |config         |PVC      |-           |/var/lib/zerotier-one               |Read/Write|Enabled                |-   |
 |zerotier                  |tun            |hostPath |/dev/net/tun|/dev/net/tun                        |Read/Write|Enabled                |-   |
 |zigbee2mqtt               |data           |PVC      |-           |/data                               |Read/Write|Enabled                |-   |
-|znc                       |varrun         |emptyDir |-           |/var/run                            |Read/Write|Mount Path not Defined |-   |
+|znc                       |varrun         |emptyDir |-           |/var/run                            |Read/Write|Enabled                |-   |
 |znc                       |config         |PVC      |-           |/config                             |Read/Write|Enabled                |-   |
 |zwavejs2mqtt              |config         |PVC      |-           |/usr/src/app/store                  |Read/Write|Enabled                |-   |
 
@@ -499,7 +499,7 @@ The intro needs improvement ;)
 |minecraft-bedrock|config        |PVC     |-       |/data                    |Read/Write|Enabled                |-   |
 |minecraft-java   |data          |PVC     |-       |/data                    |Read/Write|Enabled                |-   |
 |minetest         |config        |PVC     |-       |/config/.minetest        |Read/Write|Enabled                |-   |
-|minetest         |varrun        |emptyDir|-       |/var/run                 |Read/Write|Mount Path not Defined |-   |
+|minetest         |varrun        |emptyDir|-       |/var/run                 |Read/Write|Enabled                |-   |
 |satisfactory     |config        |PVC     |-       |/config                  |Read/Write|Enabled                |-   |
 |valheim          |config        |PVC     |-       |/config                  |Read/Write|Enabled                |-   |
 |valheim          |backups       |PVC     |-       |/backups                 |Read/Write|Enabled                |-   |
@@ -522,45 +522,45 @@ The intro needs improvement ;)
 
 | App | Volume Name | Type | Host Path | Mount Path | Mode | Status | Note |
 |:----|:-----------:|:----:|:----------|:-----------|:----:|:------:|:-----|
-|adguard-home         |config        |PVC     |-              |/opt/adguardhome/conf                   |Read/Write|Enabled               |-   |
-|adguard-home         |data          |PVC     |-              |/opt/adguardhome/work                   |Read/Write|Enabled               |-   |
-|appsmith             |appsmithstacks|PVC     |-              |/appsmith-stacks                        |Read/Write|Enabled               |-   |
-|authentik            |media         |PVC     |-              |/media                                  |Read/Write|Enabled               |-   |
-|authentik            |templates     |PVC     |-              |/templates                              |Read/Write|Enabled               |-   |
-|authentik            |certs         |PVC     |-              |/certs                                  |Read/Write|Enabled               |-   |
-|authentik            |geoip         |PVC     |-              |/geoip                                  |Read/Write|Enabled               |-   |
-|baserow              |data          |PVC     |-              |/baserow/data                           |Read/Write|Enabled               |-   |
-|cups-server          |config        |PVC     |-              |/etc/cups                               |Read/Write|Enabled               |-   |
-|cups-server          |dbus          |hostPath|/var/run/dbus  |/var/run/dbus                           |Read/Write|Enabled               |-   |
-|filerun              |config        |PVC     |-              |/var/www/html                           |Read/Write|Enabled               |-   |
-|filerun              |userfile      |PVC     |-              |/user-files                             |Read/Write|Enabled               |-   |
-|frigate              |cache         |emptyDir|-              |/tmp/cache                              |Read/Write|Enabled               |-   |
-|frigate              |shm           |emptyDir|-              |/dev/shm                                |Read/Write|Enabled               |-   |
-|frigate              |media         |PVC     |-              |/media                                  |Read/Write|Enabled               |-   |
-|ghost                |content       |PVC     |-              |/var/lib/ghost/content                  |Read/Write|Enabled               |-   |
-|homebridge           |config        |PVC     |-              |/homebridge                             |Read/Write|Enabled               |-   |
-|inventree            |data          |PVC     |-              |/home/inventree/data                    |Read/Write|Enabled               |-   |
-|kopia                |config        |PVC     |-              |/app/config                             |Read/Write|Enabled               |-   |
-|kopia                |cache         |PVC     |-              |/app/cache                              |Read/Write|Enabled               |-   |
-|kopia                |logs          |PVC     |-              |/app/logs                               |Read/Write|Enabled               |-   |
-|kopia                |rclone        |PVC     |-              |/app/rclone                             |Read/Write|Enabled               |-   |
-|meshcentral          |data          |PVC     |-              |/home/node/meshcentral/meshcentral-data |Read/Write|Enabled               |-   |
-|meshcentral          |files         |PVC     |-              |/home/node/meshcentral/meshcentral-files|Read/Write|Enabled               |-   |
-|netdata              |config        |PVC     |-              |/etc/netdata                            |Read/Write|Enabled               |-   |
-|netdata              |lib           |PVC     |-              |/var/lib/netdata                        |Read/Write|Enabled               |-   |
-|netdata              |cache         |PVC     |-              |/var/cache/netdata                      |Read/Write|Enabled               |-   |
-|netdata              |passwd        |hostPath|/etc/passwd    |/host/etc/passwd                        |Read Only |Enabled               |-   |
-|netdata              |group         |hostPath|/etc/group     |/host/etc/group                         |Read Only |Enabled               |-   |
-|netdata              |proc          |hostPath|/proc          |/host/proc                              |Read Only |Enabled               |-   |
-|netdata              |dev           |hostPath|/dev           |/host/dev                               |Read Only |Enabled               |-   |
-|netdata              |sys           |hostPath|/sys           |/host/sys                               |Read Only |Enabled               |-   |
-|netdata              |os            |hostPath|/etc/os-release|/host/etc/os-release                    |Read Only |Enabled               |-   |
-|piwigo               |config        |PVC     |-              |/config                                 |Read/Write|Enabled               |-   |
-|piwigo               |varrun        |emptyDir|-              |/var/run                                |Read/Write|Mount Path not Defined|-   |
-|self-service-password|config        |PVC     |-              |/assets/custom                          |Read/Write|Enabled               |-   |
-|self-service-password|logs          |PVC     |-              |/www/logs                               |Read/Write|Enabled               |-   |
-|technitium           |config        |PVC     |-              |/etc/dns/config                         |Read/Write|Enabled               |-   |
-|zabbix-server        |snmptraps     |PVC     |-              |/var/lib/zabbix/snmptraps               |Read/Write|Enabled               |-   |
+|adguard-home         |config        |PVC     |-              |/opt/adguardhome/conf                   |Read/Write|Enabled|-   |
+|adguard-home         |data          |PVC     |-              |/opt/adguardhome/work                   |Read/Write|Enabled|-   |
+|appsmith             |appsmithstacks|PVC     |-              |/appsmith-stacks                        |Read/Write|Enabled|-   |
+|authentik            |media         |PVC     |-              |/media                                  |Read/Write|Enabled|-   |
+|authentik            |templates     |PVC     |-              |/templates                              |Read/Write|Enabled|-   |
+|authentik            |certs         |PVC     |-              |/certs                                  |Read/Write|Enabled|-   |
+|authentik            |geoip         |PVC     |-              |/geoip                                  |Read/Write|Enabled|-   |
+|baserow              |data          |PVC     |-              |/baserow/data                           |Read/Write|Enabled|-   |
+|cups-server          |config        |PVC     |-              |/etc/cups                               |Read/Write|Enabled|-   |
+|cups-server          |dbus          |hostPath|/var/run/dbus  |/var/run/dbus                           |Read/Write|Enabled|-   |
+|filerun              |config        |PVC     |-              |/var/www/html                           |Read/Write|Enabled|-   |
+|filerun              |userfile      |PVC     |-              |/user-files                             |Read/Write|Enabled|-   |
+|frigate              |cache         |emptyDir|-              |/tmp/cache                              |Read/Write|Enabled|-   |
+|frigate              |shm           |emptyDir|-              |/dev/shm                                |Read/Write|Enabled|-   |
+|frigate              |media         |PVC     |-              |/media                                  |Read/Write|Enabled|-   |
+|ghost                |content       |PVC     |-              |/var/lib/ghost/content                  |Read/Write|Enabled|-   |
+|homebridge           |config        |PVC     |-              |/homebridge                             |Read/Write|Enabled|-   |
+|inventree            |data          |PVC     |-              |/home/inventree/data                    |Read/Write|Enabled|-   |
+|kopia                |config        |PVC     |-              |/app/config                             |Read/Write|Enabled|-   |
+|kopia                |cache         |PVC     |-              |/app/cache                              |Read/Write|Enabled|-   |
+|kopia                |logs          |PVC     |-              |/app/logs                               |Read/Write|Enabled|-   |
+|kopia                |rclone        |PVC     |-              |/app/rclone                             |Read/Write|Enabled|-   |
+|meshcentral          |data          |PVC     |-              |/home/node/meshcentral/meshcentral-data |Read/Write|Enabled|-   |
+|meshcentral          |files         |PVC     |-              |/home/node/meshcentral/meshcentral-files|Read/Write|Enabled|-   |
+|netdata              |config        |PVC     |-              |/etc/netdata                            |Read/Write|Enabled|-   |
+|netdata              |lib           |PVC     |-              |/var/lib/netdata                        |Read/Write|Enabled|-   |
+|netdata              |cache         |PVC     |-              |/var/cache/netdata                      |Read/Write|Enabled|-   |
+|netdata              |passwd        |hostPath|/etc/passwd    |/host/etc/passwd                        |Read Only |Enabled|-   |
+|netdata              |group         |hostPath|/etc/group     |/host/etc/group                         |Read Only |Enabled|-   |
+|netdata              |proc          |hostPath|/proc          |/host/proc                              |Read Only |Enabled|-   |
+|netdata              |dev           |hostPath|/dev           |/host/dev                               |Read Only |Enabled|-   |
+|netdata              |sys           |hostPath|/sys           |/host/sys                               |Read Only |Enabled|-   |
+|netdata              |os            |hostPath|/etc/os-release|/host/etc/os-release                    |Read Only |Enabled|-   |
+|piwigo               |config        |PVC     |-              |/config                                 |Read/Write|Enabled|-   |
+|piwigo               |varrun        |emptyDir|-              |/var/run                                |Read/Write|Enabled|-   |
+|self-service-password|config        |PVC     |-              |/assets/custom                          |Read/Write|Enabled|-   |
+|self-service-password|logs          |PVC     |-              |/www/logs                               |Read/Write|Enabled|-   |
+|technitium           |config        |PVC     |-              |/etc/dns/config                         |Read/Write|Enabled|-   |
+|zabbix-server        |snmptraps     |PVC     |-              |/var/lib/zabbix/snmptraps               |Read/Write|Enabled|-   |
 
 ## Dev
 
