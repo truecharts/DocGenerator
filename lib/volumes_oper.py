@@ -66,7 +66,7 @@ def process_volume(volume, app_name, curr_train):
                     app_name=app_name,
                     status="enabled",
                     vol_name=volume[0],
-                    type="emptyDir",
+                    vol_type="emptyDir",
                     mountPath="/var/run",
                     train=curr_train
                 )
@@ -90,7 +90,7 @@ def process_volume(volume, app_name, curr_train):
                 status="enabled" if volume[1]['enabled'] else "disabled",
                 train=curr_train,
                 vol_name=volume[0],
-                type=temp['type'],
+                vol_type=temp['type'],
                 mountPath=temp['mountPath'],
                 hostPath=temp['hostPath'],
                 mode=temp["mode"]
@@ -102,7 +102,7 @@ def process_volume(volume, app_name, curr_train):
             status="vol_dis",
             vol_name=volume[0],
             train=curr_train,
-            type="emptyDir" if volume[0] == "varrun" else "PVC"
+            vol_type="emptyDir" if volume[0] == "varrun" else "PVC"
         )
 
 
@@ -157,7 +157,7 @@ def create_volume_list_content(volume_list, train):
     return content
 
 
-def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",  hostPath="-", mode="Read/Write"):
+def create_row(app_name, status, train, vol_name="-", vol_type="PVC", mountPath="-",  hostPath="-", mode="Read/Write"):
     """
     Creates a row for the processed volumes list
     """
@@ -167,7 +167,7 @@ def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",
         status = setup.Status.DISABLED
     if status == "vol_und":
         status = setup.Status.VOL_UND
-        type = "-"
+        vol_type = "-"
         mode = "-"
     if status == "vol_dis":
         status = setup.Status.VOL_DIS
@@ -176,7 +176,7 @@ def create_row(app_name, status, train, vol_name="-", type="PVC", mountPath="-",
     return {
         "app_name": app_name,
         "vol_name": vol_name,
-        "type": type,
+        "type": vol_type,
         "hostPath": hostPath,
         "mountPath": mountPath,
         "mode": mode,

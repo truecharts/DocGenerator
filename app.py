@@ -71,6 +71,5 @@ def main():
             setup.DESCRIPTION_LIST_FILE, description_file_content)
 
 
-# TODO: Find the next available port
 if __name__ == "__main__":
     main()
