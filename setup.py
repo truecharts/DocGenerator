@@ -207,9 +207,9 @@ PORT_LIST_OUTRO = """
 | 6697  |                IRC + TLS                 |
 | 10080 |                  Amanda                  |
 
-# Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
+#### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
-# If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).
+#### If you notice a port conflict that is not documented, please notify us so we can resolve it (when possible).
 """
 
 
@@ -221,5 +221,5 @@ The intro needs improvement ;)
 """
 
 VOLUME_LIST_OUTRO = """
-# If you notice something wrong in the above info, please notify us so we can resolve it.
+#### If you notice something wrong in the above info, please notify us so we can resolve it.
 """
