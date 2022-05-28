@@ -248,3 +248,15 @@ def append_conflicts_to(all_ports):
 #   [1935, "TCP", ["owncast", "frigate"]],
 #   [8008, "TCP", ["synapse", "acestream"]]
 # ]
+
+
+def get_next_available_port(ports_list):
+    next_port = 0
+    for port in ports_list:
+        # We might want to update this range in the future
+        if port['port'] > next_port and port['port'] > 10000 and port['port'] < 10700:
+            next_port = port['port']
+    next_port += 1
+    return f"""
+#### Next available port should be {next_port}.
+"""

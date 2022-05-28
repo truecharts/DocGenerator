@@ -60,6 +60,7 @@ def main():
                 all_descriptions, train.stem)
     if setup.GENERATE_PORT_FILE:
         port_file_content += setup.PORT_LIST_OUTRO
+        port_file_content += services_oper.get_next_available_port(all_ports)
         file_oper.add_text_to_file(setup.PORT_LIST_FILE, port_file_content)
     if setup.GENERATE_VOLUME_FILE:
         volume_file_content += setup.VOLUME_LIST_OUTRO
@@ -70,7 +71,6 @@ def main():
             setup.DESCRIPTION_LIST_FILE, description_file_content)
 
 
-# TODO: Generate a list of apps and their short descriptions
 # TODO: Find the next available port
 if __name__ == "__main__":
     main()

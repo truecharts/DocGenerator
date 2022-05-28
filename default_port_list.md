@@ -699,3 +699,5 @@ they should provide no or minimal conflicts without being changed
 #### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
 
 #### If you notice something wrong in the above info, please notify us so we can update the generator script.
+
+#### Next available port should be 10239.
