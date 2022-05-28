@@ -43,6 +43,7 @@ TRAIN_ORDER_FOR_FILES = [
     "core",
     "stable",
     "dependency",
+    "games",
 ] if not train_ord else train_ord
 
 

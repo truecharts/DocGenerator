@@ -13,7 +13,7 @@
 | GENERATE_VOLUME_FILE      | "False"                  | True                     | Set to false to NOT generate a file            |
 | GENERATE_DESCRIPTION_FILE | "False"                  | True                     | Set to false to NOT generate a file            |
 | SORT_VOLUMES_BY_STATUS    | "False"                  | True                     | Set to false to NOT generate a file            |
-| TRAIN_ORDER_FOR_FILES     | "core,stable"            | "core,stable,dependency" | Order of trains which will appear in the files |
+| TRAIN_ORDER_FOR_FILES     | "core,stable"            | "core,stable,dependency,games" | Order of trains which will appear in the files |
 
 ### TRAIN_ORDER_FOR_FILES
 
