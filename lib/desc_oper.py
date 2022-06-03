@@ -19,9 +19,17 @@ def get_home_url(app):
     Returns the Home of an app
     """
     data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
-    clean_data = clean_strings(data['home'])
 
-    return clean_data if 'home' in data else setup.FALLBACK_URL
+    return data['home'] if 'home' in data else setup.FALLBACK_URL
+
+
+def get_icon(app):
+    """
+    Returns the Icon of an app
+    """
+    data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
+
+    return data['icon'] if 'icon' in data else setup.FALLBACK_URL
 
 
 def clean_strings(string):
@@ -44,23 +52,24 @@ def get_descriptions_list(apps, train):
     for app in apps:
         description = get_description(app)
         home_url = get_home_url(app)
+        icon = get_icon(app)
         if not description is None:
             description_list.append(create_row(
-                app_name=app.stem, description=description, home_url=home_url, train=train))
+                app_name=app.stem, description=description, home_url=home_url, icon=icon, train=train))
         else:
             description_list.append(create_row(
-                app_name=app.stem, description=False, home_url=home_url, train=train))
+                app_name=app.stem, description=False, home_url=home_url, icon=icon, train=train))
     return description_list
 
 
-def create_row(app_name, description, home_url, train):
+def create_row(app_name, description, home_url, icon, train):
     """
     Creates a row for the processed description list
     """
     if not description:
         description = setup.Status.NO_DESC
     return {
-        "app_name": f'[{app_name}]({home_url})',
+        "app_name": f'[]({icon})[{app_name}]({home_url})',
         "description": description,
         "train": train
     }
