@@ -64,6 +64,9 @@ GENERATE_DESCRIPTION_FILE = os.getenv(
 SORT_VOLUMES_BY_STATUS = os.getenv(
     'SORT_VOLUMES_BY_STATUS', 'False').lower() in ('true', '1')
 
+# URL to return if the URL we are trying to get does not exist
+FALLBACK_URL = os.getenv('FALLBACK_URL', 'https://truecharts.org/')
+
 
 class Status:
     PORT_DIS = "Port is Disabled"

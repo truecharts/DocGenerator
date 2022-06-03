@@ -14,6 +14,16 @@ def get_description(app):
     return clean_data if 'description' in data else None
 
 
+def get_home_url(app):
+    """
+    Returns the Home of an app
+    """
+    data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
+    clean_data = clean_strings(data['home'])
+
+    return clean_data if 'home' in data else setup.FALLBACK_URL
+
+
 def clean_strings(string):
     """
     Some descriptions have line breaks, so we clean them here
@@ -33,23 +43,24 @@ def get_descriptions_list(apps, train):
     description_list = []
     for app in apps:
         description = get_description(app)
+        home_url = get_home_url(app)
         if not description is None:
             description_list.append(create_row(
-                app_name=app.stem, description=description, train=train))
+                app_name=app.stem, description=description, home_url=home_url, train=train))
         else:
             description_list.append(create_row(
-                app_name=app.stem, description=False, train=train))
+                app_name=app.stem, description=False, home_url=home_url, train=train))
     return description_list
 
 
-def create_row(app_name, description, train):
+def create_row(app_name, description, home_url, train):
     """
     Creates a row for the processed description list
     """
     if not description:
         description = setup.Status.NO_DESC
     return {
-        "app_name": app_name,
+        "app_name": f'[{app_name}]({home_url})',
         "description": description,
         "train": train
     }
