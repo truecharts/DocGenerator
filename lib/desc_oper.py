@@ -69,7 +69,7 @@ def create_row(app_name, description, home_url, icon, train):
     if not description:
         description = setup.Status.NO_DESC
     return {
-        "app_name": f'[]({icon})[{app_name}]({home_url})',
+        "app_name": f'![]({icon})[{app_name}]({home_url})',
         "description": description,
         "train": train
     }
