@@ -50,6 +50,7 @@ TRAIN_ORDER_FOR_FILES = [
 # Print Verbose Output
 VERBOSE = os.getenv('VERBOSE', 'True').lower() in ('true', '1')
 
+
 # Set to false to NOT generate a file
 GENERATE_PORT_FILE = os.getenv(
     'GENERATE_PORT_FILE', 'True').lower() in ('true', '1')
@@ -58,14 +59,21 @@ GENERATE_VOLUME_FILE = os.getenv(
 GENERATE_DESCRIPTION_FILE = os.getenv(
     'GENERATE_DESCRIPTION_FILE', 'True').lower() in ('true', '1')
 
+
 # Volumes make sense to order by app name,
 # So each app has it's volumes one after the other.
 # If we sort by status, (eg disabled etc), volumes will be all over the place
 SORT_VOLUMES_BY_STATUS = os.getenv(
     'SORT_VOLUMES_BY_STATUS', 'False').lower() in ('true', '1')
 
+
 # URL to return if the URL we are trying to get does not exist
 FALLBACK_URL = os.getenv('FALLBACK_URL', 'https://truecharts.org/')
+
+
+# Size for images in Description list
+IMAGE_HEIGHT = 25
+IMAGE_WIDTH = 25
 
 
 class Status:
