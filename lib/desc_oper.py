@@ -87,8 +87,7 @@ def clean_strings(string):
     return string \
         .replace('\n', " ") \
         .replace('\r', " ") \
-        .replace('\\', " ") \
-        .replace('\*', "*")
+        .replace('\\', " ")
 
 
 def get_descriptions_list(apps, train):
