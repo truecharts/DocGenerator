@@ -40,10 +40,9 @@ EXCLUDE_APPS = [
 train_ord = [item for item in os.getenv('TRAIN_ORDER_FOR_FILES').split(
     ',')] if os.getenv('TRAIN_ORDER_FOR_FILES') else None
 TRAIN_ORDER_FOR_FILES = [
-    "core",
     "stable",
     "dependency",
-    "games",
+    "incubator"
 ] if not train_ord else train_ord
 
 
