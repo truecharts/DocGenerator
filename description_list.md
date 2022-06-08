@@ -1,5 +1,7 @@
 
-# List of all our apps with a short description
+# Apps List
+**List of all our apps with a short description**
+
 ## Stable
 
 | App | Container Source | Description |

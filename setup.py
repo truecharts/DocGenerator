@@ -260,7 +260,9 @@ VOLUME_LIST_OUTRO = """
 
 
 DESCRIPTION_LIST_INTRO = """
-# List of all our apps with a short description
+# Apps List
+**List of all our apps with a short description**
+
 """
 
 DESCRIPTION_LIST_OUTRO = """
