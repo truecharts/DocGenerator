@@ -71,6 +71,20 @@ def get_home_url(app):
     return data['home'] if 'home' in data else setup.FALLBACK_URL
 
 
+def get_source_image(app):
+    """
+    Returns the image of an app
+    """
+    if setup.PRINT_IMAGE_SOURCE:
+        dockerfile_path = Path(setup.IMAGE_PATH, app, "Dockerfile")
+        if dockerfile_path.exists():
+            with open(dockerfile_path, "r", encoding="utf_8") as file:
+                content = file.readline()
+                content = content.split(" ")[1].split(":")[0]
+                return content
+    return "Not Found"
+
+
 def get_icon(app):
     """
     Returns the Icon of an app
@@ -98,24 +112,30 @@ def get_descriptions_list(apps, train):
     description_list = []
     for app in apps:
         description = get_description(app)
+        container = get_source_image(app.stem)
         home_url = get_home_url(app)
         icon = get_icon(app)
         if not description is None:
             description_list.append(create_row(
-                app_name=app.stem, description=description, home_url=home_url, icon=icon, train=train))
+                app_name=app.stem, container=container, description=description, home_url=home_url, icon=icon, train=train))
         else:
             description_list.append(create_row(
-                app_name=app.stem, description=False, home_url=home_url, icon=icon, train=train))
+                app_name=app.stem, container=container, description=False, home_url=home_url, icon=icon, train=train))
     return description_list
 
 
-def create_row(app_name, description, home_url, icon, train):
+def create_row(app_name, container, description, home_url, icon, train):
     """
     Creates a row for the processed description list
     """
     if not description:
         description = setup.Status.NO_DESC
     return {
+        "app_name": f'<img src="{icon}" width="{setup.IMAGE_WIDTH}" height="{setup.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
+        "container": f'{container}',
+        "description": description,
+        "train": train
+    } if setup.PRINT_IMAGE_SOURCE else {
         "app_name": f'<img src="{icon}" width="{setup.IMAGE_WIDTH}" height="{setup.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
         "description": description,
         "train": train
@@ -136,9 +156,9 @@ def create_description_list_content(description_list, train):
 
     content += f'## {train.capitalize()}'
     content += '\n\n'
-    content += "| App | Description |"
+    content += "| App | Container Source | Description |" if setup.PRINT_IMAGE_SOURCE else "| App | Description |"
     content += '\n'
-    content += "|:----|:------------|"
+    content += "|:----|:-----------------|:------------|" if setup.PRINT_IMAGE_SOURCE else "|:----|:------------|"
     content += '\n'
     # Check that table has data
     if sorted_list:

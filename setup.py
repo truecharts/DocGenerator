@@ -3,6 +3,9 @@ import os
 # Path where trains are stored
 TRAINS_PATH = os.getenv('TRAINS_PATH', './charts')
 
+# Path where "mirror" is stored (mirror contains folders named after the apps, which they contain the Dockerfile)
+IMAGE_PATH = os.getenv('IMAGE_PATH_PATH', './mirror')
+
 
 # Name and path of the port list file
 PORT_LIST_FILE = os.getenv('PORT_LIST_FILE', './default_port_list.md')
@@ -51,6 +54,8 @@ VERBOSE = os.getenv('VERBOSE', 'True').lower() in ('true', '1')
 
 # Split even n character
 SPLIT_DESCRIPTION_EVERY = int(os.getenv('SPLIT_DESCRIPTION_EVERY', "70"))
+PRINT_IMAGE_SOURCE = os.getenv(
+    'PRINT_IMAGE_SOURCE', 'True').lower() in ('true', '1')
 
 # Set to false to NOT generate a file
 GENERATE_PORT_FILE = os.getenv(
