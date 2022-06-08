@@ -49,6 +49,8 @@ TRAIN_ORDER_FOR_FILES = [
 # Print Verbose Output
 VERBOSE = os.getenv('VERBOSE', 'True').lower() in ('true', '1')
 
+# Split even n character
+SPLIT_DESCRIPTION_EVERY = int(os.getenv('SPLIT_DESCRIPTION_EVERY', "70"))
 
 # Set to false to NOT generate a file
 GENERATE_PORT_FILE = os.getenv(

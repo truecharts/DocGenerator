@@ -9,9 +9,57 @@ def get_description(app):
     Returns the Description of an app
     """
     data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
-    clean_data = clean_strings(data['description'])
+    if 'description' in data:
+        clean_string = clean_strings(data['description'])
+        splitted_string = break_long_string(clean_string)
+        return splitted_string
+    return None
 
-    return clean_data if 'description' in data else None
+
+def break_long_string(string):
+    """
+    Breaks long strings, if the character at break point is not space,
+    it will break on the nearest space
+    """
+
+    # If length is smaller thant the split, return it as is
+    if len(string) <= setup.SPLIT_DESCRIPTION_EVERY:
+        return string
+
+    splitted_times = 1
+    stopped_at_index = 0
+    splitted_str = ""
+    # Loop over the string
+    for idx, char in enumerate(string):
+        # Index divided with splitted_times, will let us know
+        # in what "chuck" of the string we are. So we can split only after each chuck.
+        # eg. If a string is 100 chars, we split every 50.
+        # index 1 / splitted_times = 1 is not > than 50. So we won't split here.
+        # index 50 / splitted_times = 1 is < than 50. So we can split here (if conditions met, else check next char for conditions)
+        # index 51 / splitted_times = 1 is < than 50. So we can split here (lets say conditions met, we increase splitted_times by 1)
+        # index 52 / splitted_times = 2 is not > than 50. So we won't split here.
+        # index 100 / splitted_times = 2 is < than 50. So we can split here (if conditions met, else check next char for conditions)
+        # And so on..
+        if idx / splitted_times > setup.SPLIT_DESCRIPTION_EVERY:
+            # If the current character is " " add the line break
+            if char == " ":
+                # First time: Concat string from index 0 until current idx + line break
+                # Second time: Concat string from the index we stopped on last concat + 1 + line break
+                splitted_str += string[stopped_at_index+1:idx] + \
+                    "<br>" if stopped_at_index else string[:idx]+"<br>"
+                # Store the index we stopped
+                stopped_at_index = idx
+                # Store how many times we splitted
+                splitted_times += 1
+    # If we stopped to break line (meaning string is larger than the split length) and there is still a part of string left.
+    # Append the rest of the string
+    if stopped_at_index and string[stopped_at_index+1:]:
+        splitted_str += string[stopped_at_index+1:]
+    # If string was larger than the split length, but we didn't apply line breaks (maybe there was not any spaces after the split length)
+    # Return the string as is
+    if not stopped_at_index:
+        return string
+    return splitted_str
 
 
 def get_home_url(app):
