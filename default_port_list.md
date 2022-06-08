@@ -4,29 +4,12 @@
 This document lists the default ports used by Apps.
 These defaults can of course be changed, but as we guarantee "sane, working defaults",
 they should provide no or minimal conflicts without being changed
-## Core
-
-| App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
-|amd-gpu-plugin  |-           |-           |-    |-       |Service not Defined|-                                                              |
-|metallb         |-           |-           |-    |-       |Service not Defined|-                                                              |
-|traefik         |udp         |-           |-    |-       |Service is Disabled|-                                                              |
-|k8s-gateway     |main        |main        |53   |UDP     |Active             |Potential conflict with: pihole mosdns adguard-home technitium |
-|docker-compose  |main        |main        |2376 |TCP     |Active             |-                                                              |
-|traefik         |main        |main        |9000 |HTTP    |Active             |-                                                              |
-|traefik         |tcp         |web         |9080 |HTTP    |Active             |-                                                              |
-|traefik         |metrics     |metrics     |9180 |HTTP    |Active             |-                                                              |
-|external-service|main        |main        |10003|TCP     |Active             |-                                                              |
-|prometheus      |main        |main        |10086|HTTP    |Active             |-                                                              |
-|prometheus      |alertmanager|alertmanager|10087|HTTP    |Active             |-                                                              |
-|prometheus      |promop      |promop      |10089|HTTP    |Active             |-                                                              |
-|prometheus      |thanos      |thanos      |10901|HTTP    |Active             |-                                                              |
-
 ## Stable
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
 |:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
 |custom-app                |-              |-              |-    |-       |Service not Defined|-                                                                   |
+|metallb                   |-              |-              |-    |-       |Service not Defined|-                                                                   |
 |amcrest2mqtt              |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |automatic-music-downloader|main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |ddclient                  |main           |-              |-    |-       |Service is Disabled|-                                                                   |
@@ -36,18 +19,19 @@ they should provide no or minimal conflicts without being changed
 |protonmail-bridge         |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |rsnapshot                 |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |tdarr-node                |main           |-              |-    |-       |Service is Disabled|-                                                                   |
+|traefik                   |udp            |-              |-    |-       |Service is Disabled|-                                                                   |
 |unpackerr                 |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |webgrabplus               |main           |-              |-    |-       |Service is Disabled|-                                                                   |
 |promcord                  |main           |-              |-    |-       |Port is Disabled   |-                                                                   |
 |speedtest-exporter        |main           |-              |-    |-       |Port is Disabled   |-                                                                   |
-|unifi                     |comm           |-              |-    |-       |Port is Disabled   |-                                                                   |
 |unpoller                  |main           |-              |-    |-       |Port is Disabled   |-                                                                   |
 |uptimerobot-prometheus    |main           |-              |-    |-       |Port is Disabled   |-                                                                   |
 |anonaddy                  |smtp           |smtp           |25   |TCP     |Active             |Potential conflict with: protonmail-bridge                          |
 |protonmail-bridge         |smtp           |smtp           |25   |TCP     |Active             |Potential conflict with: anonaddy                                   |
-|mosdns                    |main           |main           |53   |UDP     |Active             |Potential conflict with: k8s-gateway pihole adguard-home technitium |
-|pihole                    |dns-tcp        |dns-tcp        |53   |TCP     |Active             |-                                                                   |
-|pihole                    |dns            |dns            |53   |UDP     |Active             |Potential conflict with: k8s-gateway mosdns adguard-home technitium |
+|k8s-gateway               |main           |main           |53   |UDP     |Active             |-                                                                   |
+|mosdns                    |main           |main           |53   |UDP     |Active             |-                                                                   |
+|pihole                    |dns-tcp        |dns-tcp        |53   |TCP     |Active             |Potential conflict with: adguard-home technitium adguard-home       |
+|pihole                    |dns            |dns            |53   |UDP     |Active             |-                                                                   |
 |openldap                  |main           |main           |389  |TCP     |Active             |-                                                                   |
 |minisatip                 |rtsp           |rtsp           |554  |TCP     |Active             |-                                                                   |
 |openldap                  |ldaps          |ldaps          |636  |TCP     |Active             |-                                                                   |
@@ -65,6 +49,8 @@ they should provide no or minimal conflicts without being changed
 |ubooquity                 |admin          |admin          |2203 |TCP     |Active             |-                                                                   |
 |gitea                     |ssh            |ssh            |2222 |TCP     |Active             |-                                                                   |
 |photoprism                |main           |main           |2342 |TCP     |Active             |-                                                                   |
+|docker-compose            |main           |main           |2376 |TCP     |Active             |-                                                                   |
+|valheim                   |valheim        |valheim1       |2456 |UDP     |Active             |-                                                                   |
 |wireshark                 |main           |main           |3000 |TCP     |Active             |Potential conflict with: blender                                    |
 |uptime-kuma               |main           |main           |3001 |TCP     |Active             |-                                                                   |
 |vaultwarden               |ws             |ws             |3012 |TCP     |Active             |-                                                                   |
@@ -108,12 +94,14 @@ they should provide no or minimal conflicts without being changed
 |clamav                    |milter         |milter         |7357 |TCP     |Active             |-                                                                   |
 |foldingathome             |main           |main           |7396 |TCP     |Active             |-                                                                   |
 |haste-server              |main           |main           |7777 |TCP     |Active             |-                                                                   |
+|satisfactory              |main           |main           |7777 |UDP     |Active             |-                                                                   |
 |nextcloud                 |hpb            |hpb            |7867 |TCP     |Active             |-                                                                   |
 |radarr                    |main           |main           |7878 |TCP     |Active             |-                                                                   |
-|synapse                   |main           |main           |8008 |TCP     |Active             |Potential conflict with: acestream acestream                        |
+|synapse                   |main           |main           |8008 |TCP     |Active             |Potential conflict with: acestream                                  |
 |omada-controller          |main           |main           |8043 |HTTPS   |Active             |-                                                                   |
 |odoo                      |main           |main           |8069 |TCP     |Active             |-                                                                   |
 |odoo                      |odoo           |xmlrpcs        |8071 |TCP     |Active             |-                                                                   |
+|unifi                     |comm           |comm           |8080 |TCP     |Active             |Potential conflict with: server-7daystodie adminer adguardhome-sync |
 |calibre                   |webserver      |webserver      |8081 |TCP     |Active             |Potential conflict with: assettocorsa                               |
 |traccar                   |main           |main           |8082 |TCP     |Active             |Potential conflict with: server-7daystodie                          |
 |calibre-web               |main           |main           |8083 |TCP     |Active             |-                                                                   |
@@ -142,12 +130,17 @@ they should provide no or minimal conflicts without being changed
 |unifi                     |guestportal    |web            |8880 |HTTP    |Active             |-                                                                   |
 |resilio-sync              |main           |main           |8888 |TCP     |Active             |-                                                                   |
 |sonarr                    |main           |main           |8989 |TCP     |Active             |-                                                                   |
+|traefik                   |main           |main           |9000 |HTTP    |Active             |-                                                                   |
+|valheim                   |main           |main           |9010 |TCP     |Active             |-                                                                   |
+|valheim                   |supervisor     |supervisor     |9011 |TCP     |Active             |-                                                                   |
+|traefik                   |tcp            |web            |9080 |HTTP    |Active             |-                                                                   |
 |pihole                    |main           |main           |9089 |TCP     |Active             |-                                                                   |
 |minio-console             |main           |main           |9090 |TCP     |Active             |-                                                                   |
 |authelia                  |main           |main           |9091 |TCP     |Active             |-                                                                   |
 |synapse                   |replication    |replication    |9092 |TCP     |Active             |-                                                                   |
 |synapse                   |metrics        |metrics        |9093 |TCP     |Active             |-                                                                   |
 |jackett                   |main           |main           |9117 |TCP     |Active             |-                                                                   |
+|traefik                   |metrics        |metrics        |9180 |HTTP    |Active             |-                                                                   |
 |owncloud-ocis             |main           |main           |9200 |HTTPS   |Active             |-                                                                   |
 |prowlarr                  |main           |main           |9696 |TCP     |Active             |-                                                                   |
 |kodi-headless             |esall          |esall          |9777 |UDP     |Active             |-                                                                   |
@@ -159,6 +152,7 @@ they should provide no or minimal conflicts without being changed
 |ser2sock                  |main           |main           |10000|TCP     |Active             |-                                                                   |
 |deconz                    |websocket      |websocket      |10001|TCP     |Active             |-                                                                   |
 |deconz                    |vnc            |vnc            |10002|TCP     |Active             |-                                                                   |
+|external-service          |main           |main           |10003|TCP     |Active             |-                                                                   |
 |nullserv                  |main           |main           |10004|TCP     |Active             |-                                                                   |
 |nullserv                  |https          |https          |10005|TCP     |Active             |-                                                                   |
 |apache-musicindex         |main           |main           |10006|TCP     |Active             |-                                                                   |
@@ -238,7 +232,10 @@ they should provide no or minimal conflicts without being changed
 |fossil                    |main           |main           |10083|TCP     |Active             |-                                                                   |
 |gotify                    |main           |main           |10084|TCP     |Active             |-                                                                   |
 |komga                     |main           |main           |10085|TCP     |Active             |-                                                                   |
+|prometheus                |main           |main           |10086|HTTP    |Active             |-                                                                   |
+|prometheus                |alertmanager   |alertmanager   |10087|HTTP    |Active             |-                                                                   |
 |owncast                   |main           |main           |10088|TCP     |Active             |-                                                                   |
+|prometheus                |promop         |promop         |10089|HTTP    |Active             |-                                                                   |
 |openkm                    |main           |main           |10090|TCP     |Active             |-                                                                   |
 |miniflux                  |main           |main           |10091|TCP     |Active             |-                                                                   |
 |piaware                   |main           |main           |10092|TCP     |Active             |-                                                                   |
@@ -260,8 +257,7 @@ they should provide no or minimal conflicts without being changed
 |anonaddy                  |main           |main           |10110|TCP     |Active             |-                                                                   |
 |blog                      |main           |main           |10111|TCP     |Active             |-                                                                   |
 |bookstack                 |main           |main           |10112|TCP     |Active             |-                                                                   |
-|clarkson                  |main           |main           |10113|TCP     |Active             |Potential conflict with: quassel-core                               |
-|quassel-core              |ident          |ident          |10113|TCP     |Active             |Potential conflict with: clarkson                                   |
+|quassel-core              |ident          |ident          |10113|TCP     |Active             |-                                                                   |
 |icinga2                   |main           |main           |10114|TCP     |Active             |-                                                                   |
 |icinga2                   |https          |https          |10115|TCP     |Active             |-                                                                   |
 |icinga2                   |api            |api            |10116|TCP     |Active             |-                                                                   |
@@ -363,26 +359,45 @@ they should provide no or minimal conflicts without being changed
 |rss-bridge                |main           |main           |10225|TCP     |Active             |-                                                                   |
 |nocodb                    |main           |main           |10226|TCP     |Active             |-                                                                   |
 |ddns-updater              |main           |main           |10227|TCP     |Active             |-                                                                   |
+|baserow                   |main           |main           |10228|TCP     |Active             |-                                                                   |
+|inventree                 |main           |main           |10231|TCP     |Active             |-                                                                   |
 |mkvtoolnix                |main           |main           |10236|TCP     |Active             |-                                                                   |
 |mkvtoolnix                |vnc            |vnc            |10237|TCP     |Active             |-                                                                   |
+|kopia                     |main           |main           |10238|TCP     |Active             |-                                                                   |
+|mattermost                |main           |main           |10239|TCP     |Active             |-                                                                   |
+|commento-plusplus         |main           |main           |10240|TCP     |Active             |-                                                                   |
+|jellyseerr                |main           |main           |10241|TCP     |Active             |-                                                                   |
+|fileflows                 |main           |main           |10242|TCP     |Active             |-                                                                   |
+|meshroom                  |main           |main           |10243|TCP     |Active             |-                                                                   |
+|clarkson                  |main           |main           |10244|TCP     |Active             |Potential conflict with: theme-park                                 |
+|homarr                    |main           |main           |10245|TCP     |Active             |-                                                                   |
+|prometheus                |thanos         |thanos         |10901|HTTP    |Active             |-                                                                   |
 |storj-node                |main           |main           |14002|TCP     |Active             |-                                                                   |
+|satisfactory              |beacon         |beacon         |15000|UDP     |Active             |-                                                                   |
+|satisfactory              |query          |query          |15777|UDP     |Active             |-                                                                   |
+|minecraft-bedrock         |main           |main           |19132|UDP     |Active             |-                                                                   |
 |hyperion-ng               |boblightservice|boblightservice|19333|TCP     |Active             |-                                                                   |
 |hyperion-ng               |jsonservice    |jsonservice    |19444|TCP     |Active             |-                                                                   |
 |hyperion-ng               |protobufservice|protobufservice|19445|TCP     |Active             |-                                                                   |
+|netdata                   |main           |main           |19999|TCP     |Active             |-                                                                   |
 |syncthing                 |discovery      |discovery      |21027|UDP     |Active             |-                                                                   |
 |airdcpp-webclient         |unencrypted-tcp|unencrypted-tcp|21248|TCP     |Active             |-                                                                   |
 |airdcpp-webclient         |search-udp     |search-udp     |21248|UDP     |Active             |-                                                                   |
 |airdcpp-webclient         |encrypted-tcp  |encrypted-tcp  |21249|TCP     |Active             |-                                                                   |
 |syncthing                 |listeners      |tcp            |22000|TCP     |Active             |-                                                                   |
 |syncthing                 |listeners-udp  |udp            |22000|UDP     |Active             |-                                                                   |
+|impostor-server           |main           |main           |22023|UDP     |Active             |-                                                                   |
 |verysync                  |bt-udp2        |bt-udp2        |22027|UDP     |Active             |-                                                                   |
 |verysync                  |bt-udp1        |bt-udp1        |22037|UDP     |Active             |-                                                                   |
 |joplin-server             |main           |main           |22300|TCP     |Active             |-                                                                   |
 |verysync                  |data           |data           |22330|TCP     |Active             |-                                                                   |
+|minecraft-java            |main           |main           |25565|TCP     |Active             |-                                                                   |
+|minecraft-java            |rcon           |rcon           |25575|TCP     |Active             |-                                                                   |
 |storj-node                |coretcp        |coretcp        |28967|TCP     |Active             |-                                                                   |
 |storj-node                |coreudp        |coreudp        |28967|UDP     |Active             |-                                                                   |
 |omada-controller          |omada-udp      |omada-udp1     |29810|UDP     |Active             |-                                                                   |
 |omada-controller          |omada-tcp      |omada-tcp1     |29811|TCP     |Active             |-                                                                   |
+|minetest                  |main           |main           |30000|UDP     |Active             |-                                                                   |
 |teamspeak3                |files          |files          |30033|TCP     |Active             |-                                                                   |
 |plex                      |main           |main           |32400|TCP     |Active             |-                                                                   |
 |pydio-cells               |gprc           |gprc           |33060|TCP     |Active             |-                                                                   |
@@ -411,65 +426,46 @@ they should provide no or minimal conflicts without being changed
 |memcached |main    |main     |11211|TCP     |Active|-                                      |
 |mongodb   |main    |main     |27017|TCP     |Active|-                                      |
 
-## Games
-
-| App | Service | Port Name | Port | Protocol | Status | Note |
-|:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
-|valheim          |valheim   |valheim1  |2456 |UDP     |Active|-                                |
-|satisfactory     |main      |main      |7777 |UDP     |Active|-                                |
-|acestream        |main      |main      |8008 |TCP     |Active|Potential conflict with: synapse |
-|valheim          |main      |main      |9010 |TCP     |Active|-                                |
-|valheim          |supervisor|supervisor|9011 |TCP     |Active|-                                |
-|satisfactory     |beacon    |beacon    |15000|UDP     |Active|-                                |
-|satisfactory     |query     |query     |15777|UDP     |Active|-                                |
-|minecraft-bedrock|main      |main      |19132|UDP     |Active|-                                |
-|impostor-server  |main      |main      |22023|UDP     |Active|-                                |
-|minecraft-java   |main      |main      |25565|TCP     |Active|-                                |
-|minecraft-java   |rcon      |rcon      |25575|TCP     |Active|-                                |
-|minetest         |main      |main      |30000|UDP     |Active|-                                |
-
 ## Incubator
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
 |:----|:-------:|:---------:|:----:|:--------:|:------:|:-----|
-|adguard-home         |dns-tcp        |dns-tcp        |53   |TCP     |Active|-                                                               |
-|adguard-home         |dns-udp        |dns-udp        |53   |UDP     |Active|Potential conflict with: k8s-gateway pihole mosdns technitium   |
-|technitium           |dns-tcp        |dns-tcp        |53   |TCP     |Active|-                                                               |
-|technitium           |dns-udp        |dns-udp        |53   |UDP     |Active|Potential conflict with: k8s-gateway pihole mosdns adguard-home |
-|zabbix-server        |snmptraps      |snmptraps      |162  |UDP     |Active|-                                                               |
-|cups-server          |main           |main           |631  |TCP     |Active|-                                                               |
-|adguard-home         |dns-quic-udp-1 |dns-quic-udp-1 |784  |UDP     |Active|-                                                               |
-|adguard-home         |dns-quic-udp-2 |dns-quic-udp-2 |853  |UDP     |Active|-                                                               |
-|technitium           |dns-tls        |dns-tls        |853  |TCP     |Active|-                                                               |
-|frigate              |rtmp           |rtmp           |1935 |TCP     |Active|Potential conflict with: owncast                                |
-|frigate              |main           |main           |5000 |TCP     |Active|Potential conflict with: auto-yt-dl                             |
-|technitium           |main           |main           |5380 |TCP     |Active|-                                                               |
-|adguard-home         |dns-crypt      |dns-crypt      |5443 |TCP     |Active|-                                                               |
-|adguard-home         |dns-crypt-udp  |dns-crypt-udp  |5443 |UDP     |Active|-                                                               |
-|homebridge           |main           |main           |8581 |TCP     |Active|-                                                               |
-|adguard-home         |dns-quic-udp-3 |dns-quic-udp-3 |8853 |UDP     |Active|-                                                               |
-|piwigo               |main           |main           |10027|TCP     |Active|-                                                               |
-|ghost                |main           |main           |10166|TCP     |Active|-                                                               |
-|self-service-password|main           |main           |10182|TCP     |Active|-                                                               |
-|filerun              |main           |main           |10199|TCP     |Active|-                                                               |
-|technitium           |dns-cert       |dns-cert       |10202|TCP     |Active|-                                                               |
-|technitium           |dns-https      |dns-https      |10203|TCP     |Active|-                                                               |
-|technitium           |dns-https-proxy|dns-https-proxy|10204|TCP     |Active|-                                                               |
-|meshcentral          |main           |main           |10205|HTTPS   |Active|-                                                               |
-|zabbix-server        |main           |main           |10211|TCP     |Active|-                                                               |
-|zabbix-server        |server         |server         |10212|TCP     |Active|-                                                               |
-|appsmith             |main           |main           |10217|TCP     |Active|-                                                               |
-|appsmith             |supervisor     |supervisor     |10218|TCP     |Active|-                                                               |
-|baserow              |main           |main           |10228|TCP     |Active|-                                                               |
-|authentik            |https          |https          |10229|HTTPS   |Active|-                                                               |
-|authentik            |main           |main           |10230|TCP     |Active|-                                                               |
-|inventree            |main           |main           |10231|TCP     |Active|-                                                               |
-|adguard-home         |main           |main           |10232|TCP     |Active|-                                                               |
-|adguard-home         |dns-http       |dns-http       |10233|TCP     |Active|-                                                               |
-|adguard-home         |dns-https      |dns-https      |10234|TCP     |Active|-                                                               |
-|adguard-home         |dns-https-udp  |dns-https-udp  |10234|UDP     |Active|-                                                               |
-|kopia                |main           |main           |10238|TCP     |Active|-                                                               |
-|netdata              |main           |main           |19999|TCP     |Active|-                                                               |
+|adguard-home         |dns-tcp        |dns-tcp        |53   |TCP     |Active|Potential conflict with: pihole technitium                |
+|adguard-home         |dns-udp        |dns-udp        |53   |UDP     |Active|-                                                         |
+|technitium           |dns-tcp        |dns-tcp        |53   |TCP     |Active|Potential conflict with: pihole adguard-home adguard-home |
+|technitium           |dns-udp        |dns-udp        |53   |UDP     |Active|-                                                         |
+|zabbix-server        |snmptraps      |snmptraps      |162  |UDP     |Active|-                                                         |
+|cups-server          |main           |main           |631  |TCP     |Active|-                                                         |
+|adguard-home         |dns-quic-udp-1 |dns-quic-udp-1 |784  |UDP     |Active|-                                                         |
+|adguard-home         |dns-quic-udp-2 |dns-quic-udp-2 |853  |UDP     |Active|-                                                         |
+|technitium           |dns-tls        |dns-tls        |853  |TCP     |Active|-                                                         |
+|frigate              |rtmp           |rtmp           |1935 |TCP     |Active|Potential conflict with: owncast                          |
+|frigate              |main           |main           |5000 |TCP     |Active|Potential conflict with: auto-yt-dl                       |
+|technitium           |main           |main           |5380 |TCP     |Active|-                                                         |
+|adguard-home         |dns-crypt      |dns-crypt      |5443 |TCP     |Active|-                                                         |
+|adguard-home         |dns-crypt-udp  |dns-crypt-udp  |5443 |UDP     |Active|-                                                         |
+|homebridge           |main           |main           |8581 |TCP     |Active|-                                                         |
+|adguard-home         |dns-quic-udp-3 |dns-quic-udp-3 |8853 |UDP     |Active|-                                                         |
+|piwigo               |main           |main           |10027|TCP     |Active|-                                                         |
+|ghost                |main           |main           |10166|TCP     |Active|-                                                         |
+|self-service-password|main           |main           |10182|TCP     |Active|-                                                         |
+|filerun              |main           |main           |10199|TCP     |Active|-                                                         |
+|technitium           |dns-cert       |dns-cert       |10202|TCP     |Active|-                                                         |
+|technitium           |dns-https      |dns-https      |10203|TCP     |Active|-                                                         |
+|technitium           |dns-https-proxy|dns-https-proxy|10204|TCP     |Active|-                                                         |
+|meshcentral          |main           |main           |10205|HTTPS   |Active|-                                                         |
+|zabbix-server        |main           |main           |10211|TCP     |Active|-                                                         |
+|zabbix-server        |server         |server         |10212|TCP     |Active|-                                                         |
+|appsmith             |main           |main           |10217|TCP     |Active|-                                                         |
+|appsmith             |supervisor     |supervisor     |10218|TCP     |Active|-                                                         |
+|authentik            |https          |https          |10229|HTTPS   |Active|-                                                         |
+|authentik            |main           |main           |10230|TCP     |Active|-                                                         |
+|adguard-home         |main           |main           |10232|TCP     |Active|-                                                         |
+|adguard-home         |dns-http       |dns-http       |10233|TCP     |Active|-                                                         |
+|adguard-home         |dns-https      |dns-https      |10234|TCP     |Active|-                                                         |
+|adguard-home         |dns-https-udp  |dns-https-udp  |10234|UDP     |Active|-                                                         |
+|fancyindex           |main           |main           |10235|TCP     |Active|-                                                         |
+|theme-park           |main           |main           |10244|TCP     |Active|Potential conflict with: clarkson                         |
 
 ## Dev
 
@@ -486,7 +482,7 @@ they should provide no or minimal conflicts without being changed
 |autoscan               |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
 |breitbandmessung-de    |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
 |bwapp                  |main          |-             |-    |-       |Service is Disabled|-                                                                                                                |
-|adguard-home           |dnsserver     |dnsserver     |53   |TCP     |Active             |-                                                                                                                |
+|adguard-home           |dnsserver     |dnsserver     |53   |TCP     |Active             |Potential conflict with: pihole technitium                                                                       |
 |baikal                 |main          |main          |80   |TCP     |Active             |-                                                                                                                |
 |arma3                  |main          |main          |2302 |TCP     |Active             |Potential conflict with: arma3exilemod                                                                           |
 |arma3                  |udpgameport   |udpgameport   |2302 |UDP     |Active             |-                                                                                                                |
@@ -520,9 +516,9 @@ they should provide no or minimal conflicts without being changed
 |backuppc               |main          |main          |8000 |TCP     |Active             |Potential conflict with: apprise-api                                                                             |
 |archiveteam-warrior    |main          |main          |8001 |TCP     |Active             |-                                                                                                                |
 |acestream              |main          |main          |8008 |TCP     |Active             |Potential conflict with: synapse                                                                                 |
-|adguardhome-sync       |main          |main          |8080 |TCP     |Active             |Potential conflict with: server-7daystodie adminer                                                               |
-|adminer                |main          |main          |8080 |TCP     |Active             |Potential conflict with: server-7daystodie adguardhome-sync                                                      |
-|server-7daystodie      |webbasecontrol|webbasecontrol|8080 |TCP     |Active             |Potential conflict with: adminer adguardhome-sync                                                                |
+|adguardhome-sync       |main          |main          |8080 |TCP     |Active             |Potential conflict with: unifi server-7daystodie adminer                                                         |
+|adminer                |main          |main          |8080 |TCP     |Active             |Potential conflict with: unifi server-7daystodie adguardhome-sync                                                |
+|server-7daystodie      |webbasecontrol|webbasecontrol|8080 |TCP     |Active             |Potential conflict with: unifi adminer adguardhome-sync                                                          |
 |assettocorsa           |tcp2          |tcp2          |8081 |TCP     |Active             |Potential conflict with: calibre                                                                                 |
 |server-7daystodie      |webpanel      |webpanel      |8082 |TCP     |Active             |Potential conflict with: traccar                                                                                 |
 |artifactory-oss        |main          |main          |8181 |TCP     |Active             |Potential conflict with: tautulli                                                                                |
@@ -700,4 +696,4 @@ they should provide no or minimal conflicts without being changed
 
 #### If you notice something wrong in the above info, please notify us so we can update the generator script.
 
-#### Next available port should be 10239.
+#### Next available port should be 10246.
