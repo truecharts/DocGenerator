@@ -99,19 +99,18 @@ class Status:
 PORT_CONFLICT_NOTE = "Potential conflict with: "
 
 
-PORT_LIST_INTRO = """
-# Default Ports
+PORT_LIST_INTRO = """# Default Ports
 
 This document lists the default ports used by Apps.
 These defaults can of course be changed, but as we guarantee "sane, working defaults",
-they should provide no or minimal conflicts without being changed
+they should provide no or minimal conflicts without being changed.
+
 """
 
 
-PORT_LIST_OUTRO = """
-## Official Apps
+PORT_LIST_OUTRO = """## Official Apps
 
-### Please keep mind that this list is not updated automatically like the rest of this doc.
+> Please keep mind that this list is not updated automatically like the rest of this doc
 
 | App            |   Service   | Port  |                     Note                     |
 | :------------- | :---------: | :---: | :------------------------------------------: |
@@ -142,11 +141,9 @@ PORT_LIST_OUTRO = """
 | syncthing      |  tcp_port   | 20978 |                                              |
 | syncthing      |  udp_port   | 20979 |                                              |
 
-
-
 ## TrueNAS Scale Services
 
-### Please mind that this list is not updated automatically like the rest of this doc.
+> Please mind that this list is not updated automatically like the rest of this doc
 
 | Service | Port | Protocol | Note |
 | :------ | :--: | :------: | :--: |
@@ -156,7 +153,7 @@ PORT_LIST_OUTRO = """
 
 ## Ports that are blocked in major web browsers
 
-### Please mind that this list is not updated automatically like the rest of this doc.
+> Please mind that this list is not updated automatically like the rest of this doc
 
 | Port  |            Used by (example)             |
 | :---: | :--------------------------------------: |
@@ -241,31 +238,28 @@ PORT_LIST_OUTRO = """
 | 6697  |                IRC + TLS                 |
 | 10080 |                  Amanda                  |
 
-#### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
+> Note: TCP and UDP ports that are the same in some Apps, are not by mistake
 
-#### If you notice something wrong in the above info, please notify us so we can update the generator script.
+> If you notice something wrong in the above info, please notify us so we can update the generator script
 """
 
 
-VOLUME_LIST_INTRO = """
-# Mounted Volumes
+VOLUME_LIST_INTRO = """# Mounted Volumes
 
 This document lists the mounted volumes for each App.
 The intro needs improvement ;)
-"""
-
-VOLUME_LIST_OUTRO = """
-#### If you notice something wrong in the above info, please notify us so we can update the generator script.
-"""
-
-
-DESCRIPTION_LIST_INTRO = """
-# Apps List
-**List of all our apps with a short description**
 
 """
 
-DESCRIPTION_LIST_OUTRO = """
-#### If you notice something wrong in the above info, you are more than welcome to
-submit a PR, updating Chart.yaml for the app in question.
+VOLUME_LIST_OUTRO = """> If you notice something wrong in the above info, please notify us so we can update the generator script
+"""
+
+
+DESCRIPTION_LIST_INTRO = """# Apps List
+
+> List of all our apps with a short description
+
+"""
+
+DESCRIPTION_LIST_OUTRO = """> If you notice something wrong in the above info, you are more than welcome to submit a PR, updating Chart.yaml for the app in question
 """

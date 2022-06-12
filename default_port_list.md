@@ -1,9 +1,9 @@
-
 # Default Ports
 
 This document lists the default ports used by Apps.
 These defaults can of course be changed, but as we guarantee "sane, working defaults",
-they should provide no or minimal conflicts without being changed
+they should provide no or minimal conflicts without being changed.
+
 ## Stable
 
 | App | Service | Port Name | Port | Protocol | Status | Note |
@@ -559,10 +559,9 @@ they should provide no or minimal conflicts without being changed
 |altitude               |main          |main          |27276|UDP     |Active             |-                                                                                                                |
 |assettocorsa           |stracker      |stracker      |50041|TCP     |Active             |-                                                                                                                |
 
-
 ## Official Apps
 
-### Please keep mind that this list is not updated automatically like the rest of this doc.
+> Please keep mind that this list is not updated automatically like the rest of this doc
 
 | App            |   Service   | Port  |                     Note                     |
 | :------------- | :---------: | :---: | :------------------------------------------: |
@@ -593,11 +592,9 @@ they should provide no or minimal conflicts without being changed
 | syncthing      |  tcp_port   | 20978 |                                              |
 | syncthing      |  udp_port   | 20979 |                                              |
 
-
-
 ## TrueNAS Scale Services
 
-### Please mind that this list is not updated automatically like the rest of this doc.
+> Please mind that this list is not updated automatically like the rest of this doc
 
 | Service | Port | Protocol | Note |
 | :------ | :--: | :------: | :--: |
@@ -607,7 +604,7 @@ they should provide no or minimal conflicts without being changed
 
 ## Ports that are blocked in major web browsers
 
-### Please mind that this list is not updated automatically like the rest of this doc.
+> Please mind that this list is not updated automatically like the rest of this doc
 
 | Port  |            Used by (example)             |
 | :---: | :--------------------------------------: |
@@ -692,8 +689,8 @@ they should provide no or minimal conflicts without being changed
 | 6697  |                IRC + TLS                 |
 | 10080 |                  Amanda                  |
 
-#### Note: TCP and UDP ports that are the same in some Apps, are not by mistake.
+> Note: TCP and UDP ports that are the same in some Apps, are not by mistake
 
-#### If you notice something wrong in the above info, please notify us so we can update the generator script.
+> If you notice something wrong in the above info, please notify us so we can update the generator script
 
-#### Next available port should be 10246.
+#### Next available port should be 10246
