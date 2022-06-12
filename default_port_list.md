@@ -51,6 +51,8 @@ they should provide no or minimal conflicts without being changed.
 |photoprism                |main           |main           |2342 |TCP     |Active             |-                                                                   |
 |docker-compose            |main           |main           |2376 |TCP     |Active             |-                                                                   |
 |valheim                   |valheim        |valheim1       |2456 |UDP     |Active             |-                                                                   |
+|valheim                   |valheim        |valheim2       |2457 |UDP     |Active             |-                                                                   |
+|valheim                   |valheim        |valheim3       |2458 |UDP     |Active             |-                                                                   |
 |wireshark                 |main           |main           |3000 |TCP     |Active             |Potential conflict with: blender                                    |
 |uptime-kuma               |main           |main           |3001 |TCP     |Active             |-                                                                   |
 |vaultwarden               |ws             |ws             |3012 |TCP     |Active             |-                                                                   |
@@ -101,6 +103,7 @@ they should provide no or minimal conflicts without being changed.
 |omada-controller          |main           |main           |8043 |HTTPS   |Active             |-                                                                   |
 |odoo                      |main           |main           |8069 |TCP     |Active             |-                                                                   |
 |odoo                      |odoo           |xmlrpcs        |8071 |TCP     |Active             |-                                                                   |
+|odoo                      |odoo           |longpolling    |8072 |TCP     |Active             |-                                                                   |
 |unifi                     |comm           |comm           |8080 |TCP     |Active             |Potential conflict with: server-7daystodie adminer adguardhome-sync |
 |calibre                   |webserver      |webserver      |8081 |TCP     |Active             |Potential conflict with: assettocorsa                               |
 |traccar                   |main           |main           |8082 |TCP     |Active             |Potential conflict with: server-7daystodie                          |
@@ -125,7 +128,8 @@ they should provide no or minimal conflicts without being changed.
 |gaps                      |main           |main           |8484 |TCP     |Active             |-                                                                   |
 |lidarr                    |main           |main           |8686 |TCP     |Active             |-                                                                   |
 |readarr                   |main           |main           |8787 |TCP     |Active             |-                                                                   |
-|omada-controller          |comm           |comm           |8843 |HTTPS   |Active             |-                                                                   |
+|omada-controller          |comm           |comm           |8843 |HTTPS   |Active             |Potential conflict with: unifi                                      |
+|unifi                     |guestportal    |websecure      |8843 |HTTPS   |Active             |Potential conflict with: omada-controller                           |
 |minisatip                 |main           |main           |8875 |TCP     |Active             |-                                                                   |
 |unifi                     |guestportal    |web            |8880 |HTTP    |Active             |-                                                                   |
 |resilio-sync              |main           |main           |8888 |TCP     |Active             |-                                                                   |
@@ -140,10 +144,14 @@ they should provide no or minimal conflicts without being changed.
 |synapse                   |replication    |replication    |9092 |TCP     |Active             |-                                                                   |
 |synapse                   |metrics        |metrics        |9093 |TCP     |Active             |-                                                                   |
 |jackett                   |main           |main           |9117 |TCP     |Active             |-                                                                   |
+|unpoller                  |main           |metrics        |9130 |TCP     |Active             |-                                                                   |
 |traefik                   |metrics        |metrics        |9180 |HTTP    |Active             |-                                                                   |
 |owncloud-ocis             |main           |main           |9200 |HTTPS   |Active             |-                                                                   |
+|traefik                   |tcp            |websecure      |9443 |HTTPS   |Active             |-                                                                   |
 |prowlarr                  |main           |main           |9696 |TCP     |Active             |-                                                                   |
+|uptimerobot-prometheus    |main           |metrics        |9705 |TCP     |Active             |-                                                                   |
 |kodi-headless             |esall          |esall          |9777 |UDP     |Active             |-                                                                   |
+|speedtest-exporter        |main           |metrics        |9798 |TCP     |Active             |-                                                                   |
 |tvheadend                 |main           |main           |9981 |TCP     |Active             |-                                                                   |
 |tvheadend                 |htsp           |htsp           |9982 |TCP     |Active             |-                                                                   |
 |teamspeak3                |voice          |voice          |9987 |UDP     |Active             |-                                                                   |
@@ -247,6 +255,7 @@ they should provide no or minimal conflicts without being changed.
 |shiori                    |main           |main           |10098|TCP     |Active             |-                                                                   |
 |statping                  |main           |main           |10099|TCP     |Active             |-                                                                   |
 |teedy                     |main           |main           |10100|TCP     |Active             |-                                                                   |
+|promcord                  |main           |metrics        |10101|TCP     |Active             |-                                                                   |
 |vaultwarden               |main           |main           |10102|TCP     |Active             |-                                                                   |
 |zigbee2mqtt               |main           |main           |10103|TCP     |Active             |-                                                                   |
 |tt-rss                    |main           |main           |10104|TCP     |Active             |-                                                                   |
@@ -397,6 +406,9 @@ they should provide no or minimal conflicts without being changed.
 |storj-node                |coreudp        |coreudp        |28967|UDP     |Active             |-                                                                   |
 |omada-controller          |omada-udp      |omada-udp1     |29810|UDP     |Active             |-                                                                   |
 |omada-controller          |omada-tcp      |omada-tcp1     |29811|TCP     |Active             |-                                                                   |
+|omada-controller          |omada-tcp      |omada-tcp2     |29812|TCP     |Active             |-                                                                   |
+|omada-controller          |omada-tcp      |omada-tcp3     |29813|TCP     |Active             |-                                                                   |
+|omada-controller          |omada-tcp      |omada-tcp4     |29814|TCP     |Active             |-                                                                   |
 |minetest                  |main           |main           |30000|UDP     |Active             |-                                                                   |
 |teamspeak3                |files          |files          |30033|TCP     |Active             |-                                                                   |
 |plex                      |main           |main           |32400|TCP     |Active             |-                                                                   |
@@ -405,6 +417,16 @@ they should provide no or minimal conflicts without being changed.
 |foldingathome             |control        |control        |36330|TCP     |Active             |-                                                                   |
 |habridge                  |comm           |comm           |50000|TCP     |Active             |-                                                                   |
 |ispy-agent-dvr            |webrtc         |webrtc0        |50000|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc1        |50001|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc2        |50002|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc3        |50003|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc4        |50004|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc5        |50005|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc6        |50006|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc7        |50007|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc8        |50008|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc9        |50009|UDP     |Active             |-                                                                   |
+|ispy-agent-dvr            |webrtc         |webrtc10       |50010|UDP     |Active             |-                                                                   |
 |appdaemon                 |tcp            |tcp            |51050|TCP     |Active             |-                                                                   |
 |podgrab                   |tcp            |tcp            |51080|TCP     |Active             |-                                                                   |
 |deluge                    |torrent        |tcp            |51413|TCP     |Active             |-                                                                   |
@@ -693,4 +715,4 @@ they should provide no or minimal conflicts without being changed.
 
 > If you notice something wrong in the above info, please notify us so we can update the generator script
 
-#### Next available port should be 10246
+> Next available port should be 10246

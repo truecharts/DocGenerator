@@ -73,8 +73,8 @@ def get_processed_services_list(raw_services_list, curr_train):
         else:
             # if there is service, process it
             for service in service_section['service'].items():
-                services_list.append(process_service(
-                    service, service_section['app_name'], curr_train))
+                services_list += process_service(
+                    service, service_section['app_name'], curr_train)
 
     return services_list
 
@@ -83,6 +83,7 @@ def process_service(service, app_name, curr_train):
     """
     Processes the service and create rows
     """
+    rows = []
     # If there is no "enabled" key, it's probably main. Assume service is enabled.
     # If there is "enabled" key and it's true, service is enabled
     # If there is "enabled" key and it's false, service is disabled
@@ -91,16 +92,16 @@ def process_service(service, app_name, curr_train):
         if not 'ports' in service[1]:
             logger(
                 f'Service: <{service[0]}> of App: <{app_name}> has no ports defined', "RED")
-            return create_row(
+            rows.append(create_row(
                 app_name=app_name,
                 status="port_und",
                 svc_name=service[0],
                 train=curr_train
-            )
+            ))
         else:
             for port in service[1]['ports'].items():
                 processed_port = process_port(port, app_name, service[0])
-                return create_row(
+                rows.append(create_row(
                     app_name=app_name,
                     svc_name=service[0],
                     status=processed_port['status'],
@@ -113,16 +114,17 @@ def process_service(service, app_name, curr_train):
                     port=processed_port['port'],
                     protocol=processed_port['protocol'],
                     train=curr_train
-                )
+                ))
     else:
         logger(
             f'App: <{app_name}> has it\'s Services Disabled', "BLUE")
-        return create_row(
+        rows.append(create_row(
             app_name=app_name,
             status="svc_dis",
             svc_name=service[0],
             train=curr_train
-        )
+        ))
+    return rows
 
 
 def process_port(port, app_name, svc_name):
@@ -258,5 +260,5 @@ def get_next_available_port(ports_list):
             next_port = port['port']
     next_port += 1
     return f"""
-#### Next available port should be {next_port}
+> Next available port should be {next_port}
 """
