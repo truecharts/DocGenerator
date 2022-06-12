@@ -42,7 +42,6 @@ def main():
             raw_volumes_list = volumes_oper.get_raw_volumes_list(apps)
             all_volumes += volumes_oper.get_processed_volumes_list(
                 raw_volumes_list, train.stem)
-
         if setup.DESCRIPTION_LIST_FILE:
             all_descriptions += desc_oper.get_descriptions_list(
                 apps, train.stem)
@@ -66,7 +65,7 @@ def main():
         volume_file_content += setup.VOLUME_LIST_OUTRO
         file_oper.add_text_to_file(setup.VOLUME_LIST_FILE, volume_file_content)
     if setup.GENERATE_DESCRIPTION_FILE:
-        volume_file_content += setup.DESCRIPTION_LIST_OUTRO
+        description_file_content += setup.DESCRIPTION_LIST_OUTRO
         file_oper.add_text_to_file(
             setup.DESCRIPTION_LIST_FILE, description_file_content)
 
