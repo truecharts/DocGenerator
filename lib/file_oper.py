@@ -1,7 +1,7 @@
 from markdownTable import markdownTable
 from ruamel.yaml import YAML
 from pathlib import Path
-import setup
+import helpers.setup
 
 yaml = YAML()
 port_file = Path(setup.PORT_LIST_FILE)

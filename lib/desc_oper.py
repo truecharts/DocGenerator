@@ -1,6 +1,6 @@
 from lib import file_oper
 from pathlib import Path
-import setup
+import helpers.setup
 import copy
 
 

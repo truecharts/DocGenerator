@@ -4,7 +4,7 @@ from lib import volumes_oper
 from lib import desc_oper
 from lib import file_oper
 from lib import apps_oper
-import setup
+import helpers.setup
 
 
 def main():

@@ -1,7 +1,7 @@
 from helpers.logger import logger
 from lib import file_oper
 from pathlib import Path
-import setup
+import helpers.setup
 import copy
 
 
