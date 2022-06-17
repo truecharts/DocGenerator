@@ -1,11 +1,11 @@
 from markdownTable import markdownTable
 from ruamel.yaml import YAML
 from pathlib import Path
-import helpers.constants
+from helpers import settings
 
 yaml = YAML()
-port_file = Path(setup.PORT_LIST_FILE)
-volume_file = Path(setup.VOLUME_LIST_FILE)
+port_file = Path(settings.PORT_LIST_FILE)
+volume_file = Path(settings.VOLUME_LIST_FILE)
 
 
 def get_values(yaml_path):

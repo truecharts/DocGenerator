@@ -1,7 +1,7 @@
 from helpers.logger import logger
 from lib import file_oper
 from pathlib import Path
-import helpers.constants
+from helpers import settings
 import copy
 
 
@@ -120,22 +120,22 @@ def create_volume_list_content(volume_list, train):
     for x in sorted_list:
         del x['train']
 
-    if setup.SORT_VOLUMES_BY_STATUS:
+    if settings.SORT_VOLUMES_BY_STATUS:
         vol_und_table = []
         vol_dis_table = []
         mnt_und_table = []
         disabled_table = []
         enabled_table = []
         for vol in sorted_list:
-            if vol['status'] == setup.Status.VOL_UND:
+            if vol['status'] == settings.Status.VOL_UND:
                 vol_und_table.append(vol)
-            if vol['status'] == setup.Status.VOL_DIS:
+            if vol['status'] == settings.Status.VOL_DIS:
                 vol_dis_table.append(vol)
-            if vol['status'] == setup.Status.MNT_UND:
+            if vol['status'] == settings.Status.MNT_UND:
                 mnt_und_table.append(vol)
-            if vol['status'] == setup.Status.DISABLED:
+            if vol['status'] == settings.Status.DISABLED:
                 disabled_table.append(vol)
-            if vol['status'] == setup.Status.ENABLED:
+            if vol['status'] == settings.Status.ENABLED:
                 enabled_table.append(vol)
         # Order in which they will appear in the file
         table = vol_und_table + vol_dis_table + \
@@ -162,17 +162,17 @@ def create_row(app_name, status, train, vol_name="-", vol_type="PVC", mountPath=
     Creates a row for the processed volumes list
     """
     if status == "enabled":
-        status = setup.Status.ENABLED
+        status = settings.Status.ENABLED
     if status == "disabled":
-        status = setup.Status.DISABLED
+        status = settings.Status.DISABLED
     if status == "vol_und":
-        status = setup.Status.VOL_UND
+        status = settings.Status.VOL_UND
         vol_type = "-"
         mode = "-"
     if status == "vol_dis":
-        status = setup.Status.VOL_DIS
+        status = settings.Status.VOL_DIS
     if status == "mnt_und":
-        status = setup.Status.MNT_UND
+        status = settings.Status.MNT_UND
     return {
         "app_name": app_name,
         "vol_name": vol_name,

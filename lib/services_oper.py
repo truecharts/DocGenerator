@@ -1,7 +1,7 @@
 from helpers.logger import logger
 from lib import file_oper
 from pathlib import Path
-import helpers.constants
+from helpers import settings
 import copy
 
 
@@ -36,13 +36,13 @@ def create_row(app_name, status, train, svc_name="-", port_name="-", port=0, pro
     Creates a row for the processed services list
     """
     if status == "port_dis":
-        status = setup.Status.PORT_DIS
+        status = settings.Status.PORT_DIS
     if status == "port_und":
-        status = setup.Status.PORT_UND
+        status = settings.Status.PORT_UND
     if status == "svc_dis":
-        status = setup.Status.SVC_DIS
+        status = settings.Status.SVC_DIS
     if status == "svc_und":
-        status = setup.Status.SVC_UND
+        status = settings.Status.SVC_UND
     return {
         "app_name": app_name,
         "svc_name": svc_name,
@@ -139,7 +139,7 @@ def process_port(port, app_name, svc_name):
             "port_name": port[0],
             "port": port[1]['port'],
             "protocol": port[1]['protocol'] if 'protocol' in port[1] else "TCP",
-            "status": setup.Status.ACTIVE
+            "status": settings.Status.ACTIVE
         }
     else:
         logger(
@@ -174,15 +174,15 @@ def create_port_list_content(port_list, train):
         # Before we print it, we make it "-"
         if not port['port']:
             port['port'] = "-"
-        if port['status'] == setup.Status.SVC_UND:
+        if port['status'] == settings.Status.SVC_UND:
             svc_und_table.append(port)
-        if port['status'] == setup.Status.SVC_DIS:
+        if port['status'] == settings.Status.SVC_DIS:
             svc_dis_table.append(port)
-        if port['status'] == setup.Status.PORT_UND:
+        if port['status'] == settings.Status.PORT_UND:
             port_und_table.append(port)
-        if port['status'] == setup.Status.PORT_DIS:
+        if port['status'] == settings.Status.PORT_DIS:
             port_dis_table.append(port)
-        if port['status'] == setup.Status.ACTIVE:
+        if port['status'] == settings.Status.ACTIVE:
             active_table.append(port)
     # Order in which they will appear in the file
     table = svc_und_table + svc_dis_table + \
@@ -230,7 +230,7 @@ def append_conflicts_to(all_ports):
     for port in all_ports:
         for conflict in conflicts:
             if port['port'] == conflict[0] and port['protocol'] == conflict[1]:
-                port['note'] = setup.PORT_CONFLICT_NOTE
+                port['note'] = settings.PORT_CONFLICT_NOTE
                 for app in conflict[2]:
                     if app != port['app_name']:
                         port['note'] += app

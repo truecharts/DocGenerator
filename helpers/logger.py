@@ -9,7 +9,7 @@ class Colors:
 
 
 def logger(message, color):
-    if setup.VERBOSE:
+    if settings.VERBOSE:
         if color == "RED":
             print(Colors.RED + message + Colors.CLEAN)
         if color == "GREEN":

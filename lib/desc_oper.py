@@ -1,6 +1,6 @@
 from lib import file_oper
 from pathlib import Path
-import helpers.constants
+from helpers import settings
 import copy
 
 
@@ -23,7 +23,7 @@ def break_long_string(string):
     """
 
     # If length is smaller thant the split, return it as is
-    if len(string) <= setup.SPLIT_DESCRIPTION_EVERY:
+    if len(string) <= settings.SPLIT_DESCRIPTION_EVERY:
         return string
 
     splitted_times = 1
@@ -40,7 +40,7 @@ def break_long_string(string):
         # index 52 / splitted_times = 2 is not > than 50. So we won't split here.
         # index 100 / splitted_times = 2 is < than 50. So we can split here (if conditions met, else check next char for conditions)
         # And so on..
-        if idx / splitted_times > setup.SPLIT_DESCRIPTION_EVERY:
+        if idx / splitted_times > settings.SPLIT_DESCRIPTION_EVERY:
             # If the current character is " " add the line break
             if char == " ":
                 # First time: Concat string from index 0 until current idx + line break
@@ -68,15 +68,15 @@ def get_home_url(app):
     """
     data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
 
-    return data['home'] if 'home' in data else setup.FALLBACK_URL
+    return data['home'] if 'home' in data else settings.FALLBACK_URL
 
 
 def get_source_image(app):
     """
     Returns the image of an app
     """
-    if setup.PRINT_IMAGE_SOURCE:
-        dockerfile_path = Path(setup.IMAGE_PATH, app, "Dockerfile")
+    if settings.PRINT_IMAGE_SOURCE:
+        dockerfile_path = Path(settings.IMAGE_PATH, app, "Dockerfile")
         if dockerfile_path.exists():
             with open(dockerfile_path, "r", encoding="utf_8") as file:
                 content = file.readline()
@@ -91,7 +91,7 @@ def get_icon(app):
     """
     data = file_oper.get_values(Path.joinpath(app, "Chart.yaml"))
 
-    return data['icon'] if 'icon' in data else setup.FALLBACK_URL
+    return data['icon'] if 'icon' in data else settings.FALLBACK_URL
 
 
 def clean_strings(string):
@@ -129,14 +129,14 @@ def create_row(app_name, container, description, home_url, icon, train):
     Creates a row for the processed description list
     """
     if not description:
-        description = setup.Status.NO_DESC
+        description = settings.Status.NO_DESC
     return {
-        "app_name": f'<img src="{icon}" width="{setup.IMAGE_WIDTH}" height="{setup.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
+        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
         "container": f'{container}',
         "description": description,
         "train": train
-    } if setup.PRINT_IMAGE_SOURCE else {
-        "app_name": f'<img src="{icon}" width="{setup.IMAGE_WIDTH}" height="{setup.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
+    } if settings.PRINT_IMAGE_SOURCE else {
+        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}"> [{app_name}]({home_url})',
         "description": description,
         "train": train
     }
@@ -156,9 +156,9 @@ def create_description_list_content(description_list, train):
 
     content += f'## {train.capitalize()}'
     content += '\n\n'
-    content += "| App | Container Source | Description |" if setup.PRINT_IMAGE_SOURCE else "| App | Description |"
+    content += "| App | Container Source | Description |" if settings.PRINT_IMAGE_SOURCE else "| App | Description |"
     content += '\n'
-    content += "|:----|:-----------------|:------------|" if setup.PRINT_IMAGE_SOURCE else "|:----|:------------|"
+    content += "|:----|:-----------------|:------------|" if settings.PRINT_IMAGE_SOURCE else "|:----|:------------|"
     content += '\n'
     # Check that table has data
     if sorted_list:
