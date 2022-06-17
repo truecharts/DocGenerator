@@ -1,4 +1,4 @@
-import helpers
+from helpers import settings
 
 class Colors:
     RED = '\033[91m'
