@@ -8,7 +8,7 @@ README_MD = open(join(dirname(abspath(__file__)), "README.md")).read()
 
 setup(
     name="docgenerator",
-    version="0.0.2",
+    version="0.0.3",
 
     # The packages that constitute your project.
     # For my project, I have only one - "pydash".
@@ -21,7 +21,7 @@ setup(
     packages=find_packages(),
     
     entry_points = {
-        'console_scripts': ['docgenerator=docgenerator.app:main'],
+        'console_scripts': ['docgenerator=docgenerator:main'],
     },
 
     # The description that will be shown on PyPI.
