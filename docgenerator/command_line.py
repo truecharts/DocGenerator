@@ -1,4 +1,4 @@
 import docgenerator
 
 def main():
-    truetool.run()
+    docgenerator.run()
