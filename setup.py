@@ -8,7 +8,7 @@ README_MD = open(join(dirname(abspath(__file__)), "README.md")).read()
 
 setup(
     name="docgenerator",
-    version="0.0.6",
+    version="0.0.7",
 
     # The packages that constitute your project.
     # For my project, I have only one - "pydash".
@@ -19,6 +19,10 @@ setup(
     # you can instead use the py_modules field instead.
     # EITHER py_modules OR packages should be present.
     packages=find_packages(),
+    
+    install_requires=[
+                     "ruamel.yaml",
+                     "py-markdown-table",],
     
     entry_points = {
         'console_scripts': ['docgenerator=docgenerator.command_line:main'],
