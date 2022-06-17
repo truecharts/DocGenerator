@@ -4,6 +4,7 @@ name: Python Tests
 on:
   # Triggers the workflow on push to the master branch
   push:
+    branches: [ main ]
   # Triggers the workflow on pull-request
   pull_request:
   # Allows you to run this workflow manually from the Actions tab
