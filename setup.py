@@ -8,7 +8,7 @@ README_MD = open(join(dirname(abspath(__file__)), "README.md")).read()
 
 setup(
     name="docgenerator",
-    version="0.0.7",
+    version="0.0.8",
 
     # The packages that constitute your project.
     # For my project, I have only one - "pydash".
