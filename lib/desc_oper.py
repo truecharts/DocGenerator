@@ -46,7 +46,7 @@ def break_long_string(string):
                 # First time: Concat string from index 0 until current idx + line break
                 # Second time: Concat string from the index we stopped on last concat + 1 + line break
                 splitted_str += string[stopped_at_index+1:idx] + \
-                    "<br>" if stopped_at_index else string[:idx]+"<br>"
+                    "<br />" if stopped_at_index else string[:idx]+"<br />"
                 # Store the index we stopped
                 stopped_at_index = idx
                 # Store how many times we splitted
