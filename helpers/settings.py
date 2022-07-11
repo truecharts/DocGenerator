@@ -241,7 +241,6 @@ PORT_LIST_OUTRO = """## Official Apps
 | 10080 |                  Amanda                  |
 
 > Note: TCP and UDP ports that are the same in some Apps, are not by mistake
-
 > If you notice something wrong in the above info, please notify us so we can update the generator script
 """
 

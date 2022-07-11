@@ -259,6 +259,4 @@ def get_next_available_port(ports_list):
         if port['port'] > next_port and port['port'] > 10000 and port['port'] < 10700:
             next_port = port['port']
     next_port += 1
-    return f"""
-> Next available port should be {next_port}
-"""
+    return f"""> Next available port should be {next_port}"""
