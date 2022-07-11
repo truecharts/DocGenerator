@@ -14,7 +14,7 @@
 | GENERATE_VOLUME_FILE      | "False"                  | "True"                         | Set to false to NOT generate a file                                                                       |
 | GENERATE_DESCRIPTION_FILE | "False"                  | "True"                         | Set to false to NOT generate a file                                                                       |
 | PRINT_IMAGE_SOURCE        | "False"                  | "True"                         | Set to false to NOT print the image source                                                                |
-| SPLIT_DESCRIPTION_EVERY   | 70                       | 70                             | Split description into lines every n character.<br>If character is not " ", it will do on the nearest " " |
+| SPLIT_DESCRIPTION_EVERY   | 70                       | 70                             | Split description into lines every n character.<br />If character is not " ", it will do on the nearest " " |
 | FALLBACK_URL              | "https://truecharts.org" | "https://truecharts.org"       | # URL to return if the URL we are trying to get does not exist                                            |
 | SORT_VOLUMES_BY_STATUS    | "False"                  | "True"                         | Set to false to NOT generate a file                                                                       |
 | TRAIN_ORDER_FOR_FILES     | "core,stable"            | "core,stable,dependency,games" | Order of trains which will appear in the files                                                            |
