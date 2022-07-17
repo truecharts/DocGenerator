@@ -3,23 +3,23 @@ from setuptools import setup, find_packages
 from os.path import abspath, dirname, join
 
 # Path where trains are stored
-TRAINS_PATH = os.getenv('TRAINS_PATH', './charts')
+TRAINS_PATH = os.getenv('TRAINS_PATH', './charts/charts')
 
 # Path where "mirror" is stored (mirror contains folders named after the apps, which they contain the Dockerfile)
-IMAGE_PATH = os.getenv('IMAGE_PATH_PATH', './mirror')
+IMAGE_PATH = os.getenv('IMAGE_PATH_PATH', './containers/mirror')
 
 
 # Name and path of the port list file
-PORT_LIST_FILE = os.getenv('PORT_LIST_FILE', './default_port_list.md')
+PORT_LIST_FILE = os.getenv('PORT_LIST_FILE', './website/docs/charts/default_port_list.md')
 
 
 # Name and path of the volume list file
-VOLUME_LIST_FILE = os.getenv('VOLUME_LIST_FILE', './volume_list.md')
+VOLUME_LIST_FILE = os.getenv('VOLUME_LIST_FILE', './website/docs/charts/volume_list.md')
 
 
 # Name and path of the description list file
 DESCRIPTION_LIST_FILE = os.getenv(
-    'DESCRIPTION_LIST_FILE', './description_list.md')
+    'DESCRIPTION_LIST_FILE', './website/docs/charts/description_list.md')
 
 # Exclude specific trains
 exc_trains = [item for item in os.getenv('EXCLUDE_TRAINS').split(
