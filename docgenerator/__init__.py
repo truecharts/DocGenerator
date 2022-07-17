@@ -8,7 +8,7 @@ from helpers import settings
 
 
 def main():
-    if not settings.GENERATE_VOLUME_FILE and not settings.GENERATE_PORT_FILE:
+    if not settings.GENERATE_VOLUME_FILE and not settings.GENERATE_PORT_FILE and not settings.GENERATE_DESCRIPTION_FILE:
         print(Colors.RED + "No files to generate")
         exit(1)
     if settings.GENERATE_VOLUME_FILE:
