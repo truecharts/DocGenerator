@@ -10,7 +10,9 @@ def get_trains():
         trains = [train for train in Path(
             settings.TRAINS_PATH).iterdir() if train.stem not in settings.EXCLUDE_TRAINS]
 
-    return trains
+        return trains
+        
+    return None
 
 
 def get_apps(train):
