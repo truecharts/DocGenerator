@@ -30,6 +30,11 @@ def main():
         file_oper.delete_file(settings.DESCRIPTION_LIST_FILE)
 
     ordered_trains = apps_oper.get_ordered_trains(apps_oper.get_trains())
+
+    if ordered_trains is None:
+        print(Colors.RED + f'No trains found, does {settings.TRAINS_PATH} exists?')
+        exit(1)
+
     for train in ordered_trains:
         apps = apps_oper.get_apps(train)
         if settings.GENERATE_PORT_FILE:
