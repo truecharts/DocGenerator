@@ -30,7 +30,7 @@ EXCLUDE_TRAINS = [
 
 
 exc_apps = [item for item in os.getenv('EXCLUDE_APPS').split(
-    ',')] if os.getenv('EXCLUDE_APPS') else None
+    ',')] if os.getenv('EXCLUDE_APPS') else None    
 # Exclude specific apps
 EXCLUDE_APPS = [
     # "traefik",

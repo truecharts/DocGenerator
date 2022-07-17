@@ -5,9 +5,16 @@ from lib import desc_oper
 from lib import file_oper
 from lib import apps_oper
 from helpers import settings
+from pathlib import Path
+
 
 
 def main():
+    if settings.VERBOSE:
+        print(f'You are running this script from <{Path.cwd()}>')
+        print(f'Expecting charts structure like: {Path.joinpath(Path.cwd(),settings.TRAINS_PATH,"$TRAIN","$CHARTNAME")}')
+        print(f'Expecting dockerfile structure like: {Path.joinpath(Path.cwd(),settings.IMAGE_PATH,"$CHARTNAME","Dockerfile")}')
+        
     if not settings.GENERATE_VOLUME_FILE and not settings.GENERATE_PORT_FILE and not settings.GENERATE_DESCRIPTION_FILE:
         print(Colors.RED + "No files to generate")
         exit(1)
