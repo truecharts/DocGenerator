@@ -131,12 +131,12 @@ def create_row(app_name, container, description, home_url, icon, train):
     if not description:
         description = settings.Status.NO_DESC
     return {
-        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
+        "app_name": f'<img src="{icon}" align="top" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
         "container": f'{container}',
         "description": description,
         "train": train
     } if settings.PRINT_IMAGE_SOURCE else {
-        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
+        "app_name": f'<img src="{icon}" align="top" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
         "description": description,
         "train": train
     }
@@ -153,16 +153,20 @@ def create_description_list_content(description_list, train):
     sorted_list = sorted(filtered_list, key=lambda item: item['app_name'])
     for x in sorted_list:
         del x['train']
-
-    content += f'## {train.capitalize()}'
-    content += '\n\n'
-    content += "| App | Container Source | Description |" if settings.PRINT_IMAGE_SOURCE else "| App | Description |"
-    content += '\n'
-    content += "|:----|:-----------------|:------------|" if settings.PRINT_IMAGE_SOURCE else "|:----|:------------|"
-    content += '\n'
+    
     # Check that table has data
     if sorted_list:
+        content += f'## {train.capitalize()}'
+        content += '\n\n'
+        content += "| App | Container Source | Description |" if settings.PRINT_IMAGE_SOURCE else "| App | Description |"
+        content += '\n'
+        content += "|:----|:-----------------|:------------|" if settings.PRINT_IMAGE_SOURCE else "|:----|:------------|"
+        content += '\n'
         content += file_oper.create_table(sorted_list)
+        content += '\n\n'
+        content += f'> Charts in this train: **{len(sorted_list)}**'
+        content += '\n\n'
+        content += '---'
         content += '\n\n'
 
     return content
