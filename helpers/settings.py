@@ -256,7 +256,7 @@ VOLUME_LIST_OUTRO = """> If you notice something wrong in the above info, please
 """
 
 
-DESCRIPTION_LIST_INTRO = """# Apps List
+DESCRIPTION_LIST_INTRO = """# Chart List
 
 > List of all our apps with a short description
 
