@@ -16,7 +16,7 @@ def main():
         print(f'Expecting dockerfile structure like: {Path.joinpath(Path.cwd(),settings.IMAGE_PATH,"$CHARTNAME","Dockerfile")}')
         print(f'Port List Output set to: {Path.joinpath(Path.cwd(),settings.PORT_LIST_FILE)}')
         print(f'Volume List Output set to: {Path.joinpath(Path.cwd(),settings.VOLUME_LIST_FILE)}')
-        print(f'Description List Output set to: {Path.joinpath(Path.cwd(),settings.DESCRIPTION_LIST_FILE)}')        
+        print(f'Description List Output set to: {Path.joinpath(Path.cwd(),settings.DESCRIPTION_LIST_FILE)}')
 
     if not settings.GENERATE_VOLUME_FILE and not settings.GENERATE_PORT_FILE and not settings.GENERATE_DESCRIPTION_FILE:
         print(Colors.RED + "No files to generate")
