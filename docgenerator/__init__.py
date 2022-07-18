@@ -16,8 +16,8 @@ def main():
         print(f'Expecting dockerfile structure like: {Path.joinpath(Path.cwd(),settings.IMAGE_PATH,"$CHARTNAME","Dockerfile")}')
         print(f'Port List Output set to: {Path.joinpath(Path.cwd(),settings.PORT_LIST_FILE)}')
         print(f'Volume List Output set to: {Path.joinpath(Path.cwd(),settings.VOLUME_LIST_FILE)}')
-        print(f'Description List Output set to: {Path.joinpath(Path.cwd(),settings.DESCRIPTION_LIST_FILE)}')
-        
+        print(f'Description List Output set to: {Path.joinpath(Path.cwd(),settings.DESCRIPTION_LIST_FILE)}')        
+
     if not settings.GENERATE_VOLUME_FILE and not settings.GENERATE_PORT_FILE and not settings.GENERATE_DESCRIPTION_FILE:
         print(Colors.RED + "No files to generate")
         exit(1)
@@ -72,6 +72,7 @@ def main():
         if settings.GENERATE_DESCRIPTION_FILE:
             description_file_content += desc_oper.create_description_list_content(
                 all_descriptions, train.stem)
+
     if settings.GENERATE_PORT_FILE:
         port_file_content += settings.PORT_LIST_OUTRO
         port_file_content += services_oper.get_next_available_port(all_ports)
@@ -80,10 +81,10 @@ def main():
         volume_file_content += settings.VOLUME_LIST_OUTRO
         file_oper.add_text_to_file(settings.VOLUME_LIST_FILE, volume_file_content)
     if settings.GENERATE_DESCRIPTION_FILE:
+        description_file_content += f'> Total charts: {len(all_descriptions)}'
+        description_file_content += '\n\n'
         description_file_content += settings.DESCRIPTION_LIST_OUTRO
         file_oper.add_text_to_file(
             settings.DESCRIPTION_LIST_FILE, description_file_content)
-
-
 if __name__ == "__main__":
     main()
