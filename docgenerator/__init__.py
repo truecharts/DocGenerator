@@ -81,7 +81,7 @@ def main():
         volume_file_content += settings.VOLUME_LIST_OUTRO
         file_oper.add_text_to_file(settings.VOLUME_LIST_FILE, volume_file_content)
     if settings.GENERATE_DESCRIPTION_FILE:
-        description_file_content += f'> Total charts: {len(all_descriptions)}'
+        description_file_content += f'> Total charts: **{len(all_descriptions)}**'
         description_file_content += '\n\n'
         description_file_content += settings.DESCRIPTION_LIST_OUTRO
         file_oper.add_text_to_file(

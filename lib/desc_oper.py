@@ -164,7 +164,7 @@ def create_description_list_content(description_list, train):
         content += '\n'
         content += file_oper.create_table(sorted_list)
         content += '\n\n'
-        content += f'> Charts in this train: {len(sorted_list)}'
+        content += f'> Charts in this train: **{len(sorted_list)}**'
         content += '\n\n'
         content += '---'
         content += '\n\n'
