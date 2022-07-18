@@ -101,7 +101,10 @@ class Status:
 PORT_CONFLICT_NOTE = "Potential conflict with: "
 
 
-PORT_LIST_INTRO = """# Default Ports
+PORT_LIST_INTRO = """---
+sidebar_position: 2
+---
+# Default Ports
 
 This document lists the default ports used by Apps.
 These defaults can of course be changed, but as we guarantee "sane, working defaults",
@@ -245,7 +248,10 @@ PORT_LIST_OUTRO = """## Official Apps
 """
 
 
-VOLUME_LIST_INTRO = """# Mounted Volumes
+VOLUME_LIST_INTRO = """---
+sidebar_position: 3
+---
+# Mounted Volumes
 
 This document lists the mounted volumes for each App.
 The intro needs improvement ;)
@@ -256,7 +262,10 @@ VOLUME_LIST_OUTRO = """> If you notice something wrong in the above info, please
 """
 
 
-DESCRIPTION_LIST_INTRO = """# Chart List
+DESCRIPTION_LIST_INTRO = """---
+sidebar_position: 1
+---
+# Chart List
 
 > List of all our apps with a short description
 
