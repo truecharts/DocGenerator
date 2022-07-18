@@ -131,12 +131,12 @@ def create_row(app_name, container, description, home_url, icon, train):
     if not description:
         description = settings.Status.NO_DESC
     return {
-        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
+        "app_name": f'<img src="{icon}" align="top" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
         "container": f'{container}',
         "description": description,
         "train": train
     } if settings.PRINT_IMAGE_SOURCE else {
-        "app_name": f'<img src="{icon}" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
+        "app_name": f'<img src="{icon}" align="top" width="{settings.IMAGE_WIDTH}" height="{settings.IMAGE_HEIGHT}" /> [{app_name}]({home_url})',
         "description": description,
         "train": train
     }
