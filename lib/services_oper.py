@@ -113,7 +113,8 @@ def process_service(service, app_name, curr_train):
                     port_name=processed_port['port_name'],
                     port=processed_port['port'],
                     protocol=processed_port['protocol'],
-                    train=curr_train
+                    train=curr_train,
+                    note=processed_port.get('note', '-')
                 ))
     else:
         logger(
@@ -135,11 +136,20 @@ def process_port(port, app_name, svc_name):
     # If there is "enabled" key and it's true, port is enabled
     # If there is "enabled" key and it's false, port is disabled
     if (not 'enabled' in port[1]) or ('enabled' in port[1] and port[1]['enabled']):
+        if isinstance(port[1]['port'], int):
+            return {
+                "port_name": port[0],
+                "port": port[1]['port'],
+                "protocol": port[1]['protocol'] if 'protocol' in port[1] else "tcp",
+                "status": settings.Status.ACTIVE,
+            }
+        # If it is not an int, assume it's a tpl and is referenced to another port
         return {
             "port_name": port[0],
-            "port": port[1]['port'],
-            "protocol": port[1]['protocol'] if 'protocol' in port[1] else "TCP",
-            "status": settings.Status.ACTIVE
+            "port": 0,
+            "protocol": port[1]['protocol'] if 'protocol' in port[1] else "tcp",
+            "status": settings.Status.ACT_REF,
+            "note": port[1]['port']
         }
     else:
         logger(
@@ -182,7 +192,7 @@ def create_port_list_content(port_list, train):
             port_und_table.append(port)
         if port['status'] == settings.Status.PORT_DIS:
             port_dis_table.append(port)
-        if port['status'] == settings.Status.ACTIVE:
+        if port['status'] == settings.Status.ACTIVE or port['status'] == settings.Status.ACT_REF:
             active_table.append(port)
     # Order in which they will appear in the file
     table = svc_und_table + svc_dis_table + \
