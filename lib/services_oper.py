@@ -114,7 +114,7 @@ def process_service(service, app_name, curr_train):
                     port=processed_port['port'],
                     protocol=processed_port['protocol'],
                     train=curr_train,
-                    note="-" if processed_port.get('note') is None else processed_port['note']
+                    note=processed_port.get('note', '-')
                 ))
     else:
         logger(
