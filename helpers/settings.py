@@ -90,6 +90,7 @@ class Status:
     SVC_DIS = "Service is Disabled"
     SVC_UND = "Service not Defined"
     ACTIVE = "Active"
+    ACT_REF = "Active with Reference"
     VOL_UND = "Persistence not Defined"
     VOL_DIS = "Persistence is Disabled"
     MNT_UND = "Mount Path not Defined"
